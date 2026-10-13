@@ -1,0 +1,2071 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maritime Learning Hub — Studi Kasus Keselamatan Pelayaran | Rafael Sukirno, CE</title>
+<style>
+:root{--navy:#0a1a2f;--navy2:#122b4a;--cyan:#22d3ee;--cyan2:#06b6d4;--gold:#f5b942;--red:#ef4444;--green:#22c55e;--purple:#a78bfa;--txt:#e8eef7;--muted:#9fb3c8;--card:#132a45;--line:rgba(34,211,238,.18);--shadow:0 10px 40px rgba(0,0,0,.45)}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:78px}
+body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--navy);color:var(--txt);line-height:1.7;overflow-x:hidden}
+#progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--cyan),var(--gold));z-index:9999;transition:width .1s}
+nav{position:sticky;top:0;z-index:1000;background:rgba(10,26,47,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav-inner{max-width:1300px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:12px 20px;gap:16px}
+.brand{display:flex;align-items:center;gap:11px;font-weight:800;cursor:pointer}
+.brand .logo{width:38px;height:38px;border-radius:10px;flex:0 0 38px;background:linear-gradient(135deg,var(--cyan),#0e7490);display:grid;place-items:center;font-size:19px;box-shadow:0 0 22px rgba(34,211,238,.4)}
+.brand small{display:block;font-size:10.5px;color:var(--muted);letter-spacing:1.4px;text-transform:uppercase}
+.nav-links{display:flex;gap:3px;flex-wrap:wrap;align-items:center}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:12.5px;font-weight:600;padding:8px 11px;border-radius:8px;transition:.22s;white-space:nowrap;cursor:pointer}
+.nav-links a:hover{color:var(--cyan);background:rgba(34,211,238,.1)}
+.nav-links a.active{color:var(--navy);background:var(--cyan)}
+.nav-links a.ext{color:var(--gold);border:1px solid rgba(245,185,66,.35);display:inline-flex;align-items:center;gap:5px}
+.burger{display:none;background:none;border:1px solid var(--line);color:var(--cyan);font-size:20px;padding:6px 12px;border-radius:8px;cursor:pointer}
+header.hero{position:relative;padding:80px 20px 70px;text-align:center;overflow:hidden;background:radial-gradient(circle at 15% 15%,rgba(34,211,238,.16),transparent 45%),radial-gradient(circle at 85% 75%,rgba(245,185,66,.13),transparent 45%),linear-gradient(180deg,#0a1a2f,#0d2340 60%,#0a1a2f)}
+header.hero::after{content:"";position:absolute;inset:0;opacity:.35;pointer-events:none;background-image:linear-gradient(rgba(34,211,238,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(34,211,238,.05) 1px,transparent 1px);background-size:52px 52px}
+.hero-inner{position:relative;z-index:2;max-width:1000px;margin:0 auto}
+.author-badge{display:inline-flex;align-items:center;gap:11px;padding:9px 20px 9px 10px;border-radius:99px;background:linear-gradient(135deg,rgba(245,185,66,.15),rgba(34,211,238,.1));border:1px solid rgba(245,185,66,.4);margin-bottom:24px;cursor:pointer;transition:.25s}
+.author-badge:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(245,185,66,.25)}
+.author-badge .av{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--gold),#f97316);display:grid;place-items:center;font-weight:900;color:#3a1f00;font-size:14px}
+.author-badge .txt{text-align:left}
+.author-badge .txt small{display:block;font-size:9.5px;color:var(--gold);letter-spacing:2px;font-weight:800;text-transform:uppercase}
+.author-badge .txt strong{font-size:13px;color:#fff;font-weight:800}
+.pill{display:inline-block;padding:6px 18px;border-radius:99px;font-size:11.5px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--cyan);border:1px solid rgba(34,211,238,.4);background:rgba(34,211,238,.09);margin-bottom:22px}
+h1{font-size:clamp(1.9rem,5vw,3.4rem);line-height:1.13;font-weight:900;background:linear-gradient(135deg,#fff 25%,var(--cyan) 65%,var(--gold));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:20px}
+.hero p.sub{color:var(--muted);font-size:clamp(.95rem,2vw,1.12rem);max-width:780px;margin:0 auto 32px}
+.hero-badges{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:34px}
+.hb{padding:8px 16px;border-radius:99px;font-size:12px;font-weight:700;border:1px solid var(--line);background:rgba(255,255,255,.03);color:var(--txt);cursor:pointer;transition:.22s;text-decoration:none}
+.hb:hover{border-color:var(--cyan);background:rgba(34,211,238,.13);color:var(--cyan);transform:translateY(-2px)}
+.cta-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.btn{padding:13px 30px;border-radius:11px;font-weight:800;font-size:14px;text-decoration:none;border:none;cursor:pointer;transition:.25s;display:inline-flex;align-items:center;gap:9px}
+.btn-p{background:linear-gradient(135deg,var(--cyan),var(--cyan2));color:#04121f;box-shadow:0 8px 28px rgba(34,211,238,.35)}
+.btn-p:hover{transform:translateY(-3px);box-shadow:0 14px 38px rgba(34,211,238,.5)}
+.btn-o{background:transparent;color:var(--cyan);border:1.5px solid rgba(34,211,238,.45)}
+.btn-o:hover{background:rgba(34,211,238,.12);transform:translateY(-3px)}
+.btn-g{background:transparent;color:var(--gold);border:1.5px solid rgba(245,185,66,.5)}
+.btn-g:hover{background:rgba(245,185,66,.15);transform:translateY(-3px)}
+section{padding:74px 20px}
+.wrap{max-width:1200px;margin:0 auto}
+.sec-head{margin-bottom:44px;text-align:center}
+.sec-head .num{font-size:12px;font-weight:900;letter-spacing:3px;color:var(--gold);text-transform:uppercase;display:block;margin-bottom:9px}
+.sec-head h2{font-size:clamp(1.5rem,3.6vw,2.3rem);font-weight:900;margin-bottom:12px;line-height:1.22}
+.sec-head p{color:var(--muted);max-width:740px;margin:0 auto;font-size:.97rem}
+.alt{background:linear-gradient(180deg,#0a1a2f,#0d2340)}
+.grid{display:grid;gap:22px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(330px,1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(272px,1fr))}
+.g4{grid-template-columns:repeat(auto-fit,minmax(215px,1fr))}
+.card{background:linear-gradient(160deg,var(--card),#0f2439);border:1px solid var(--line);border-radius:17px;padding:26px;transition:.3s;position:relative;overflow:hidden}
+.card::before{content:"";position:absolute;top:0;left:0;width:100%;height:3px;background:linear-gradient(90deg,var(--cyan),transparent);opacity:0;transition:.3s}
+.card:hover{transform:translateY(-6px);border-color:rgba(34,211,238,.45);box-shadow:var(--shadow)}
+.card:hover::before{opacity:1}
+.card h3{font-size:1.1rem;margin-bottom:11px;display:flex;align-items:center;gap:9px;font-weight:800}
+.card p{color:var(--muted);font-size:.9rem}
+.card .icon{width:42px;height:42px;border-radius:11px;display:grid;place-items:center;font-size:20px;margin-bottom:15px;background:rgba(34,211,238,.13);border:1px solid var(--line)}
+.card.intl{border-color:rgba(167,139,250,.35);background:linear-gradient(160deg,#1a2144,#0f2439)}
+.card.intl .icon{background:rgba(167,139,250,.18);border-color:rgba(167,139,250,.4)}
+.card.intl::before{background:linear-gradient(90deg,var(--purple),transparent)}
+.card.intl:hover{border-color:var(--purple)}
+.card.teach{border-color:rgba(34,211,238,.4);background:linear-gradient(160deg,rgba(34,211,238,.08),#0f2439)}
+.card.learn{border-color:rgba(245,185,66,.4);background:linear-gradient(160deg,rgba(245,185,66,.08),#0f2439)}
+.card.train{border-color:rgba(34,197,94,.4);background:linear-gradient(160deg,rgba(34,197,94,.08),#0f2439)}
+.card.teach::before{background:linear-gradient(90deg,var(--cyan),transparent)}
+.card.learn::before{background:linear-gradient(90deg,var(--gold),transparent)}
+.card.train::before{background:linear-gradient(90deg,var(--green),transparent)}
+.clickable{cursor:pointer}
+.clickable::after{content:"Klik untuk detail →";display:block;margin-top:15px;font-size:11.5px;font-weight:800;color:var(--cyan);letter-spacing:.6px}
+.clickable.ext::after{content:"🔍 Buka pencarian internasional →";color:var(--purple)}
+.clickable.org::after{content:"⚖️ Klik: penjelasan hukum + link →";color:var(--gold)}
+.clickable.paper::after{content:"📄 Klik: detail paper &amp; referensi →";color:var(--gold)}
+.case-hero{display:grid;grid-template-columns:1fr;gap:20px;border-radius:20px;padding:30px;margin-bottom:32px;background:linear-gradient(135deg,rgba(34,211,238,.09),rgba(245,185,66,.06));border:1px solid var(--line)}
+.case-hero h3{font-size:clamp(1.3rem,3vw,1.85rem);font-weight:900;margin-bottom:8px}
+.case-hero .meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.tag{padding:5px 13px;border-radius:8px;font-size:11.5px;font-weight:800;background:rgba(34,211,238,.14);color:var(--cyan);border:1px solid rgba(34,211,238,.3)}
+.tag.red{background:rgba(239,68,68,.14);color:#fca5a5;border-color:rgba(239,68,68,.35)}
+.tag.gold{background:rgba(245,185,66,.14);color:var(--gold);border-color:rgba(245,185,66,.35)}
+.tag.green{background:rgba(34,197,94,.14);color:#86efac;border-color:rgba(34,197,94,.35)}
+.tag.purple{background:rgba(167,139,250,.14);color:var(--purple);border-color:rgba(167,139,250,.35)}
+.timeline{position:relative;padding-left:34px;margin-top:26px}
+.timeline::before{content:"";position:absolute;left:11px;top:6px;bottom:6px;width:2px;background:linear-gradient(180deg,var(--cyan),rgba(34,211,238,.08))}
+.tl-item{position:relative;margin-bottom:26px}
+.tl-item::before{content:"";position:absolute;left:-29px;top:6px;width:13px;height:13px;border-radius:50%;background:var(--navy);border:3px solid var(--cyan);box-shadow:0 0 12px rgba(34,211,238,.7)}
+.tl-item.red::before{border-color:var(--red);box-shadow:0 0 12px rgba(239,68,68,.7)}
+.tl-time{font-size:11.5px;font-weight:900;color:var(--gold);letter-spacing:1px;text-transform:uppercase}
+.tl-item p{color:var(--muted);font-size:.9rem;margin-top:4px}
+.tbl-wrap{overflow-x:auto;border-radius:14px;border:1px solid var(--line);margin-top:20px}
+table{width:100%;border-collapse:collapse;font-size:.86rem;min-width:520px}
+th{background:rgba(34,211,238,.11);color:var(--cyan);text-align:left;padding:13px 16px;font-weight:800;font-size:11.5px;letter-spacing:1px;text-transform:uppercase}
+td{padding:12px 16px;border-top:1px solid rgba(255,255,255,.06);color:var(--muted);vertical-align:top}
+tr:hover td{background:rgba(34,211,238,.045)}
+td strong{color:var(--txt)}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-bottom:28px}
+.tab{padding:10px 20px;border-radius:10px;font-size:13px;font-weight:800;cursor:pointer;background:rgba(255,255,255,.04);border:1px solid var(--line);color:var(--muted);transition:.24s}
+.tab:hover{color:var(--cyan);border-color:rgba(34,211,238,.4)}
+.tab.active{background:linear-gradient(135deg,var(--cyan),var(--cyan2));color:#04121f;border-color:transparent}
+.tab-panel{display:none;animation:fade .4s}
+.tab-panel.active{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.modal-bg{position:fixed;inset:0;background:rgba(3,10,20,.86);backdrop-filter:blur(7px);z-index:2000;display:none;align-items:flex-start;justify-content:center;padding:26px 16px;overflow-y:auto}
+.modal-bg.show{display:flex;animation:fade .25s}
+.modal{background:linear-gradient(165deg,#132a45,#0d2138);border:1px solid rgba(34,211,238,.35);border-radius:19px;max-width:900px;width:100%;padding:34px;position:relative;margin:auto;box-shadow:0 30px 90px rgba(0,0,0,.75);animation:pop .32s cubic-bezier(.2,.9,.3,1.3)}
+@keyframes pop{from{opacity:0;transform:scale(.93) translateY(22px)}to{opacity:1;transform:none}}
+.modal h3{font-size:1.4rem;margin-bottom:6px;padding-right:44px;font-weight:900;line-height:1.3}
+.modal .sub{color:var(--gold);font-size:11.5px;font-weight:800;letter-spacing:1.6px;text-transform:uppercase;margin-bottom:20px}
+.modal p{color:var(--muted);font-size:.92rem;margin-bottom:13px}
+.modal ul,.modal ol{padding-left:22px;margin-bottom:15px}
+.modal li{color:var(--muted);font-size:.9rem;margin-bottom:8px}
+.modal li strong{color:var(--txt)}
+.modal h4{color:var(--cyan);font-size:.98rem;margin:18px 0 10px;font-weight:800}
+.close{position:absolute;top:17px;right:17px;width:36px;height:36px;border-radius:10px;background:rgba(239,68,68,.14);border:1px solid rgba(239,68,68,.3);color:#fca5a5;font-size:19px;cursor:pointer;transition:.22s;display:grid;place-items:center}
+.close:hover{background:rgba(239,68,68,.3);transform:rotate(90deg)}
+.hl{background:rgba(245,185,66,.13);border-left:3px solid var(--gold);padding:13px 17px;border-radius:0 10px 10px 0;margin:16px 0}
+.hl p{margin:0;color:#fde9bd;font-size:.88rem}
+.hl.red{background:rgba(239,68,68,.11);border-left-color:var(--red)}.hl.red p{color:#fecaca}
+.hl.green{background:rgba(34,197,94,.11);border-left-color:var(--green)}.hl.green p{color:#bbf7d0}
+.hl.purple{background:rgba(167,139,250,.11);border-left-color:var(--purple)}.hl.purple p{color:#ddd6fe}
+.searchbox{display:flex;gap:8px;margin:18px 0 8px;flex-wrap:wrap}
+.searchbox input{flex:1;min-width:200px;padding:12px 16px;border-radius:10px;background:rgba(255,255,255,.05);border:1px solid var(--line);color:var(--txt);font-size:13.5px;outline:none;font-family:inherit}
+.searchbox input:focus{border-color:var(--cyan);background:rgba(34,211,238,.08)}
+.searchbox button{padding:12px 20px;border-radius:10px;border:none;cursor:pointer;background:linear-gradient(135deg,var(--purple),#7c3aed);color:#fff;font-weight:800;font-size:13px;font-family:inherit}
+.stat{text-align:center;padding:24px 16px;border-radius:15px;background:rgba(255,255,255,.03);border:1px solid var(--line);transition:.28s}
+.stat:hover{background:rgba(34,211,238,.08);transform:translateY(-5px);border-color:rgba(34,211,238,.4)}
+.stat .val{font-size:clamp(1.6rem,4vw,2.3rem);font-weight:900;color:var(--cyan);line-height:1.1}
+.stat .lbl{font-size:11.4px;color:var(--muted);margin-top:7px;font-weight:700;letter-spacing:.5px;text-transform:uppercase}
+.lo{border-left:4px solid var(--cyan);background:rgba(34,211,238,.055);border-radius:0 13px 13px 0;padding:17px 21px;margin-bottom:13px;cursor:pointer;transition:.25s}
+.lo:hover{transform:translateX(5px);border-left-color:var(--gold);background:rgba(34,211,238,.11);box-shadow:-4px 0 0 rgba(245,185,66,.2)}
+.lo .code{font-size:11px;font-weight:900;color:var(--gold);letter-spacing:1.6px;margin-bottom:6px}
+.lo p{color:var(--txt);font-size:.9rem;margin:0}
+.lo small{color:var(--muted);font-size:.82rem;display:block;margin-top:7px}
+.lo::after{content:"🔍 Klik untuk detail →";display:block;margin-top:10px;font-size:10.6px;font-weight:800;color:var(--cyan);letter-spacing:.6px}
+.steps{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));counter-reset:st}
+.step{background:linear-gradient(160deg,rgba(34,211,238,.07),rgba(255,255,255,.02));border:1px solid var(--line);border-radius:15px;padding:24px;position:relative;transition:.28s;cursor:pointer}
+.step:hover{transform:translateY(-6px);border-color:rgba(34,211,238,.5);box-shadow:var(--shadow)}
+.step::before{counter-increment:st;content:counter(st,decimal-leading-zero);position:absolute;top:-13px;left:20px;font-size:12.5px;font-weight:900;background:linear-gradient(135deg,var(--cyan),var(--cyan2));color:#04121f;padding:4px 12px;border-radius:8px;letter-spacing:.6px}
+.step h4{margin:12px 0 9px;font-size:1rem;font-weight:800}
+.step p{color:var(--muted);font-size:.86rem}
+.step .t{font-size:10.6px;font-weight:800;color:var(--gold);letter-spacing:1.3px;text-transform:uppercase;margin-top:11px;display:block}
+.step::after{content:"🔍 Klik untuk detail →";display:block;margin-top:12px;font-size:10.6px;font-weight:800;color:var(--cyan);letter-spacing:.6px}
+.chips{display:flex;gap:9px;flex-wrap:wrap;margin-top:18px}
+.chip{padding:8px 15px;border-radius:9px;font-size:12.2px;font-weight:700;cursor:pointer;background:rgba(255,255,255,.045);border:1px solid var(--line);color:var(--muted);text-decoration:none;transition:.24s;display:inline-flex;align-items:center;gap:7px}
+.chip:hover{background:rgba(34,211,238,.14);color:var(--cyan);border-color:rgba(34,211,238,.45);transform:translateY(-2px)}
+.chip.g{background:rgba(167,139,250,.1);color:var(--purple);border-color:rgba(167,139,250,.35)}
+.chip.g:hover{background:rgba(167,139,250,.25);color:#fff}
+.quiz{background:linear-gradient(150deg,rgba(245,185,66,.09),rgba(255,255,255,.02));border:1px solid rgba(245,185,66,.3);border-radius:17px;padding:28px;margin-bottom:20px}
+.quiz h4{color:var(--gold);font-size:1.05rem;margin-bottom:14px;font-weight:800}
+.opt{padding:13px 18px;border-radius:11px;border:1px solid var(--line);margin-bottom:9px;cursor:pointer;transition:.22s;font-size:.89rem;background:rgba(255,255,255,.03)}
+.opt:hover{border-color:var(--cyan);background:rgba(34,211,238,.08)}
+.opt.correct{background:rgba(34,197,94,.2);border-color:var(--green);color:#bbf7d0;font-weight:700}
+.opt.wrong{background:rgba(239,68,68,.18);border-color:var(--red);color:#fecaca}
+.fb{margin-top:13px;font-size:.87rem;color:var(--cyan);font-weight:700;min-height:22px}
+footer{background:#07121f;border-top:1px solid var(--line);padding:52px 20px 30px;text-align:center}
+footer p{color:var(--muted);font-size:.85rem;max-width:820px;margin:0 auto 11px}
+footer .disc{font-size:.8rem;color:#7d93a8;font-style:italic;border:1px dashed rgba(34,211,238,.22);border-radius:13px;padding:16px 20px;max-width:820px;margin:22px auto 0}
+footer .credit{margin-top:28px;padding:20px;border-radius:15px;background:linear-gradient(135deg,rgba(245,185,66,.1),rgba(34,211,238,.06));border:1px solid rgba(245,185,66,.3);max-width:520px;margin-left:auto;margin-right:auto}
+footer .credit .av{width:56px;height:56px;border-radius:50%;margin:0 auto 12px;background:linear-gradient(135deg,var(--gold),#f97316);display:grid;place-items:center;font-weight:900;color:#3a1f00;font-size:20px}
+footer .credit h4{font-size:1.05rem;font-weight:900;color:#fff;margin-bottom:4px}
+footer .credit p{font-size:.82rem;color:var(--gold);font-weight:700;letter-spacing:1px;text-transform:uppercase;margin:0}
+#top{position:fixed;bottom:26px;right:26px;width:48px;height:48px;border-radius:14px;background:linear-gradient(135deg,var(--cyan),var(--cyan2));color:#04121f;border:none;font-size:20px;cursor:pointer;display:none;place-items:center;z-index:900;box-shadow:0 8px 26px rgba(34,211,238,.45);transition:.25s}
+#top.show{display:grid}
+.instructor-badge{display:flex;align-items:center;gap:16px;max-width:720px;margin:0 auto 32px;padding:20px 24px;border-radius:18px;background:linear-gradient(135deg,rgba(245,185,66,.14),rgba(34,211,238,.08));border:2px solid rgba(245,185,66,.5);cursor:pointer;transition:.28s}
+.instructor-badge:hover{transform:translateY(-4px);box-shadow:0 16px 50px rgba(245,185,66,.3);border-color:var(--gold)}
+.instructor-badge .av{width:64px;height:64px;border-radius:16px;flex:0 0 64px;background:linear-gradient(135deg,var(--gold),#f97316);display:grid;place-items:center;font-weight:900;color:#3a1f00;font-size:22px}
+.instructor-badge .txt small{display:block;font-size:10px;color:var(--gold);letter-spacing:2.4px;font-weight:900;text-transform:uppercase;margin-bottom:4px}
+.instructor-badge .txt strong{display:block;font-size:clamp(1rem,2.5vw,1.25rem);color:#fff;font-weight:900;line-height:1.25;margin-bottom:4px}
+.instructor-badge .txt span{font-size:12.5px;color:var(--muted);font-weight:600}
+.stage-flow{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));margin:24px 0}
+.stage-flow .stage-item{position:relative;padding:24px 20px;border-radius:16px;background:linear-gradient(160deg,rgba(34,211,238,.08),rgba(255,255,255,.02));border:1px solid var(--line);transition:.28s;text-align:center;cursor:pointer}
+.stage-flow .stage-item:hover{transform:translateY(-5px);border-color:rgba(34,211,238,.5)}
+.stage-flow .stage-item .num{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--cyan),var(--cyan2));color:#04121f;display:grid;place-items:center;font-weight:900;font-size:16px;margin:0 auto 12px}
+.stage-flow .stage-item h4{font-size:.95rem;color:var(--txt);margin-bottom:8px;font-weight:800}
+.stage-flow .stage-item p{font-size:.82rem;color:var(--muted)}
+.quiz-progress{text-align:center;margin:20px 0 30px;padding:16px;background:rgba(34,211,238,.08);border-radius:14px;border:1px solid var(--line)}
+.quiz-progress .score{font-size:2.2rem;font-weight:900;color:var(--cyan)}
+.quiz-progress .lbl{font-size:12px;color:var(--muted);letter-spacing:1.4px;text-transform:uppercase;font-weight:800}
+.team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-top:18px}
+.team-member{padding:14px 16px;border-radius:12px;background:rgba(34,211,238,.06);border:1px solid var(--line);transition:.22s}
+.team-member:hover{background:rgba(34,211,238,.12);border-color:rgba(34,211,238,.4)}
+.team-member .role{font-size:10px;color:var(--gold);font-weight:900;letter-spacing:1.6px;text-transform:uppercase;display:block;margin-bottom:4px}
+.team-member .name{font-size:.92rem;color:var(--txt);font-weight:700}
+@media(max-width:900px){
+  .burger{display:block}
+  .nav-links{position:absolute;top:100%;left:0;right:0;flex-direction:column;background:rgba(10,26,47,.99);border-bottom:1px solid var(--line);padding:14px;display:none;max-height:70vh;overflow-y:auto;align-items:stretch}
+  .nav-links.open{display:flex}
+  .nav-links a{width:100%;padding:11px 14px}
+  .modal{padding:26px 20px}
+  section{padding:56px 16px}
+}
+</style>
+</head>
+<body>
+
+<div id="progress"></div>
+
+<nav>
+  <div class="nav-inner">
+    <div class="brand" onclick="scrollTo({top:0,behavior:'smooth'})">
+      <div class="logo">⚓</div>
+      <div>MARITIME LEARNING HUB<small>by Rafael Sukirno, CE</small></div>
+    </div>
+    <button class="burger" id="burger">☰</button>
+    <div class="nav-links" id="navLinks">
+      <a href="#ringkasan">Ringkasan</a>
+      <a href="#paper">Paper Kelompok III</a>
+      <a href="#tilongkabila">Tilongkabila 1</a>
+      <a href="#tilo2">Tilongkabila 2</a>
+      <a href="#tunu">Tunu</a>
+      <a href="#internasional">Internasional</a>
+      <a href="#hukum">Hukum</a>
+      <a href="#tot">TOT 6.09</a>
+      <a href="#aktivitas">Aktivitas</a>
+      <a href="#diskusi">Diskusi &amp; Kuis</a>
+      <a href="#sumber">Sumber</a>
+      <a class="ext" href="https://www.google.com/search?q=IMO+Model+Course+6.09+training+of+trainers" target="_blank" rel="noopener">🔍 IMO 6.09</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="author-badge" onclick="openModal('author')">
+      <div class="av">RS</div>
+      <div class="txt"><small>Disusun oleh</small><strong>Rafael Sukirno, CE</strong></div>
+    </div>
+    <div><span class="pill">Modul Pembelajaran Maritim Interaktif · Kelompok III</span></div>
+    <h1>Studi Kasus Keselamatan Pelayaran:<br>Integrasi Teaching, Learning &amp; Training Aids</h1>
+    <p class="sub">
+      Analisis tiga kecelakaan kapal Indonesia — <strong>KM Tilongkabila</strong> (tubrukan tebing &amp; KM Sabuk Nusantara 35) dan <strong>KMP Tunu Pratama Jaya</strong> (tenggelam) — disusun dalam kerangka <strong>TOT IMO Model Course 6.09</strong> dengan integrasi <strong>Teaching, Learning &amp; Training Aids</strong> berbasis <em>Case-Based Simulation Training</em>.
+    </p>
+    <div class="hero-badges">
+      <a class="hb" href="https://www.google.com/search?q=COLREG+1972" target="_blank" rel="noopener">📘 COLREG 1972 ↗</a>
+      <a class="hb" href="https://www.google.com/search?q=SOLAS+1974" target="_blank" rel="noopener">🚢 SOLAS 1974 ↗</a>
+      <a class="hb" href="https://www.google.com/search?q=ISM+Code+IMO" target="_blank" rel="noopener">🛡️ ISM Code ↗</a>
+      <a class="hb" href="https://www.google.com/search?q=STCW+1978" target="_blank" rel="noopener">🎓 STCW 1978 ↗</a>
+      <a class="hb" href="https://www.google.com/search?q=MARPOL+73/78" target="_blank" rel="noopener">🌊 MARPOL 73/78 ↗</a>
+      <a class="hb" href="https://www.google.com/search?q=IMO+Model+Course+6.09" target="_blank" rel="noopener">🎯 IMO 6.09 ↗</a>
+    </div>
+    <div class="cta-row">
+      <a href="#paper" class="btn btn-p">📄 Paper Kelompok III</a>
+      <a href="#tot" class="btn btn-g">🎯 Kerangka TOT 6.09</a>
+      <a href="#diskusi" class="btn btn-o">📝 Kuis &amp; Diskusi</a>
+    </div>
+  </div>
+</header>
+
+<!-- RINGKASAN -->
+<section id="ringkasan">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="num">01 — Ringkasan Eksekutif</span>
+      <h2>Tiga Kasus Nasional, Satu Benang Merah</h2>
+      <p>Mahkamah Pelayaran menyimpulkan ketiga kecelakaan bersumber pada human error dan faktor organisasi. Klik setiap kartu untuk detail.</p>
+    </div>
+    <div class="grid g3" style="margin-bottom:36px">
+      <div class="card clickable" onclick="openModal('mTilo')">
+        <div class="icon">🚢</div>
+        <h3>KM Tilongkabila — Menubruk Tebing</h3>
+        <p>Selat Buton, 27 Juli 2025. Nakhoda meninggalkan anjungan; kemudi gagal.</p>
+        <div style="margin-top:14px;display:flex;gap:8px;flex-wrap:wrap"><span class="tag red">Human Error</span><span class="tag gold">3 Bulan</span></div>
+      </div>
+      <div class="card clickable" onclick="openModal('mTilo2')">
+        <div class="icon">⛴️</div>
+        <h3>Tilongkabila × Sabuk Nusantara 35</h3>
+        <p>Bitung, 5 November 2025. Tubrukan saat sandar; isu Pandu.</p>
+        <div style="margin-top:14px;display:flex;gap:8px;flex-wrap:wrap"><span class="tag red">Human Error</span><span class="tag gold">4 Bulan</span></div>
+      </div>
+      <div class="card clickable" onclick="openModal('mTunu')">
+        <div class="icon">🌊</div>
+        <h3>KMP Tunu Pratama Jaya</h3>
+        <p>Selat Bali, 2 Juli 2025. Overdraft + pergeseran muatan.</p>
+        <div style="margin-top:14px;display:flex;gap:8px;flex-wrap:wrap"><span class="tag red">Human Error</span><span class="tag gold">7 Bulan</span></div>
+      </div>
+    </div>
+    <div class="grid g4">
+      <div class="stat"><div class="val">3</div><div class="lbl">Kecelakaan</div></div>
+      <div class="stat"><div class="val">6</div><div class="lbl">Instrumen Hukum</div></div>
+      <div class="stat"><div class="val">3+4+7</div><div class="lbl">Bulan Sanksi</div></div>
+      <div class="stat"><div class="val">19</div><div class="lbl">Korban (Tunu)</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PAPER KELOMPOK III — SECTION BARU -->
+<section id="paper" class="alt">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="num">02 — Paper Kelompok III</span>
+      <h2>Integrasi Teaching, Learning &amp; Training Aids</h2>
+      <p>Paper lengkap Kelompok III — DIKLAT TOT (IMO Model Course 6.09) BP2TL 2026. Klik kartu untuk membaca setiap bagian.</p>
+    </div>
+
+    <!-- TEAM CARD -->
+    <div class="card clickable paper" style="margin-bottom:30px;background:linear-gradient(150deg,rgba(245,185,66,.1),rgba(34,211,238,.05));border-color:rgba(245,185,66,.4)" onclick="openModal('paperTeam')">
+      <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap">
+        <div class="icon" style="background:rgba(245,185,66,.2);border-color:rgba(245,185,66,.45);margin:0">👥</div>
+        <div style="flex:1;min-width:220px">
+          <h3 style="margin:0 0 6px">Tim Penyusun Paper Kelompok III</h3>
+          <p style="margin:0;font-size:.88rem">DIKLAT Training of Trainer (IMO Model Course 6.09) · BP2TL · 2026 — <strong>8 anggota</strong>. Klik untuk daftar lengkap.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAPER BAB STRUCTURE -->
+    <div class="grid g2" style="margin-bottom:30px">
+      <div class="card clickable paper" onclick="openModal('paperBab1')">
+        <div class="icon">📖</div>
+        <h3>Bab I — Pendahuluan</h3>
+        <p>Latar belakang, rumusan masalah, tujuan, manfaat, batasan kajian.</p>
+      </div>
+      <div class="card clickable paper" onclick="openModal('paperBab2')">
+        <div class="icon">📚</div>
+        <h3>Bab II — Kajian Pustaka</h3>
+        <p>Teaching/Learning/Training Aids, STCW, BRM, case-based learning, simulator, kerangka hukum.</p>
+      </div>
+      <div class="card clickable paper" onclick="openModal('paperBab3')">
+        <div class="icon">🔬</div>
+        <h3>Bab III — Metode</h3>
+        <p>Studi kasus kualitatif, sumber data, 5 tahap analisis &amp; perancangan.</p>
+      </div>
+      <div class="card clickable paper" onclick="openModal('paperBab4')">
+        <div class="icon">📊</div>
+        <h3>Bab IV — Hasil &amp; Pembahasan</h3>
+        <p>Kronologi, kesenjangan kompetensi, training aids berjenjang, model integrasi, rubrik asesmen.</p>
+      </div>
+      <div class="card clickable paper" onclick="openModal('paperBab5')">
+        <div class="icon">✅</div>
+        <h3>Bab V — Kesimpulan &amp; Saran</h3>
+        <p>4 kesimpulan utama, 4 saran untuk lembaga pendidikan kemaritiman.</p>
+      </div>
+      <div class="card clickable paper" onclick="openModal('paperAbstract')">
+        <div class="icon">📝</div>
+        <h3>Abstrak &amp; Abstract</h3>
+        <p>Ringkasan penelitian dalam Bahasa Indonesia &amp; Inggris.</p>
+      </div>
+    </div>
+
+    <!-- KUNCI TEMUAN PAPER -->
+    <h3 style="margin:40px 0 20px;font-size:1.2rem">🎯 Empat Kesenjangan Kompetensi Utama (Temuan Paper)</h3>
+    <div class="grid g4">
+      <div class="card clickable" onclick="openModal('gap1')">
+        <div class="icon" style="background:rgba(239,68,68,.15);font-size:20px">1️⃣</div>
+        <h3 style="font-size:.95rem">Delegasi Jaga</h3>
+        <p>Nakhoda meninggalkan anjungan di alur sempit tanpa pengawasan perwira senior.</p>
+      </div>
+      <div class="card clickable" onclick="openModal('gap2')">
+        <div class="icon" style="background:rgba(245,185,66,.15);font-size:20px">2️⃣</div>
+        <h3 style="font-size:.95rem">Master Night Order</h3>
+        <p>Perintah tertulis tidak menggambarkan kondisi perairan saat itu.</p>
+      </div>
+      <div class="card clickable" onclick="openModal('gap3')">
+        <div class="icon" style="background:rgba(167,139,250,.15);font-size:20px">3️⃣</div>
+        <h3 style="font-size:.95rem">Kemudi Darurat</h3>
+        <p>Tidak digunakan meski kemudi gagal; latihan kemudi darurat tidak pernah dilakukan.</p>
+      </div>
+      <div class="card clickable" onclick="openModal('gap4')">
+        <div class="icon" style="background:rgba(34,197,94,.15);font-size:20px">4️⃣</div>
+        <h3 style="font-size:.95rem">Olah Gerak Henti</h3>
+        <p>Tidak dilakukan stop mesin / mundur / emergency stop saat mendekati tebing.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- KASUS 1 -->
+<section id="tilongkabila">
+  <div class="wrap">
+    <div class="sec-head"><span class="num">03 — Studi Kasus A</span><h2>KM Tilongkabila: Tubrukan Tebing Tanjung Batusori</h2><p>Putusan No. HK.212/1/9/MP/2025</p></div>
+    <div class="case-hero">
+      <div>
+        <h3>⚓ KM Tilongkabila</h3>
+        <p style="color:var(--muted)">KMP · GT 6022 · Tanda Panggilan YFCD · IMO 9102760 · Operator PT Pelni</p>
+        <div class="meta"><span class="tag">📅 27 Juli 2025</span><span class="tag">🕙 22.48 WITA</span><span class="tag">📍 Selat Buton</span></div>
+      </div>
+    </div>
+    <div class="grid g2">
+      <div>
+        <h3 style="margin-bottom:6px;font-size:1.15rem">🕐 Kronologi Lengkap (Tabel 1 Paper)</h3>
+        <div class="timeline">
+          <div class="tl-item"><div class="tl-time">22.13</div><p>Bertolak dari Baubau, kecepatan 10 knot, haluan 350°, kemudi manual. Di anjungan: Nakhoda, Mualim I, Markonis, Mualim IV (perwira jaga), juru mudi jaga, Masinis IV, kadet dek.</p></div>
+          <div class="tl-item"><div class="tl-time">22.15</div><p>Full away haluan 009°, 11 knot, sekitar 1 NM sebelum perubahan haluan 035°. <strong>Nakhoda meninggalkan anjungan</strong> dan mendelegasikan navigasi ke Mualim IV dengan Master Night Order; Mualim I, Masinis IV, Mualim II turun.</p></div>
+          <div class="tl-item"><div class="tl-time">22.20</div><p>Perubahan haluan ke 035° sesuai passage plan; kecepatan 12–13 knot karena terdorong arus utara.</p></div>
+          <div class="tl-item red"><div class="tl-time">22.35</div><p>Sekitar 2,7 NM sebelum perubahan haluan ke 007°, kapal mulai <strong>jatuh kiri</strong>. Perintah kemudi kanan 5 tidak menghasilkan perubahan haluan; indikator kemudi tetap di tengah.</p></div>
+          <div class="tl-item red"><div class="tl-time">22.38</div><p>Mualim IV melapor ke Nakhoda via telepon; Nakhoda menginstruksikan standby engine, penurunan kecepatan, dan persiapan bow thruster.</p></div>
+          <div class="tl-item red"><div class="tl-time">±22.39–22.41</div><p>Nakhoda mengambil alih komando sekitar 2 NM dari tebing; kemudi cikar kiri tidak berpengaruh. Panggilan ke ECR tidak direspons. Pukul 22.41 waypoint 5 terlewati dan alarm GPS berbunyi.</p></div>
+          <div class="tl-item red"><div class="tl-time">22.48</div><p><strong>Kapal menubruk tebing Tanjung Batusori</strong> pada kecepatan sekitar 7 knot, haluan 035°; mesin induk mati.</p></div>
+          <div class="tl-item"><div class="tl-time">22.52</div><p>Masinis IV tiba di anjungan; mesin diubah ke mode olah gerak; kemudi ditemukan berfungsi normal.</p></div>
+          <div class="tl-item"><div class="tl-time">00.37 (28/7)</div><p>Kapal sandar kembali dengan selamat di Pelabuhan Murhum Baubau.</p></div>
+        </div>
+        <div class="hl purple"><p><strong>Catatan penting:</strong> Penjelasan <em>bank effect</em> (efek tepi) merupakan pendapat saksi, <strong>bukan bagian dari amar putusan</strong>. Ini contoh pemisahan fakta dari interpretasi.</p></div>
+      </div>
+      <div>
+        <h3 style="margin-bottom:14px;font-size:1.15rem">📋 Fakta &amp; Konsekuensi</h3>
+        <div class="card" style="margin-bottom:16px">
+          <h3 style="font-size:.98rem">🧾 Data Kapal</h3>
+          <div class="tbl-wrap" style="margin-top:12px">
+            <table>
+              <tr><td><strong>Ukuran</strong></td><td>91,80 × 18,00 × 9,40 m</td></tr>
+              <tr><td><strong>GT / NT</strong></td><td>6022 / 1806</td></tr>
+              <tr><td><strong>Mesin</strong></td><td>2 × KRUPP-MAK 6MU435C, 2×2175 HP</td></tr>
+              <tr><td><strong>Pembangunan</strong></td><td>1995, Jerman</td></tr>
+              <tr><td><strong>Pelat bulbous bow</strong></td><td>Deformasi ±2 meter</td></tr>
+            </table>
+          </div>
+        </div>
+        <div class="card" style="margin-bottom:16px">
+          <h3 style="font-size:.98rem">⚠️ Konsekuensi</h3>
+          <ul style="color:var(--muted);font-size:.89rem;padding-left:20px;margin-top:10px">
+            <li>Tidak ada korban jiwa</li>
+            <li>Tidak ada pencemaran lingkungan</li>
+            <li>Bulbous bow deformasi ±2 m</li>
+            <li>Fore Peak Tank bocor</li>
+            <li>Penumpang dipindah ke kapal lain</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3 style="font-size:.98rem">💡 Pelajaran Kunci</h3>
+          <ul style="color:var(--muted);font-size:.89rem;padding-left:20px;margin-top:10px">
+            <li>Aturan = alasan, bukan nomor pasal</li>
+            <li>P2TL ≠ SOLAS</li>
+            <li>Putusan profesi ≠ pidana/perdata</li>
+            <li>Deteksi dini &amp; eskalasi = good seamanship</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="margin:44px 0 6px;font-size:1.2rem">⚖️ Amar Putusan</h3>
+    <div class="grid g3" style="margin-top:20px">
+      <div class="card clickable" onclick="openModal('tiloPenyebab')"><div class="icon" style="background:rgba(239,68,68,.15)">Ⅰ</div><h3>Penyebab</h3><p>Human error.</p></div>
+      <div class="card clickable" onclick="openModal('tiloNakhoda')"><div class="icon" style="background:rgba(245,185,66,.15)">Ⅱ</div><h3>Terduga I</h3><p>Sdr. Slamet Santoso (ANT I).</p><div style="margin-top:12px"><span class="tag red">3 BULAN</span></div></div>
+      <div class="card clickable" onclick="openModal('tiloMualim')"><div class="icon" style="background:rgba(34,197,94,.15)">Ⅲ</div><h3>Terduga II</h3><p>Sdri. Hana Afrilia Rachmawati.</p><div style="margin-top:12px"><span class="tag green">BEBAS</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- KASUS 2 -->
+<section id="tilo2" class="alt">
+  <div class="wrap">
+    <div class="sec-head"><span class="num">04 — Studi Kasus B</span><h2>KM Tilongkabila Menubruk KM Sabuk Nusantara 35</h2><p>Putusan No. HK.212/1/2/MP/2026</p></div>
+    <div class="case-hero">
+      <div>
+        <h3>⛴️ Tilongkabila × Sabuk Nusantara 35</h3>
+        <p style="color:var(--muted)">Dermaga 2 Bitung · Nakhoda KM Tilongkabila: Hindar Bahadi</p>
+        <div class="meta"><span class="tag">📅 5 November 2025</span><span class="tag">🕐 13.35 WITA</span><span class="tag">📍 Bitung</span></div>
+      </div>
+    </div>
+    <div class="grid g2">
+      <div>
+        <h3 style="margin-bottom:6px;font-size:1.15rem">🕐 Kronologi</h3>
+        <div class="timeline">
+          <div class="tl-item"><div class="tl-time">12.30</div><p>KM Tilongkabila OHN menunggu Pandu. Draft depan 4,1 m, tengah 4,2 m, belakang 4,3 m.</p></div>
+          <div class="tl-item"><div class="tl-time">13.10</div><p>Pandu naik. Kapal bergerak ke Dermaga 2 dengan 11,5 knot, diikuti TB Bunaken. Angin 19 knot dari selatan, arus kuat ke timur.</p></div>
+          <div class="tl-item"><div class="tl-time">13.15</div><p>Saat 150 m dari dermaga, kapal manuver memutar ke kiri, haluan ke timur, 4 knot menghadap arus. TB Bunaken standby di sisi kiri.</p></div>
+          <div class="tl-item red"><div class="tl-time">13.20</div><p>Haluan barat, 70 m dari dermaga. Nakhoda minta Pandu komunikasi dengan TB Bunaken — <strong>Pandu kurang respons</strong>. Nakhoda alihkan komunikasi ke Markonis.</p></div>
+          <div class="tl-item red"><div class="tl-time">13.25</div><p>Angin menguat 25–30 knot dari barat. Kapal terdorong. Buritan overlap minus 50 m terhadap haluan KM Sabuk Nusantara 35.</p></div>
+          <div class="tl-item red"><div class="tl-time">13.30</div><p>TB Bunaken baru terikat. Nakhoda lakukan manuver: mesin kiri stop, kanan maju penuh, BT kiri, kemudi cikar kanan. TB tarik penuh.</p></div>
+          <div class="tl-item red"><div class="tl-time">13.35</div><p><strong>Benturan buritan kanan KM Tilongkabila dengan haluan kiri KM Sabuk Nusantara 35</strong> pada overlap minus 10 m.</p></div>
+          <div class="tl-item"><div class="tl-time">13.40</div><p>Setelah benturan, kapal dikendalikan mesin kanan maju dan kiri mundur. Sandar dengan aman.</p></div>
+        </div>
+      </div>
+      <div>
+        <h3 style="margin-bottom:14px;font-size:1.15rem">📋 Fakta &amp; Konsekuensi</h3>
+        <div class="card" style="margin-bottom:16px">
+          <h3 style="font-size:.98rem">🧾 Data Dua Kapal</h3>
+          <div class="tbl-wrap" style="margin-top:12px">
+            <table>
+              <tr><td><strong>KM Tilongkabila</strong></td><td>91,50 × 18,00 × 9,40 m · GT 6022</td></tr>
+              <tr><td><strong>KM Sabuk Nusantara 35</strong></td><td>53,28 × 12,00 × 4,50 m · GT 1102</td></tr>
+              <tr><td><strong>Posisi tubrukan</strong></td><td>Buritan kanan Tilongkabila × haluan kiri SN 35</td></tr>
+            </table>
+          </div>
+        </div>
+        <div class="card">
+          <h3 style="font-size:.98rem">⚠️ Konsekuensi</h3>
+          <ul style="color:var(--muted);font-size:.89rem;padding-left:20px;margin-top:10px">
+            <li>Tidak ada korban jiwa</li>
+            <li>Goresan cat Tilongkabila ±50 cm</li>
+            <li>Deformasi haluan kiri SN 35</li>
+            <li>Kuping dapra bengkok, bulwark kiri bengkok</li>
+            <li>Frame &amp; gading deformasi 2–3 m dari garis air</li>
+            <li>Tidak ada kebocoran</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <h3 style="margin:44px 0 6px;font-size:1.2rem">⚖️ Amar Putusan</h3>
+    <div class="grid g3" style="margin-top:20px">
+      <div class="card clickable" onclick="openModal('tilo2Penyebab')"><div class="icon" style="background:rgba(239,68,68,.15)">Ⅰ</div><h3>Penyebab</h3><p>Human error navigasi &amp; olah gerak.</p></div>
+      <div class="card clickable" onclick="openModal('tilo2Pandu')"><div class="icon" style="background:rgba(167,139,250,.15)">Ⅱ</div><h3>Masalah Pandu</h3><p>Melanggar PM 57/2015.</p></div>
+      <div class="card clickable" onclick="openModal('tilo2Nakhoda')"><div class="icon" style="background:rgba(245,185,66,.15)">Ⅲ</div><h3>Terduga</h3><p>Sdr. Hindar Bahadi.</p><div style="margin-top:12px"><span class="tag red">4 BULAN</span></div></div>
+    </div>
+    <h3 style="margin:34px 0 6px;font-size:1.1rem">🔍 Regulasi Terkait</h3>
+    <div class="grid g4" style="margin-top:18px">
+      <div class="card clickable" onclick="openModal('solasV15')"><div class="icon">🧭</div><h3 style="font-size:.92rem">SOLAS V Reg 15</h3></div>
+      <div class="card clickable" onclick="openModal('stcwAviii2')"><div class="icon">🎓</div><h3 style="font-size:.92rem">STCW A-VIII/2</h3></div>
+      <div class="card clickable" onclick="openModal('pm57')"><div class="icon">📡</div><h3 style="font-size:.92rem">PM 57/2015</h3></div>
+      <div class="card clickable" onclick="openModal('smkPelni')"><div class="icon">📘</div><h3 style="font-size:.92rem">SMK Pelni 5 &amp; 7</h3></div>
+    </div>
+  </div>
+</section>
+
+<!-- KASUS 3 -->
+<section id="tunu">
+  <div class="wrap">
+    <div class="sec-head"><span class="num">05 — Studi Kasus C</span><h2>KMP Tunu Pratama Jaya: Kegagalan Stabilitas Progresif</h2><p>Putusan No. HK.212/1/1/MP/2026</p></div>
+    <div class="case-hero">
+      <div>
+        <h3>🌊 KMP Tunu Pratama Jaya</h3>
+        <p style="color:var(--muted)">Ro-Ro Ferry · GT 792 · IMO 8749432 · PT Raputra Jaya</p>
+        <div class="meta"><span class="tag">📅 2 Juli 2025</span><span class="tag">🕚 23.35 WIB</span><span class="tag">📍 Selat Bali</span></div>
+      </div>
+    </div>
+    <h3 style="margin-bottom:6px;font-size:1.15rem">🔬 Rantai Kegagalan</h3>
+    <div class="steps" style="margin-top:18px">
+      <div class="step" onclick="openModal('chainOverdraft')"><h4>Overdraft</h4><p>Draft 2,897 m vs 2,4 m.</p></div>
+      <div class="step" onclick="openModal('chainWave')"><h4>Gelombang</h4><p>2–3 m, air masuk geladak.</p></div>
+      <div class="step" onclick="openModal('chainFreeSurface')"><h4>Free Surface</h4><p>Muatan bergeser.</p></div>
+      <div class="step" onclick="openModal('chainDownflood')"><h4>Downflooding</h4><p>Pintu terbuka.</p></div>
+      <div class="step" onclick="openModal('chain40pct')"><h4>&gt;40%</h4><p>Stabilitas hilang.</p></div>
+      <div class="step" onclick="openModal('chainCapsize')"><h4>Capsize</h4><p>Terbalik &amp; tenggelam.</p></div>
+    </div>
+    <h3 style="margin:44px 0 6px;font-size:1.2rem">⚖️ Amar Putusan</h3>
+    <div class="grid g3" style="margin-top:20px">
+      <div class="card clickable" onclick="openModal('tunuPenyebab')"><div class="icon" style="background:rgba(239,68,68,.15)">Ⅰ</div><h3>Penyebab</h3><p>Human error + organisasi.</p></div>
+      <div class="card clickable" onclick="openModal('tunuNakhoda')"><div class="icon" style="background:rgba(245,185,66,.15)">Ⅱ</div><h3>Terduga I</h3><p>Agus Slamet — hilang.</p></div>
+      <div class="card clickable" onclick="openModal('tunuMualim')"><div class="icon" style="background:rgba(239,68,68,.15)">Ⅲ</div><h3>Terduga II</h3><p>Nurdin Yuswanto.</p><div style="margin-top:12px"><span class="tag red">7 BULAN</span></div></div>
+    </div>
+    <h3 style="margin:44px 0 6px;font-size:1.2rem">🏢 Dugaan Pelanggaran Organisasi</h3>
+    <div class="grid g3" style="margin-top:20px">
+      <div class="card clickable org" onclick="openModal('orgRaputra')"><div class="icon">🏭</div><h3>PT Raputra Jaya</h3><p>PM 30/2016</p></div>
+      <div class="card clickable org" onclick="openModal('orgASDP')"><div class="icon">🎫</div><h3>PT ASDP</h3><p>PM 18/2021</p></div>
+      <div class="card clickable org" onclick="openModal('orgBPTD')"><div class="icon">🏛️</div><h3>BPTD Jatim</h3><p>PM 60/2019</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- INTERNASIONAL -->
+<section id="internasional" class="alt">
+  <div class="wrap">
+    <div class="sec-head"><span class="num">06 — Pembanding Global</span><h2>Kasus Internasional</h2></div>
+    <div class="card" style="max-width:760px;margin:0 auto 34px">
+      <h3 style="font-size:1rem">🔍 Cari Kasus Internasional</h3>
+      <div class="searchbox">
+        <input type="text" id="intlSearch" placeholder="Contoh: Costa Concordia..." onkeydown="if(event.key==='Enter')doIntlSearch()">
+        <button onclick="doIntlSearch()">Cari di Google</button>
+      </div>
+    </div>
+    <div class="grid g3">
+      <div class="card intl clickable ext" onclick="openModal('intCosta')"><div class="icon">🇮🇹</div><h3>Costa Concordia</h3><p>Italia, 2012.</p></div>
+      <div class="card intl clickable ext" onclick="openModal('intHerald')"><div class="icon">🇧🇪</div><h3>Herald of Free Enterprise</h3><p>Belgia, 1987.</p></div>
+      <div class="card intl clickable ext" onclick="openModal('intEstonia')"><div class="icon">🇪🇪</div><h3>MS Estonia</h3><p>Baltik, 1994.</p></div>
+      <div class="card intl clickable ext" onclick="openModal('intElFaro')"><div class="icon">🇺🇸</div><h3>SS El Faro</h3><p>Atlantik, 2015.</p></div>
+      <div class="card intl clickable ext" onclick="openModal('intSewol')"><div class="icon">🇰🇷</div><h3>Sewol Ferry</h3><p>Korea, 2014.</p></div>
+      <div class="card intl clickable ext" onclick="openModal('intExxon')"><div class="icon">🛢️</div><h3>Exxon Valdez</h3><p>Alaska, 1989.</p></div>
+      <div class="card intl clickable ext" onclick="openModal('intTitanic')"><div class="icon">🚢</div><h3>RMS Titanic</h3><p>Atlantik, 1912.</p></div>
+      <div class="card intl clickable ext" onclick="openModal('intBowMariner')"><div class="icon">⛽</div><h3>Bow Mariner</h3><p>Atlantik, 2004.</p></div>
+      <div class="card intl clickable ext" onclick="openModal('intMscChitra')"><div class="icon">📦</div><h3>MSC Chitra</h3><p>Mumbai, 2010.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- HUKUM -->
+<section id="hukum">
+  <div class="wrap">
+    <div class="sec-head"><span class="num">07 — Tinjauan Hukum</span><h2>Enam Pilar Instrumen Hukum</h2></div>
+    <div class="tabs">
+      <div class="tab active" data-t="p1">🚦 COLREG</div>
+      <div class="tab" data-t="p2">🚢 SOLAS</div>
+      <div class="tab" data-t="p3">🛡️ ISM Code</div>
+      <div class="tab" data-t="p4">🎓 STCW</div>
+      <div class="tab" data-t="p5">🌊 MARPOL</div>
+      <div class="tab" data-t="p6">⚖️ Hukum Indonesia</div>
+    </div>
+    <div class="tab-panel active" id="p1">
+      <div class="grid g2">
+        <div class="card clickable" onclick="openModal('rule5')"><div class="icon">👁️</div><h3>Rule 5</h3><p>Proper Look-out.</p></div>
+        <div class="card clickable" onclick="openModal('rule6')"><div class="icon">⚡</div><h3>Rule 6</h3><p>Safe Speed.</p></div>
+      </div>
+    </div>
+    <div class="tab-panel" id="p2">
+      <div class="grid g3">
+        <div class="card clickable" onclick="openModal('solas5')"><div class="icon">🧭</div><h3>Bab V</h3></div>
+        <div class="card clickable" onclick="openModal('solas24')"><div class="icon">🎛️</div><h3>Reg 24</h3></div>
+        <div class="card clickable" onclick="openModal('solas26')"><div class="icon">🕹️</div><h3>Reg 26</h3></div>
+        <div class="card clickable" onclick="openModal('solas34')"><div class="icon">⚠️</div><h3>Reg 34</h3></div>
+        <div class="card clickable" onclick="openModal('solasV15')"><div class="icon">🤝</div><h3>Reg 15</h3></div>
+        <div class="card clickable" onclick="openModal('solas9')"><div class="icon">📗</div><h3>Bab IX</h3></div>
+      </div>
+    </div>
+    <div class="tab-panel" id="p3">
+      <div class="grid g2">
+        <div class="card clickable" onclick="openModal('ism7')"><div class="icon">🛡️</div><h3>ISM Elemen 7</h3></div>
+        <div class="card clickable" onclick="openModal('sms')"><div class="icon">📘</div><h3>SMS / SMK</h3></div>
+        <div class="card clickable" onclick="openModal('dpA')"><div class="icon">👤</div><h3>DPA</h3></div>
+        <div class="card clickable" onclick="openModal('audit')"><div class="icon">🔍</div><h3>Audit</h3></div>
+      </div>
+    </div>
+    <div class="tab-panel" id="p4">
+      <div class="grid g2">
+        <div class="card clickable" onclick="openModal('stcw1')"><div class="icon">🎓</div><h3>STCW 1978</h3></div>
+        <div class="card clickable" onclick="openModal('stcwAviii2')"><div class="icon">⏰</div><h3>STCW A-VIII/2</h3></div>
+        <div class="card clickable" onclick="openModal('stcwA6')"><div class="icon">👨‍🏫</div><h3>STCW A-I/6</h3><p>Kualifikasi instruktur.</p></div>
+        <div class="card clickable" onclick="openModal('stcwA12')"><div class="icon">🎮</div><h3>STCW A-I/12</h3><p>Penggunaan simulator.</p></div>
+      </div>
+    </div>
+    <div class="tab-panel" id="p5">
+      <div class="grid g2">
+        <div class="card clickable" onclick="openModal('marpol1')"><div class="icon">🌊</div><h3>MARPOL</h3></div>
+        <div class="card clickable" onclick="openModal('marpol2')"><div class="icon">🚫</div><h3>Batas Kesimpulan</h3></div>
+      </div>
+    </div>
+    <div class="tab-panel" id="p6">
+      <div class="grid g2">
+        <div class="card clickable" onclick="openModal('uu17')"><div class="icon">⚖️</div><h3>UU 17/2008</h3></div>
+        <div class="card clickable" onclick="openModal('pm25')"><div class="icon">📡</div><h3>PM 25/2011</h3></div>
+        <div class="card clickable" onclick="openModal('pm57')"><div class="icon">🚢</div><h3>PM 57/2015</h3></div>
+        <div class="card clickable" onclick="openModal('kuhd')"><div class="icon">📜</div><h3>KUHD 342 &amp; 384</h3></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TOT 6.09 -->
+<section id="tot" class="alt">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="num">08 — Metodologi Pembelajaran</span>
+      <h2>Kerangka TOT IMO Model Course 6.09</h2>
+      <p>Enam Tahap, Sembilan Elemen, Tiga Instrumen Terpadu — berdasarkan Paper Kelompok III.</p>
+    </div>
+
+    <div class="instructor-badge" onclick="openModal('instructorTOT')">
+      <div class="av">SS</div>
+      <div class="txt">
+        <small>Master Instructor TOT 6.09</small>
+        <strong>CAPT. SAHATTUA P. SIMATUPANG, M.M., M.H.</strong>
+        <span>Ketua Mahkamah Pelayaran Republik Indonesia · NIP. 19671016 199803 1 001</span>
+      </div>
+    </div>
+
+    <div class="card clickable paper" style="margin-bottom:34px;background:linear-gradient(150deg,rgba(245,185,66,.1),rgba(34,211,238,.05));border-color:rgba(245,185,66,.4)" onclick="openModal('paperKelompok')">
+      <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap">
+        <div class="icon" style="background:rgba(245,185,66,.2);border-color:rgba(245,185,66,.45);margin:0">📄</div>
+        <div style="flex:1;min-width:220px">
+          <h3 style="margin:0 0 6px">Paper Kelompok III — Analisis Kasus KM Tilongkabila</h3>
+          <p style="margin:0;font-size:.88rem">Integrasi Teaching Aids, Learning Aids, dan Training Aids Berbasis Studi Kasus. Metode: <strong>Case-Based Simulation Training</strong>.</p>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="margin-bottom:10px;font-size:1.3rem">🎓 Tiga Instrumen Pembelajaran Terpadu</h3>
+    <div class="grid g3" style="margin-bottom:44px">
+      <div class="card teach clickable" onclick="openModal('teachingAids')">
+        <div class="icon" style="background:rgba(34,211,238,.2);border-color:rgba(34,211,238,.5)">👨‍🏫</div>
+        <h3>1. Teaching Aids</h3>
+        <p style="font-size:.85rem"><strong>Pengelola:</strong> Dosen/Instruktur</p>
+        <p style="font-size:.85rem">Slide, video animasi 3D, smartboard peta plotting, playback simulator.</p>
+      </div>
+      <div class="card learn clickable" onclick="openModal('learningAids')">
+        <div class="icon" style="background:rgba(245,185,66,.2);border-color:rgba(245,185,66,.5)">📚</div>
+        <h3>2. Learning Aids</h3>
+        <p style="font-size:.85rem"><strong>Pengelola:</strong> Taruna</p>
+        <p style="font-size:.85rem">Worksheet, kartu kronologi, buku saku P2TL, form Night Order.</p>
+      </div>
+      <div class="card train clickable" onclick="openModal('trainingAids')">
+        <div class="icon" style="background:rgba(34,197,94,.2);border-color:rgba(34,197,94,.5)">🎮</div>
+        <h3>3. Training Aids</h3>
+        <p style="font-size:.85rem"><strong>Pengelola:</strong> Taruna &amp; Tim Simulator</p>
+        <p style="font-size:.85rem">FMBS, ECDIS, mock-up kemudi darurat, telepon ECR.</p>
+      </div>
+    </div>
+
+    <!-- 6-TAHAP SIKLUS BARU -->
+    <h3 style="margin:34px 0 10px;font-size:1.3rem">🔄 Siklus 6-Tahap (Paper Kelompok III)</h3>
+    <p style="color:var(--muted);font-size:.92rem;margin-bottom:20px">Dikembangkan dari draf awal 3-tahap menjadi <strong>6 tahap</strong> mengikuti siklus alat bantu yang efektif: <em>Pilih–Uji–Jelaskan–Demonstrasikan–Libatkan–Evaluasi</em>.</p>
+
+    <div class="stage-flow" style="margin-bottom:44px">
+      <div class="stage-item" onclick="openModal('siklus1')"><div class="num">1</div><h4>Pilih</h4><p>Sebelum sesi: tetapkan capaian &amp; pilih alat</p></div>
+      <div class="stage-item" onclick="openModal('siklus2')"><div class="num">2</div><h4>Uji</h4><p>H-1: uji proyektor, simulator, cetak bahan</p></div>
+      <div class="stage-item" onclick="openModal('siklus3')"><div class="num">3</div><h4>Jelaskan</h4><p>25 mnt: kronologi, peta aturan, pemantik</p></div>
+      <div class="stage-item" onclick="openModal('siklus4')"><div class="num">4</div><h4>Demonstrasikan</h4><p>20 mnt: instruktur peragakan closed-loop &amp; kemudi darurat</p></div>
+      <div class="stage-item" onclick="openModal('siklus5')"><div class="num">5</div><h4>Libatkan</h4><p>60 mnt: briefing, Sesi 1, Sesi 2, kerja pos</p></div>
+      <div class="stage-item" onclick="openModal('siklus6')"><div class="num">6</div><h4>Evaluasi</h4><p>25 mnt: debriefing playback, kuis, refleksi</p></div>
+    </div>
+
+    <h3 style="margin:34px 0 10px;font-size:1.3rem">🎯 Select and Demonstrate</h3>
+    <div class="grid g2" style="margin-bottom:44px">
+      <div class="card clickable" style="border-color:rgba(239,68,68,.4)" onclick="openModal('sesi1Demo')">
+        <div class="icon" style="background:rgba(239,68,68,.15)">⚠️</div><h3>Sesi 1 — Rekonstruksi</h3><p>Kondisi nyata kejadian dengan inject kemudi gagal &amp; ECR tidak merespons.</p>
+      </div>
+      <div class="card clickable" style="border-color:rgba(34,197,94,.4)" onclick="openModal('sesi2Demo')">
+        <div class="icon" style="background:rgba(34,197,94,.15)">✅</div><h3>Sesi 2 — Korektif</h3><p>Penerapan BRM: Nakhoda standby, Master Night Order spesifik, safe speed, closed-loop.</p>
+      </div>
+    </div>
+
+    <h3 style="margin:34px 0 22px;font-size:1.2rem">🔹 Enam Tahap Pengalaman Belajar</h3>
+    <div class="steps">
+      <div class="step" onclick="openModal('totExp')"><h4>Mengalami</h4><p>Pengalaman nyata.</p><span class="t">⏱ 20 menit</span></div>
+      <div class="step" onclick="openModal('totShare')"><h4>Mengungkap</h4><p>Diskusi awal.</p><span class="t">⏱ 20 menit</span></div>
+      <div class="step" onclick="openModal('totProcess')"><h4>Memproses</h4><p>Analisis hukum.</p><span class="t">⏱ 40 menit</span></div>
+      <div class="step" onclick="openModal('totGeneralize')"><h4>Menggeneralisasi</h4><p>Prinsip umum.</p><span class="t">⏱ 20 menit</span></div>
+      <div class="step" onclick="openModal('totApply')"><h4>Menerapkan</h4><p>Simulasi.</p><span class="t">⏱ 60 menit</span></div>
+      <div class="step" onclick="openModal('totEvaluate')"><h4>Mengevaluasi</h4><p>Asesmen kinerja.</p><span class="t">⏱ 30 menit</span></div>
+    </div>
+
+    <h3 style="margin:52px 0 22px;font-size:1.2rem">🔸 Sembilan Elemen Efektivitas</h3>
+    <div class="grid g3">
+      <div class="card clickable" onclick="openModal('el1')"><div class="icon">🎯</div><h3 style="font-size:.98rem">1. Relevansi</h3></div>
+      <div class="card clickable" onclick="openModal('el2')"><div class="icon">📖</div><h3 style="font-size:.98rem">2. Konteks Nyata</h3></div>
+      <div class="card clickable" onclick="openModal('el3')"><div class="icon">🙋</div><h3 style="font-size:.98rem">3. Partisipasi Aktif</h3></div>
+      <div class="card clickable" onclick="openModal('el4')"><div class="icon">🔁</div><h3 style="font-size:.98rem">4. Umpan Balik</h3></div>
+      <div class="card clickable" onclick="openModal('el5')"><div class="icon">🔂</div><h3 style="font-size:.98rem">5. Pengulangan</h3></div>
+      <div class="card clickable" onclick="openModal('el6')"><div class="icon">🎬</div><h3 style="font-size:.98rem">6. Multi-Sensori</h3></div>
+      <div class="card clickable" onclick="openModal('el7')"><div class="icon">🤝</div><h3 style="font-size:.98rem">7. Kolaborasi</h3></div>
+      <div class="card clickable" onclick="openModal('el8')"><div class="icon">🪞</div><h3 style="font-size:.98rem">8. Refleksi</h3></div>
+      <div class="card clickable" onclick="openModal('el9')"><div class="icon">📊</div><h3 style="font-size:.98rem">9. Asesmen</h3></div>
+    </div>
+
+    <h3 style="margin:52px 0 22px;font-size:1.2rem">🎯 Learning Outcomes</h3>
+    <div class="lo" onclick="openModal('lo1')"><div class="code">LO-1 · C2</div><p>Menjelaskan kronologi &amp; penyebab.</p></div>
+    <div class="lo" onclick="openModal('lo2')"><div class="code">LO-2 · C3</div><p>Menerapkan Rule 5 &amp; 6 COLREG.</p></div>
+    <div class="lo" onclick="openModal('lo3')"><div class="code">LO-3 · C4</div><p>Menganalisis BRM &amp; ISM Code.</p></div>
+    <div class="lo" onclick="openModal('lo4')"><div class="code">LO-4 · C5</div><p>Mengevaluasi prosedur SMS.</p></div>
+    <div class="lo" onclick="openModal('lo5')"><div class="code">LO-5 · C6</div><p>Menyusun passage plan.</p></div>
+    <div class="lo" onclick="openModal('lo6')"><div class="code">LO-6 · Afektif</div><p>Sikap speak up &amp; disiplin.</p></div>
+
+    <!-- TRAINING AIDS DETAIL DIPERLUAS -->
+    <h3 style="margin:52px 0 22px;font-size:1.3rem">🧰 Training Aids &amp; Media — Detail Berjenjang (Paper Kelompok III)</h3>
+    <p style="color:var(--muted);font-size:.92rem;margin-bottom:14px">Paper Kelompok III merekomendasikan training aids <strong>berjenjang menurut fidelitas</strong>. Klik setiap kartu untuk penjelasan detail.</p>
+    <div class="grid g4" style="margin-bottom:20px">
+      <div class="card clickable" onclick="openModal('aid1')"><div class="icon">🖥️</div><h3 style="font-size:.93rem">FMBS (Fidelitas Tinggi)</h3><p>BRM, kepemimpinan, kerja tim.</p></div>
+      <div class="card clickable" onclick="openModal('aid2')"><div class="icon">🗺️</div><h3 style="font-size:.93rem">ECDIS Desktop</h3><p>Passage plan, no-go area.</p></div>
+      <div class="card clickable" onclick="openModal('aid11')"><div class="icon">🛟</div><h3 style="font-size:.93rem">Mock-up Kemudi Darurat</h3><p>FU/NFU, sakelar peralihan.</p></div>
+      <div class="card clickable" onclick="openModal('aid9')"><div class="icon">🎙️</div><h3 style="font-size:.93rem">Telepon Anjungan–ECR</h3><p>Closed-loop komunikasi.</p></div>
+      <div class="card clickable" onclick="openModal('aid10')"><div class="icon">🎬</div><h3 style="font-size:.93rem">Debriefing Playback</h3><p>Review rekaman.</p></div>
+      <div class="card clickable" onclick="openModal('aid13')"><div class="icon">🗺️</div><h3 style="font-size:.93rem">Tabletop Exercise</h3><p>Alternatif berbiaya rendah.</p></div>
+      <div class="card clickable" onclick="openModal('aid5')"><div class="icon">📋</div><h3 style="font-size:.93rem">Checklist &amp; Form</h3><p>Departure, lashing, audit.</p></div>
+      <div class="card clickable" onclick="openModal('aid6')"><div class="icon">🧯</div><h3 style="font-size:.93rem">Alat Keselamatan</h3><p>Life jacket, liferaft, APAR.</p></div>
+    </div>
+
+    <h3 style="margin:34px 0 22px;font-size:1.2rem">📊 Tabel 2 Paper — Pemetaan Temuan → STCW</h3>
+    <p style="color:var(--muted);font-size:.9rem;margin-bottom:14px">Tabel pemetaan temuan Mahkamah ke ketentuan hukum dan kompetensi STCW. Klik untuk tabel lengkap.</p>
+    <div class="card clickable paper" onclick="openModal('tabel2Paper')">
+      <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap">
+        <div class="icon" style="background:rgba(34,211,238,.15);margin:0">📊</div>
+        <div style="flex:1;min-width:200px">
+          <h3 style="margin:0 0 6px;font-size:1rem">Pemetaan Temuan Putusan → Ketentuan Hukum → Kompetensi STCW</h3>
+          <p style="margin:0;font-size:.85rem">6 baris temuan: pengamatan, kecepatan, Master Night Order, kemudi darurat, emergency stop, komunikasi ECR.</p>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="margin:34px 0 22px;font-size:1.2rem">📊 Tabel 3 Paper — Training Aids Berjenjang</h3>
+    <p style="color:var(--muted);font-size:.9rem;margin-bottom:14px">Rekomendasi training aids berdasarkan fidelitas, kompetensi, dan alasan pemilihan. Klik untuk detail.</p>
+    <div class="card clickable paper" onclick="openModal('tabel3Paper')">
+      <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap">
+        <div class="icon" style="background:rgba(34,197,94,.15);margin:0">🎮</div>
+        <div style="flex:1;min-width:200px">
+          <h3 style="margin:0 0 6px;font-size:1rem">Tabel 3 — Training Aids Berjenjang untuk Kasus KM Tilongkabila</h3>
+          <p style="margin:0;font-size:.85rem">FMBS, simulator desktop/ECDIS, mock-up kemudi darurat, komunikasi anjungan–ECR, tabletop exercise.</p>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="margin:34px 0 22px;font-size:1.2rem">📊 Tabel 4 Paper — Teaching &amp; Learning Aids Pendukung</h3>
+    <div class="card clickable paper" onclick="openModal('tabel4Paper')">
+      <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap">
+        <div class="icon" style="background:rgba(245,185,66,.15);margin:0">📚</div>
+        <div style="flex:1;min-width:200px">
+          <h3 style="margin:0 0 6px;font-size:1rem">Tabel 4 — Teaching Aids &amp; Learning Aids Pendukung</h3>
+          <p style="margin:0;font-size:.85rem">Slide kronologi, peta plotting, grafik jarak henti, video animasi; worksheet, kartu kronologi, buku saku, form.</p>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="margin:34px 0 22px;font-size:1.2rem">📊 Tabel 5 Paper — Siklus 6 Tahap &amp; Bukti Asesmen</h3>
+    <div class="card clickable paper" onclick="openModal('tabel5Paper')">
+      <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap">
+        <div class="icon" style="background:rgba(167,139,250,.15);margin:0">🔄</div>
+        <div style="flex:1;min-width:200px">
+          <h3 style="margin:0 0 6px;font-size:1rem">Tabel 5 — Siklus Pilih-Uji-Jelaskan-Demonstrasikan-Libatkan-Evaluasi</h3>
+          <p style="margin:0;font-size:.85rem">Setiap tahap: kegiatan, teaching aid, learning aid, training aid, bukti asesmen.</p>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="margin:34px 0 22px;font-size:1.2rem">📊 Tabel 6 Paper — Rubrik Observasi Perilaku BRM</h3>
+    <p style="color:var(--muted);font-size:.9rem;margin-bottom:14px">Rubrik penilaian keterampilan nonteknis (behavioural markers) untuk asesmen BRM.</p>
+    <div class="card clickable paper" onclick="openModal('tabel6Paper')">
+      <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap">
+        <div class="icon" style="background:rgba(34,211,238,.15);margin:0">📋</div>
+        <div style="flex:1;min-width:200px">
+          <h3 style="margin:0 0 6px;font-size:1rem">Tabel 6 — Rubrik Observasi BRM (5 Kriteria × 3 Tingkat)</h3>
+          <p style="margin:0;font-size:.85rem">Kesadaran situasi, keputusan kecepatan, komunikasi closed-loop, eskalasi/tindakan darurat, penalaran hukum. Skor 13–15 = kompeten.</p>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="margin:34px 0 22px;font-size:1.2rem">📊 Tabel 7 Paper — Checklist Alat Bantu Pembelajaran BPSDMP</h3>
+    <div class="card clickable paper" onclick="openModal('tabel7Paper')">
+      <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap">
+        <div class="icon" style="background:rgba(245,185,66,.15);margin:0">✅</div>
+        <div style="flex:1;min-width:200px">
+          <h3 style="margin:0 0 6px;font-size:1rem">Tabel 7 — Evaluasi Desain terhadap 9 Butir Checklist</h3>
+          <p style="margin:0;font-size:.85rem">Selaras LO, akurat &amp; mutakhir, sesuai profil peserta, terlihat/terdengar/mudah, teruji, aman, partisipatif, terhubung asesmen, ada alternatif.</p>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="margin:34px 0 22px;font-size:1.2rem">📊 Keterbatasan Paper (4.9)</h3>
+    <div class="card clickable paper" onclick="openModal('paperKeterbatasan')">
+      <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap">
+        <div class="icon" style="background:rgba(239,68,68,.15);margin:0">⚠️</div>
+        <div style="flex:1;min-width:200px">
+          <h3 style="margin:0 0 6px;font-size:1rem">Keterbatasan Kajian Paper Kelompok III</h3>
+          <p style="margin:0;font-size:.85rem">Model belum diuji empiris; tidak semua lembaga punya FMBS Selat Buton; dokumen putusan berupa pindaian.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AKTIVITAS -->
+<section id="aktivitas">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="num">09 — Rencana Pembelajaran Taruna</span>
+      <h2>Enam Aktivitas Terstruktur</h2>
+      <p>Setiap aktivitas dilengkapi tujuan, langkah detail, praktik, rubrik, dan contoh penerapan. Klik untuk detail lengkap.</p>
+    </div>
+    <div class="grid g2">
+      <div class="card clickable" onclick="openModal('akt1')"><div class="icon">🕐</div><h3>Aktivitas 1 — Kronologi &amp; Analisis Fakta</h3><p>Menyusun garis waktu, memisahkan fakta dari interpretasi.</p></div>
+      <div class="card clickable" onclick="openModal('akt2')"><div class="icon">👥</div><h3>Aktivitas 2 — Simulasi Bridge Team (BRM)</h3><p>Role play Nakhoda, Perwira Jaga, Markonis, Pandu.</p></div>
+      <div class="card clickable" onclick="openModal('akt3')"><div class="icon">⚡</div><h3>Aktivitas 3 — Keputusan Kecepatan Aman</h3><p>Menghitung jarak henti, menetapkan batas kecepatan.</p></div>
+      <div class="card clickable" onclick="openModal('akt4')"><div class="icon">🔍</div><h3>Aktivitas 4 — Audit SMS / SMK</h3><p>Menemukan prosedur &amp; bukti pelaksanaan.</p></div>
+      <div class="card clickable" onclick="openModal('akt5')"><div class="icon">🌊</div><h3>Aktivitas 5 — Checklist MARPOL</h3><p>Pemeriksaan risiko lingkungan tanpa asumsi.</p></div>
+      <div class="card clickable" onclick="openModal('akt6')"><div class="icon">🌍</div><h3>Aktivitas 6 — Studi Komparatif Internasional</h3><p>Bandingkan kasus nasional &amp; global.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- DISKUSI & KUIS -->
+<section id="diskusi" class="alt">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="num">10 — Refleksi &amp; Kuis</span>
+      <h2>Uji Pemahaman Anda</h2>
+      <p>20 pertanyaan pilihan ganda dengan penjelasan jawaban, dan 8 topik diskusi terbuka. Klik setiap opsi untuk melihat jawaban.</p>
+    </div>
+
+    <div class="quiz-progress">
+      <div class="score" id="quizScore">0 / 20</div>
+      <div class="lbl">Skor Anda</div>
+    </div>
+
+    <div class="grid g2" style="margin-bottom:36px">
+
+      <div class="quiz" data-answer="b">
+        <h4>❓ Q1 — KM Tilongkabila 1</h4>
+        <p style="color:var(--muted);font-size:.92rem;margin-bottom:16px">Mengapa Mualim IV KM Tilongkabila dinyatakan <strong>tidak</strong> melakukan kesalahan/kelalaian?</p>
+        <div class="opt" data-k="a">A. Tidak berada di anjungan</div>
+        <div class="opt" data-k="b">B. Melapor kepada Nakhoda, melaksanakan instruksi, dan bertindak sesuai good seamanship</div>
+        <div class="opt" data-k="c">C. Sertifikat ANT III masih berlaku</div>
+        <div class="opt" data-k="d">D. Cuaca buruk</div>
+        <div class="fb"></div>
+      </div>
+
+      <div class="quiz" data-answer="c">
+        <h4>❓ Q2 — Penyebab Tunu</h4>
+        <p style="color:var(--muted);font-size:.92rem;margin-bottom:16px">Penyebab utama tenggelamnya KMP Tunu Pratama Jaya?</p>
+        <div class="opt" data-k="a">A. Cuaca ekstrem</div>
+        <div class="opt" data-k="b">B. Kegagalan mesin</div>
+        <div class="opt" data-k="c">C. Kegagalan stabilitas progresif: overdraft + pergeseran muatan + air masuk</div>
+        <div class="opt" data-k="d">D. Tubrukan karang</div>
+        <div class="fb"></div>
+      </div>
+
+      <div class="quiz" data-answer="a">
+        <h4>❓ Q3 — Rule 5 COLREG</h4>
+        <p style="color:var(--muted);font-size:.92rem;margin-bottom:16px">Rule 5 COLREG 1972 mengatur tentang…</p>
+        <div class="opt" data-k="a">A. Pengamatan yang layak (proper look-out)</div>
+        <div class="opt" data-k="b">B. Kecepatan aman</div>
+        <div class="opt" data-k="c">C. Lampu navigasi</div>
+        <div class="opt" data-k="d">D. Prosedur darurat</div>
+        <div class="fb"></div>
+      </div>
+
+      <div class="quiz" data-answer="d">
+        <h4>❓ Q4 — MARPOL</h4>
+        <p style="color:var(--muted);font-size:.92rem;margin-bottom:16px">Pernyataan paling tepat tentang MARPOL dalam kasus KM Tilongkabila 1?</p>
+        <div class="opt" data-k="a">A. Pasti dilanggar karena tubrukan</div>
+        <div class="opt" data-k="b">B. Tidak relevan sama sekali</div>
+        <div class="opt" data-k="c">C. Otomatis melanggar jika tangki air tawar bocor</div>
+        <div class="opt" data-k="d">D. Relevan sebagai pemeriksaan risiko, tapi pelanggaran perlu fakta &amp; dasar hukum</div>
+        <div class="fb"></div>
+      </div>
+
+      <div class="quiz" data-answer="b">
+        <h4>❓ Q5 — Tilongkabila 2</h4>
+        <p style="color:var(--muted);font-size:.92rem;margin-bottom:16px">Temuan utama pada kasus KM Tilongkabila vs KM Sabuk Nusantara 35?</p>
+        <div class="opt" data-k="a">A. Pandu tidak kompeten</div>
+        <div class="opt" data-k="b">B. Nakhoda tidak menggunakan Pandu sebagai penasihat meskipun di perairan wajib Pandu</div>
+        <div class="opt" data-k="c">C. Cuaca ekstrem saja</div>
+        <div class="opt" data-k="d">D. Kerusakan mesin</div>
+        <div class="fb"></div>
+      </div>
+
+      <div class="quiz" data-answer="c">
+        <h4>❓ Q6 — Teaching Aids</h4>
+        <p style="color:var(--muted);font-size:.92rem;margin-bottom:16px">Dalam Paper Kelompok III, apa isi Teaching Aids?</p>
+        <div class="opt" data-k="a">A. Worksheet analisis mandiri</div>
+        <div class="opt" data-k="b">B. Simulator anjungan</div>
+        <div class="opt" data-k="c">C. Slide rekonstruksi kronologi, video animasi 3D, smartboard peta plotting</div>
+        <div class="opt" data-k="d">D. Bridge checklist ISM Code</div>
+        <div class="fb"></div>
+      </div>
+
+      <div class="quiz" data-answer="a">
+        <h4>❓ Q7 — Learning Aids</h4>
+        <p style="color:var(--muted);font-size:.92rem;margin-bottom:16px">Apa yang dimaksud dengan Learning Aids?</p>
+        <div class="opt" data-k="a">A. Alat bantu pembelajaran mandiri taruna: worksheet, buku saku P2TL, bridge checklist</div>
+        <div class="opt" data-k="b">B. Slide presentasi instruktur</div>
+        <div class="opt" data-k="c">C. Simulator full mission</div>
+        <div class="opt" data-k="d">D. Video animasi 3D</div>
+        <div class="fb"></div>
+      </div>
+
+      <div class="quiz" data-answer="d">
+        <h4>❓ Q8 — Training Aids</h4>
+        <p style="color:var(--muted);font-size:.92rem;margin-bottom:16px">Perbedaan utama Training Aids dibanding Teaching &amp; Learning Aids?</p>
+        <div class="opt" data-k="a">A. Hanya untuk teori</div>
+        <div class="opt" data-k="b">B. Sama saja</div>
+        <div class="opt" data-k="c">C. Hanya untuk dosen</div>
+        <div class="opt" data-k="d">D. Fokus pada praktik hands-on di simulator/perangkat nyata untuk keterampilan motorik &amp; keputusan taktis</div>
+        <div class="fb"></div>
+      </div>
+
+      <div class="quiz" data-answer="b">
+        <h4>❓ Q9 — Siklus 6-Tahap</h4>
+        <p style="color:var(--muted);font-size:.92rem;margin-bottom:16px">Apa tahap ke-3 dalam siklus 6-tahap Paper Kelompok III?</p>
+        <div class="opt" data-k="a">A. Pilih</div>
+        <div class="opt" data-k="b">B. Jelaskan</div>
+        <div class="opt" data-k="c">C. Demonstrasikan</div>
+        <div class="opt" data-k="d">D. Evaluasi</div>
+        <div class="fb"></div>
+      </div>
+
+      <div class="quiz" data-answer="a">
+        <h4>❓ Q10 — Sesi 1 Demo</h4>
+        <p style="color:var(--muted);font-size:.92rem;margin-bottom:16px">Sesi 1 pada "Select and Demonstrate" menskenariokan apa?</p>
+        <div class="opt" data-k="a">A. Rekonstruksi kondisi nyata kejadian (aksidentil)</div>
+        <div class="opt" data-k="b">B. Penerapan BRM yang benar</div>
+        <div class="opt" data-k="c">C. Latihan drill kebakaran</div>
+        <div class="opt" data-k="d">D. Latihan evakuasi penumpang</div>
+        <div class="fb"></div>
+      </div>
+
+      <div class="quiz" data-answer="c">
+        <h4>❓ Q11 — SOLAS V Reg 15</h4>
+        <p style="color:var(--muted);font-size:.92rem;margin-bottom:16px">Apa isi SOLAS Bab V Regulasi 15?</p>
+        <div class="opt" data-k="a">A. Penggunaan radar</div>
+        <div class="opt" data-k="b">B. Prosedur darurat kebakaran</div>
+        <div class="opt" data-k="c">C. Pengaturan alat &amp; prosedur di anjungan yang mendukung kerja tim &amp; meminimalkan human error</div>
+        <div class="opt" data-k="d">D. Standar sekoci</div>
+        <div class="fb"></div>
+      </div>
+
+      <div class="quiz" data-answer="b">
+        <h4>❓ Q12 — PM 57/2015</h4>
+        <p style="color:var(--muted);font-size:.92rem;margin-bottom:16px">Apa yang diatur dalam PM 57 Tahun 2015?</p>
+        <div class="opt" data-k="a">A. Pengikatan kendaraan</div>
+        <div class="opt" data-k="b">B. Pemanduan dan penundaan kapal — termasuk kewajiban Pandu di perairan wajib Pandu</div>
+        <div class="opt" data-k="c">C. Garis muat kapal</div>
+        <div class="opt" data-k="d">D. Sarana bantu navigasi</div>
+        <div class="fb"></div>
+      </div>
+
+      <div class="quiz" data-answer="d">
+        <h4>❓ Q13 — SMK Pelni 7</h4>
+        <p style="color:var(--muted);font-size:.92rem;margin-bottom:16px">Dalam SMK 7 PT Pelni tentang prosedur naik turun Pandu, bagaimana peran Pandu?</p>
+        <div class="opt" data-k="a">A. Pandu mengambil alih komando</div>
+        <div class="opt" data-k="b">B. Pandu bebas melakukan manuver</div>
+        <div class="opt" data-k="c">C. Pandu menggantikan Nakhoda</div>
+        <div class="opt" data-k="d">D. Pandu bersifat penasihat; kehadirannya tidak membebaskan Nakhoda dari tanggung jawab</div>
+        <div class="fb"></div>
+      </div>
+
+      <div class="quiz" data-answer="a">
+        <h4>❓ Q14 — ISM Code Elemen 7</h4>
+        <p style="color:var(--muted);font-size:.92rem;margin-bottom:16px">Apa fokus utama ISM Code Elemen 7?</p>
+        <div class="opt" data-k="a">A. Pengendalian operasi kapal — prosedur, rencana, dan instruksi untuk operasi yang aman</div>
+        <div class="opt" data-k="b">B. Pemeliharaan kapal</div>
+        <div class="opt" data-k="c">C. Sumber daya manusia</div>
+        <div class="opt" data-k="d">D. Audit internal</div>
+        <div class="fb"></div>
+      </div>
+
+      <div class="quiz" data-answer="c">
+        <h4>❓ Q15 — Free Surface Effect</h4>
+        <p style="color:var(--muted);font-size:.92rem;margin-bottom:16px">Apa dampak utama Free Surface Effect (FSE) terhadap stabilitas kapal?</p>
+        <div class="opt" data-k="a">A. Meningkatkan GM</div>
+        <div class="opt" data-k="b">B. Tidak berpengaruh</div>
+        <div class="opt" data-k="c">C. Mengurangi tinggi metasentra (GM) sehingga stabilitas menurun</div>
+        <div class="opt" data-k="d">D. Meningkatkan freeboard</div>
+        <div class="fb"></div>
+      </div>
+
+      <div class="quiz" data-answer="b">
+        <h4>❓ Q16 — Downflooding</h4>
+        <p style="color:var(--muted);font-size:.92rem;margin-bottom:16px">Apa yang dimaksud dengan <em>downflooding</em>?</p>
+        <div class="opt" data-k="a">A. Air keluar dari kapal</div>
+        <div class="opt" data-k="b">B. Masuknya air laut melalui bukaan yang seharusnya tertutup</div>
+        <div class="opt" data-k="c">C. Pengisian ballast</div>
+        <div class="opt" data-k="d">D. Pembersihan tangki</div>
+        <div class="fb"></div>
+      </div>
+
+      <div class="quiz" data-answer="a">
+        <h4>❓ Q17 — STCW A-VIII/2</h4>
+        <p style="color:var(--muted);font-size:.92rem;margin-bottom:16px">Apa isi STCW Code Section A-VIII/2?</p>
+        <div class="opt" data-k="a">A. Pengaturan tugas jaga dan prinsip-prinsipnya, termasuk BTM</div>
+        <div class="opt" data-k="b">B. Standar sekoci</div>
+        <div class="opt" data-k="c">C. Standar mesin</div>
+        <div class="opt" data-k="d">D. Prosedur pemadaman kebakaran</div>
+        <div class="fb"></div>
+      </div>
+
+      <div class="quiz" data-answer="c">
+        <h4>❓ Q18 — Pasal 342 KUHD</h4>
+        <p style="color:var(--muted);font-size:.92rem;margin-bottom:16px">Apa bunyi Pasal 342 alinea pertama KUHD?</p>
+        <div class="opt" data-k="a">A. ABK wajib melaksanakan perintah Nakhoda</div>
+        <div class="opt" data-k="b">B. Nakhoda berhak menolak perintah Syahbandar</div>
+        <div class="opt" data-k="c">C. Nakhoda wajib bertindak dengan kepandaian, ketelitian, dan kebijaksanaan yang cukup untuk melaksanakan tugasnya</div>
+        <div class="opt" data-k="d">D. Kapal wajib memiliki sertifikat garis muat</div>
+        <div class="fb"></div>
+      </div>
+
+      <div class="quiz" data-answer="b">
+        <h4>❓ Q19 — Overdraft</h4>
+        <p style="color:var(--muted);font-size:.92rem;margin-bottom:16px">Apa yang dimaksud dengan <em>overdraft</em>?</p>
+        <div class="opt" data-k="a">A. Kapal kekurangan muatan</div>
+        <div class="opt" data-k="b">B. Sarat (draft) aktual kapal melebihi sarat desain maksimum — mengurangi freeboard &amp; reserve buoyancy</div>
+        <div class="opt" data-k="c">C. Kapal berlayar lambat</div>
+        <div class="opt" data-k="d">D. Kapal kelebihan bahan bakar</div>
+        <div class="fb"></div>
+      </div>
+
+      <div class="quiz" data-answer="d">
+        <h4>❓ Q20 — Master Instructor TOT 6.09</h4>
+        <p style="color:var(--muted);font-size:.92rem;margin-bottom:16px">Siapa Master Instructor TOT 6.09 dan Ketua Mahkamah Pelayaran RI dalam modul ini?</p>
+        <div class="opt" data-k="a">A. Rafael Sukirno, CE</div>
+        <div class="opt" data-k="b">B. Capt. Bobby R. Mamahit</div>
+        <div class="opt" data-k="c">C. Capt. Suhidman</div>
+        <div class="opt" data-k="d">D. CAPT. SAHATTUA P. SIMATUPANG, M.M., M.H.</div>
+        <div class="fb"></div>
+      </div>
+
+    </div>
+
+    <!-- 8 TOPIK DISKUSI TERBUKA -->
+    <h3 style="margin:52px 0 22px;font-size:1.3rem">💬 Delapan Topik Diskusi Terbuka</h3>
+    <p style="color:var(--muted);font-size:.92rem;margin-bottom:22px">Topik-topik ini mendorong analisis mendalam, argumentasi berbasis regulasi, dan refleksi pribadi.</p>
+
+    <div class="grid g2">
+      <div class="card clickable" onclick="openModal('disk1')">
+        <div class="icon">💭</div><h3 style="font-size:1rem">Diskusi 1 — Indikator Perlambatan di Alur Sempit</h3>
+        <p>Jika Anda perwira jaga di alur sempit, indikator apa yang membuat Anda mengurangi kecepatan atau segera memanggil Nakhoda?</p>
+      </div>
+      <div class="card clickable" onclick="openModal('disk2')">
+        <div class="icon">💭</div><h3 style="font-size:1rem">Diskusi 2 — Dilema Pandu vs Kepercayaan Nakhoda</h3>
+        <p>Apakah Nakhoda berhak tidak mempercayai Pandu bersertifikat?</p>
+      </div>
+      <div class="card clickable" onclick="openModal('disk3')">
+        <div class="icon">💭</div><h3 style="font-size:1rem">Diskusi 3 — Overdraft &amp; Tekanan Komersial</h3>
+        <p>Bagaimana perwira jaga mempertahankan kepatuhan stabilitas tanpa mengorbankan keselamatan?</p>
+      </div>
+      <div class="card clickable" onclick="openModal('disk4')">
+        <div class="icon">💭</div><h3 style="font-size:1rem">Diskusi 4 — Budaya Speak Up</h3>
+        <p>Apakah pelaut junior berani menyampaikan keraguan kepada Nakhoda?</p>
+      </div>
+      <div class="card clickable" onclick="openModal('disk5')">
+        <div class="icon">💭</div><h3 style="font-size:1rem">Diskusi 5 — BRM dalam Cuaca Ekstrem</h3>
+        <p>Ketika angin menguat saat olah gerak sandar, lanjutkan atau abort?</p>
+      </div>
+      <div class="card clickable" onclick="openModal('disk6')">
+        <div class="icon">💭</div><h3 style="font-size:1rem">Diskusi 6 — Pembelajaran dari Putusan</h3>
+        <p>Bagaimana putusan Mahkamah Pelayaran dapat menjadi materi ajar efektif?</p>
+      </div>
+      <div class="card clickable" onclick="openModal('disk7')">
+        <div class="icon">💭</div><h3 style="font-size:1rem">Diskusi 7 — Pemanfaatan Simulator</h3>
+        <p>Apakah simulasi FMBS cukup merepresentasikan kondisi nyata?</p>
+      </div>
+      <div class="card clickable" onclick="openModal('disk8')">
+        <div class="icon">💭</div><h3 style="font-size:1rem">Diskusi 8 — Refleksi: Saya sebagai Perwira Jaga</h3>
+        <p>Jika Anda Mualim IV Tilongkabila, apa yang akan Anda lakukan berbeda?</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SUMBER -->
+<section id="sumber">
+  <div class="wrap">
+    <div class="sec-head"><span class="num">11 — Sumber</span><h2>Rujukan &amp; Catatan</h2></div>
+    <div class="grid g2">
+      <div class="card">
+        <h3>Sumber Primer</h3>
+        <ul style="color:var(--muted);font-size:.89rem;padding-left:20px;margin-top:12px">
+          <li>Putusan No. HK.212/1/9/MP/2025 — KM Tilongkabila (Tebing)</li>
+          <li>Putusan No. HK.212/1/2/MP/2026 — Tilongkabila × Sabuk Nusantara 35</li>
+          <li>Putusan No. HK.212/1/1/MP/2026 — KMP Tunu Pratama Jaya</li>
+          <li>Paper Kelompok III — Integrasi Teaching, Learning &amp; Training Aids (DIKLAT TOT IMO 6.09 BP2TL 2026)</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Referensi Internasional (Paper Kelompok III)</h3>
+        <ul style="color:var(--muted);font-size:.85rem;padding-left:20px;margin-top:12px">
+          <li>IMO (2011, 2017, 2018, 2020) — STCW, SOLAS, COLREG, ISM Code, Model Course 6.09</li>
+          <li>Biggs &amp; Tang (2011) — Constructive Alignment</li>
+          <li>Dale (1969) — Cone of Experience</li>
+          <li>Fanning &amp; Gaba (2007) — Debriefing</li>
+          <li>Hanzu-Pazara et al. (2008) — Simulator Training</li>
+          <li>Herreid (2007) — Case-Based Learning</li>
+          <li>Hetherington et al. (2006) — Human Factor</li>
+          <li>Hontvedt &amp; Arnseth (2013) — Simulator Instruction</li>
+          <li>Kim et al. (2021) — Simulator Fidelity</li>
+          <li>Kolb (1984) — Experiential Learning</li>
+          <li>Mayer (2009) — Multimedia Learning</li>
+          <li>O'Connor (2011) — BRM Effectiveness</li>
+          <li>Reason (1990, 1997) — Human Error &amp; Organizational Accidents</li>
+          <li>Salas et al. (2006) — CRM Training</li>
+          <li>Sellberg (2017, 2018) — Simulator Learning</li>
+          <li>Thistlethwaite et al. (2012) — Case-Based Learning Review</li>
+          <li>Wahl &amp; Kongsvik (2018) — CRM Maritime Review</li>
+          <li>Yin (2018) — Case Study Research</li>
+        </ul>
+      </div>
+    </div>
+    <div class="chips" style="justify-content:center;margin-top:28px">
+      <a class="chip g" href="https://mahpel.dephub.go.id" target="_blank" rel="noopener">🌐 Mahkamah Pelayaran</a>
+      <a class="chip g" href="https://jdih.dephub.go.id" target="_blank" rel="noopener">🌐 JDIH</a>
+      <a class="chip g" href="https://www.imo.org" target="_blank" rel="noopener">🌐 IMO</a>
+      <a class="chip g" href="https://iacs.org.uk/" target="_blank" rel="noopener">🏛️ IACS</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="brand" style="justify-content:center;margin-bottom:18px">
+    <div class="logo">⚓</div>
+    <div style="text-align:left">MARITIME LEARNING HUB<small>by Rafael Sukirno, CE</small></div>
+  </div>
+  <p><strong>Studi Kasus Keselamatan Pelayaran</strong> — KM Tilongkabila (2 kasus) &amp; KMP Tunu Pratama Jaya</p>
+  <p>Kerangka TOT IMO Model Course 6.09 dengan integrasi Teaching, Learning &amp; Training Aids berdasarkan Paper Kelompok III (DIKLAT TOT BP2TL 2026). Master Instructor: CAPT. SAHATTUA P. SIMATUPANG, M.M., M.H.</p>
+  <div class="credit">
+    <div class="av">RS</div>
+    <h4>Rafael Sukirno, CE</h4>
+    <p>Wakil Ketua Kelompok III · Penyusun &amp; Pengembang Modul</p>
+  </div>
+  <div class="disc">
+    Modul ini adalah bahan ajar. Kesimpulan hukum mengacu pada dokumen putusan Mahkamah Pelayaran. Untuk penggunaan resmi, rujuk dokumen otentik dan peraturan yang berlaku.
+  </div>
+  <p style="margin-top:24px;font-size:.78rem;color:#5d7186">© 2026 Maritime Learning Hub · Kelompok III · DIKLAT TOT IMO Model Course 6.09 · BP2TL</p>
+</footer>
+
+<button id="top">↑</button>
+
+<div class="modal-bg" id="modalBg">
+  <div class="modal" id="modalBox">
+    <button class="close" onclick="closeModal()">✕</button>
+    <div id="modalContent"></div>
+  </div>
+</div>
+
+<script>
+/* ================= LINK BAR ================= */
+function linkBar(query){
+  const q = encodeURIComponent(query);
+  return `<div class="chips" style="margin-top:20px;padding-top:16px;border-top:1px dashed rgba(34,211,238,.25);justify-content:flex-start">
+    <a class="chip" href="https://www.google.com/search?q=${q}" target="_blank" rel="noopener">🔍 Google</a>
+    <a class="chip" href="https://en.wikipedia.org/w/index.php?search=${q}" target="_blank" rel="noopener">📚 Wikipedia</a>
+    <a class="chip" href="https://www.youtube.com/results?search_query=${q}" target="_blank" rel="noopener">▶️ YouTube</a>
+    <a class="chip" href="https://id.pinterest.com/search/pins/?q=${q}" target="_blank" rel="noopener">📌 Pinterest</a>
+    <a class="chip" href="https://www.imo.org" target="_blank" rel="noopener">⚓ IMO</a>
+    <a class="chip" href="https://iacs.org.uk/" target="_blank" rel="noopener">🏛️ IACS</a>
+    <a class="chip" href="https://jdih.dephub.go.id/" target="_blank" rel="noopener">🇮🇩 JDIH</a>
+  </div>`;
+}
+function doIntlSearch(){
+  const q = document.getElementById('intlSearch').value.trim();
+  if(!q){ alert('Masukkan kata kunci'); return; }
+  window.open('https://www.google.com/search?q=' + encodeURIComponent(q + ' maritime disaster investigation'), '_blank', 'noopener');
+}
+
+/* ================= MODALS ================= */
+const MODALS = {
+
+  author:{title:"Rafael Sukirno, CE",sub:"Wakil Ketua Kelompok III · Penyusun Modul",body:`
+    <p>Penyusun modul Maritime Learning Hub. Anggota <strong>Kelompok III</strong> DIKLAT Training of Trainer (IMO Model Course 6.09) BP2TL 2026, dengan jabatan <strong>Wakil Ketua</strong> kelompok.</p>
+    <h4>Peran</h4>
+    <ul>
+      <li>Analisis putusan Mahkamah Pelayaran</li>
+      <li>Penyusunan kerangka TOT 6.09 dengan integrasi Teaching, Learning, Training Aids</li>
+      <li>Pengembangan modul pembelajaran maritim interaktif</li>
+    </ul>
+    ${linkBar('Rafael Sukirno maritime learning Indonesia')}
+  `},
+
+  instructorTOT:{title:"CAPT. SAHATTUA P. SIMATUPANG, M.M., M.H.",sub:"Master Instructor TOT 6.09 · Ketua Mahkamah Pelayaran RI",body:`
+    <p><strong>CAPT. SAHATTUA P. SIMATUPANG, M.M., M.H.</strong> — Ketua Mahkamah Pelayaran Republik Indonesia, NIP. 19671016 199803 1 001.</p>
+    <h4>Peran dalam TOT 6.09</h4>
+    <ul>
+      <li>Penerjemahan putusan Mahkamah Pelayaran menjadi bahan ajar</li>
+      <li>Pengembangan metode Case-Based Simulation Training</li>
+      <li>Integrasi Teaching, Learning, dan Training Aids</li>
+      <li>Standardisasi penilaian kompetensi kepelautan</li>
+      <li>Penguatan budaya keselamatan di lembaga pendidikan</li>
+    </ul>
+    <h4>Keputusan yang Ditandatangani</h4>
+    <ul>
+      <li>HK.212/1/9/MP/2025 — Tilongkabila-Tebing</li>
+      <li>HK.212/1/2/MP/2026 — Tilongkabila-Sabuk Nusantara 35</li>
+      <li>HK.212/1/1/MP/2026 — Tunu Pratama Jaya</li>
+    </ul>
+    ${linkBar('Sahattua Simatupang Ketua Mahkamah Pelayaran Indonesia')}
+  `},
+
+  /* ===== PAPER KELOMPOK III ===== */
+  paperTeam:{title:"Tim Penyusun Paper Kelompok III",sub:"DIKLAT TOT IMO Model Course 6.09 · BP2TL 2026",body:`
+    <p>Paper Kelompok III disusun oleh <strong>8 anggota</strong> sebagai bagian dari DIKLAT Training of Trainer (IMO Model Course 6.09) di BP2TL tahun 2026.</p>
+    <div class="team-grid">
+      <div class="team-member"><span class="role">Ketua</span><span class="name">Sutra Wardatul Jannah</span></div>
+      <div class="team-member"><span class="role">Wakil Ketua</span><span class="name">Rafael Sukirno</span></div>
+      <div class="team-member"><span class="role">Anggota</span><span class="name">Setiawan Sudrajat</span></div>
+      <div class="team-member"><span class="role">Anggota</span><span class="name">Suhatri Agus</span></div>
+      <div class="team-member"><span class="role">Anggota</span><span class="name">Muhlisa Darwis</span></div>
+      <div class="team-member"><span class="role">Anggota</span><span class="name">Muhammad Syukur</span></div>
+      <div class="team-member"><span class="role">Anggota</span><span class="name">Tommy Anggara Putra</span></div>
+      <div class="team-member"><span class="role">Anggota</span><span class="name">Tri Wulandari</span></div>
+    </div>
+    <h4>Judul Paper</h4>
+    <p>Integrasi Teaching Aids, Learning Aids, dan Training Aids Berbasis Studi Kasus KM Tilongkabila</p>
+    <h4>Metode</h4>
+    <p>Case-Based Simulation Training · Studi Kasus Kualitatif · Analisis Dokumen Putusan Mahkamah Pelayaran</p>
+    ${linkBar('IMO Model Course 6.09 Training of Trainers maritime')}
+  `},
+
+  paperAbstract:{title:"Abstrak & Abstract Paper Kelompok III",sub:"Ringkasan Penelitian (ID & EN)",body:`
+    <h4>Abstrak (Bahasa Indonesia)</h4>
+    <p>Kecelakaan KM Tilongkabila yang menubruk tebing Tanjung Batusori di Selat Buton pada 27 Juli 2025 diputuskan oleh Mahkamah Pelayaran sebagai akibat kesalahan dan kelalaian faktor manusia, terutama tidak dilaksanakannya Bridge Resource Management (BRM), pengamatan yang tidak layak, dan kecepatan yang tidak aman di alur pelayaran sempit. Paper ini bertujuan mengidentifikasi kesenjangan kompetensi BRM dan kesadaran hukum kepelautan yang tampak dari putusan tersebut, menentukan jenis training aids yang sesuai untuk melatih kompetensi tersebut, dan merumuskan model integrasi teaching aids, learning aids, dan training aids dalam satu desain pembelajaran berbasis studi kasus.</p>
+    <p>Penelitian menggunakan pendekatan studi kasus kualitatif melalui analisis dokumen Keputusan Mahkamah Pelayaran Nomor HK.212/1/9/MP/2025, yang dilanjutkan dengan perancangan instruksional berbasis kompetensi sesuai STCW 1978 beserta amandemennya dan IMO Model Course 6.09.</p>
+    <p>Hasil analisis menunjukkan <strong>empat kesenjangan utama</strong>: (1) pendelegasian jaga tanpa dukungan perwira senior; (2) perintah tertulis Nakhoda yang tidak sesuai kondisi perairan; (3) tidak digunakannya kemudi darurat; serta (4) tidak dilakukannya olah gerak henti/mundur.</p>
+    <p>Training aids yang direkomendasikan disusun berjenjang menurut tingkat fidelitas, yaitu Full Mission Bridge Simulator untuk kerja tim, simulator desktop/ECDIS untuk perencanaan pelayaran dan kecepatan aman, mock-up atau trainer sistem kemudi darurat untuk prosedur peralihan kemudi, serta perangkat latihan komunikasi anjungan–kamar mesin dan tabletop exercise sebagai alternatif berbiaya rendah.</p>
+    <p>Ketiga jenis alat bantu dapat dan sebaiknya diintegrasikan karena memiliki pengguna dan fungsi yang berbeda namun saling melengkapi. Integrasi dilakukan melalui siklus <strong>Pilih, Uji, Jelaskan, Demonstrasikan, Libatkan, Evaluasi</strong> yang dipadukan dengan briefing dan debriefing simulator. Model ini dilengkapi rubrik observasi perilaku untuk asesmen BRM dan dinilai memenuhi sembilan butir checklist alat bantu pembelajaran, namun efektivitasnya masih perlu diuji secara empiris.</p>
+    <p><strong>Kata kunci:</strong> bridge resource management, alat bantu pembelajaran, simulator anjungan, studi kasus, Mahkamah Pelayaran, STCW, KM Tilongkabila</p>
+    <h4>Abstract (English)</h4>
+    <p>The grounding of KM Tilongkabila against the Tanjung Batusori cliff in the Buton Strait on 27 July 2025 was attributed by the Indonesian Maritime Court to human error, chiefly the failure to apply Bridge Resource Management (BRM), improper look-out and unsafe speed in a narrow channel. This paper aims to identify the BRM and maritime-law awareness gaps revealed by the decision, determine suitable training aids, and propose a model that integrates teaching aids, learning aids and training aids within a case-based instructional design.</p>
+    <p>A qualitative case study based on document analysis of Maritime Court Decision No. HK.212/1/9/MP/2025 was combined with competence-based instructional design referring to the STCW Convention and IMO Model Course 6.09. Four main gaps were identified: delegation of the watch without senior support, a Master's Night Order that did not reflect the waters, failure to use emergency steering, and failure to stop or go astern.</p>
+    <p>Recommended training aids are tiered by fidelity: a full mission bridge simulator for team performance, desktop/ECDIS simulators for passage planning and safe speed, an emergency steering mock-up, and bridge-engine-room communication drills or tabletop exercises as low-cost alternatives. The three types of aids can and should be integrated because they serve different users and functions; integration follows Select, Test, Explain, Demonstrate, Engage, Evaluate cycle with simulator briefing and debriefing, supported by a behavioural-marker rubric. Its effectiveness still requires empirical testing.</p>
+    <p><strong>Keywords:</strong> bridge resource management, instructional aids, bridge simulator, case-based learning, maritime court, STCW</p>
+    ${linkBar('IMO Model Course 6.09 abstract maritime case-based learning')}
+  `},
+
+  paperBab1:{title:"Bab I — Pendahuluan",sub:"Latar Belakang, Rumusan, Tujuan, Manfaat, Batasan",body:`
+    <h4>1.1 Latar Belakang</h4>
+    <p>Kecelakaan KM Tilongkabila di perairan Selat Buton pada 27 Juli 2025 sekitar pukul 22.48 WITA menjadi salah satu preseden penting dalam tata kelola keselamatan pelayaran penumpang di Indonesia. Kapal motor penumpang milik PT Pelayaran Nasional Indonesia (Pelni) berukuran GT 6.022 yang membawa 1.306 penumpang dan 77 awak kapal tersebut menubruk tebing Tanjung Batusori setelah bertolak dari Pelabuhan Murhum Baubau menuju Raha.</p>
+    <p>Walaupun tidak terdapat korban jiwa maupun luka dan tidak terjadi pencemaran lingkungan, pelat <em>bulbous bow</em> mengalami deformasi sepanjang sekitar dua meter, tangki air tawar haluan (Fore Peak Tank) bocor, dan seluruh penumpang harus dipindahkan ke kapal lain (Mahkamah Pelayaran, 2025a).</p>
+    <p>Melalui Keputusan Nomor HK.212/1/9/MP/2025, Mahkamah Pelayaran menyatakan kecelakaan disebabkan oleh kesalahan dan kelalaian faktor manusia (<em>human error</em>). Nakhoda dinilai tidak melaksanakan BRM, tidak memenuhi kewajiban P2TL/COLREG 1972 Aturan 5 &amp; 6, serta tidak menerapkan SOLAS Bab V dan SMK perusahaan untuk pelayaran di perairan sempit.</p>
+    <p>Temuan tersebut sejalan dengan literatur keselamatan pelayaran yang menempatkan unsur manusia sebagai faktor dominan dalam kecelakaan kapal (Hetherington et al., 2006; Reason, 1990). Karena itulah amandemen Manila 2010 terhadap Konvensi STCW memasukkan kompetensi manajemen sumber daya anjungan, kepemimpinan, dan kerja tim sebagai bagian wajib dari standar kompetensi perwira dek.</p>
+    <h4>1.2 Rumusan Masalah</h4>
+    <ol>
+      <li>Kesenjangan kompetensi BRM dan kesadaran hukum kepelautan apa saja yang tampak dari putusan Mahkamah Pelayaran dalam kasus KM Tilongkabila?</li>
+      <li>Training aids apa yang paling sesuai untuk melatih kompetensi yang belum terpenuhi tersebut?</li>
+      <li>Apakah training aids dapat diintegrasikan dengan teaching aids dan learning aids, dan bagaimana bentuk integrasinya dalam satu desain pembelajaran yang dapat dinilai?</li>
+    </ol>
+    <h4>1.3 Tujuan Penulisan</h4>
+    <ol>
+      <li>Memetakan temuan putusan Mahkamah Pelayaran ke dalam kompetensi STCW yang relevan.</li>
+      <li>Menentukan dan memberi alasan pemilihan training aids berdasarkan tujuan pembelajaran, tingkat fidelitas, dan ketersediaan sarana.</li>
+      <li>Merumuskan model integrasi teaching, learning, dan training aids beserta skenario demonstrasi dan instrumen asesmennya.</li>
+    </ol>
+    <h4>1.4 Manfaat</h4>
+    <p>Secara praktis, paper ini dapat dipakai instruktur sebagai rancangan sesi pembelajaran dan demonstrasi alat bantu. Secara akademik, paper ini memberi contoh bagaimana putusan Mahkamah Pelayaran dapat diolah menjadi bahan ajar berbasis kompetensi.</p>
+    <h4>1.5 Batasan Kajian</h4>
+    <p>Kajian dibatasi pada dokumen putusan Mahkamah Pelayaran dan surat rekomendasinya, serta literatur pendidikan dan keselamatan maritim yang relevan. Bersifat konseptual dan perancangan; uji coba empiris belum dilakukan. Nama awak kapal tidak dicantumkan karena fokus pembelajaran adalah jabatan dan perilaku, bukan individu.</p>
+    ${linkBar('case-based simulation training maritime BRM STCW')}
+  `},
+
+  paperBab2:{title:"Bab II — Kajian Pustaka",sub:"Teori &amp; Literatur Pendukung",body:`
+    <h4>2.1 Teaching, Learning, Training Aids</h4>
+    <p>IMO Model Course 6.09 membekali instruktur maritim untuk memilih, menyiapkan, dan menggunakan berbagai alat bantu (IMO, 2017). Perbedaan:</p>
+    <ul>
+      <li><strong>Teaching aids</strong> — digunakan instruktur: slide, peta plotting digital, video animasi.</li>
+      <li><strong>Learning aids</strong> — digunakan peserta didik: lembar kerja, buku saku P2TL, kartu kronologi.</li>
+      <li><strong>Training aids</strong> — peralatan/tiruan lingkungan kerja: simulator anjungan, trainer ECDIS, mock-up kemudi darurat.</li>
+    </ul>
+    <p>Dale (1969) melalui <em>cone of experience</em> menggambarkan rentang media dari abstrak hingga konkret. Mayer (2009) menegaskan kombinasi kata &amp; gambar membantu peserta memproses informasi.</p>
+    <h4>2.2 Pelatihan Berbasis Kompetensi dalam STCW</h4>
+    <p>Regulasi I/6 dan Seksi A-I/6 mengatur kualifikasi instruktur, supervisor, dan asesor, termasuk kewajiban instruktur yang menggunakan simulator untuk memperoleh bimbingan teknik instruksional. Regulasi I/12 dan Seksi A-I/12 mengatur standar penggunaan simulator (briefing, pemantauan, debriefing). Tabel A-II/1 memuat kompetensi dinas jaga navigasi yang aman. Pendekatan berbasis kompetensi menuntut keselarasan konstruktif (Biggs &amp; Tang, 2011).</p>
+    <h4>2.3 Bridge Resource Management</h4>
+    <p>BRM menekankan pemanfaatan seluruh sumber daya di anjungan (manusia, peralatan, informasi). Unsurnya: kesadaran situasi, komunikasi, kerja tim, kepemimpinan, pengambilan keputusan, dan kesediaan menyampaikan keraguan (<em>challenge and response</em>) (Wahl &amp; Kongsvik, 2018). Salas et al. (2006) menemukan pelatihan CRM berdampak positif pada reaksi, pembelajaran, dan perilaku; O'Connor (2011) menekankan perlunya evaluasi perilaku sistematis.</p>
+    <h4>2.4 Pembelajaran Berbasis Kasus</h4>
+    <p>Case-based learning menggunakan peristiwa nyata sebagai titik awal untuk mengaitkan teori dengan praktik (Herreid, 2007). Kolb (1984) menyediakan kerangka pengalaman konkret → observasi reflektif → konseptualisasi abstrak → eksperimen aktif. Paralel dengan alur briefing–latihan–debriefing–latihan ulang.</p>
+    <h4>2.5 Simulator, Fidelitas, dan Debriefing</h4>
+    <p>Simulator anjungan mengurangi kecelakaan akibat faktor manusia (Hanzu-Pazara et al., 2008). Sellberg (2017) menyimpulkan bukti praktik instruksional masih terbatas. Kim et al. (2021): fidelitas terdiri dari dimensi fisik, fungsional, perilaku, psikologis, sosial — hubungan fidelitas &amp; hasil belajar tidak linier. Instruktur sentral: simulator tidak dengan sendirinya mengajar.</p>
+    <h4>2.6 Kerangka Hukum</h4>
+    <p>Instrumen internasional: COLREG 1972 (P2TL), SOLAS Bab V (Reg 24, 26, 34), SOLAS Bab IX (ISM Code), STCW, MARPOL (IMO, 2011, 2018, 2020). Nasional: UU 17/2008 jo. UU 66/2024, PP 9/2019, PM 6/2020 jo. PM 30/2022.</p>
+    <p>Reason (1997): kecelakaan organisasi umumnya terjadi karena kombinasi kegagalan aktif di garis depan dan kondisi laten dalam sistem.</p>
+    ${linkBar('BRM case-based learning maritime simulator STCW literature review')}
+  `},
+
+  paperBab3:{title:"Bab III — Metode",sub:"Pendekatan, Sumber Data, Tahapan",body:`
+    <h4>3.1 Pendekatan</h4>
+    <p>Studi kasus kualitatif tunggal dengan teknik analisis dokumen (Yin, 2018). Kasus dipilih karena merupakan kecelakaan terbaru dengan putusan terdokumentasi lengkap, menyangkut kapal penumpang berisiko tinggi, dan secara eksplisit memuat temuan tentang BRM. Hasil analisis digunakan sebagai dasar perancangan instruksional berbasis kompetensi.</p>
+    <h4>3.2 Sumber Data</h4>
+    <ul>
+      <li><strong>Data primer:</strong> Keputusan Mahkamah Pelayaran No. HK.212/1/9/MP/2025 tanggal 25 September 2025 (81 halaman) serta surat rekomendasi Ketua Mahkamah Pelayaran kepada Menteri Perhubungan tanggal 4 November 2025.</li>
+      <li><strong>Data sekunder:</strong> Konvensi IMO (STCW, SOLAS, COLREG, ISM Code), IMO Model Course 6.09, peraturan perundang-undangan nasional, dan artikel ilmiah tentang BRM, case-based learning, dan simulator.</li>
+    </ul>
+    <h4>3.3 Tahapan Analisis dan Perancangan</h4>
+    <ol>
+      <li><strong>Ekstraksi fakta:</strong> menyusun data kapal, kronologi, dan kondisi lingkungan dari bagian "Jalannya Peristiwa" dan keterangan di persidangan.</li>
+      <li><strong>Identifikasi temuan:</strong> mengambil rumusan Mahkamah tentang sebab, kesalahan/kelalaian, dan dasar hukum; memisahkan dari pendapat saksi.</li>
+      <li><strong>Analisis kesenjangan kompetensi:</strong> memetakan setiap temuan ke kompetensi STCW dan menentukan implikasi pembelajarannya.</li>
+      <li><strong>Seleksi alat bantu:</strong> memilih teaching, learning, dan training aids berdasarkan tujuan, fidelitas, dan ketersediaan sarana (Kim et al., 2021).</li>
+      <li><strong>Perancangan integrasi &amp; asesmen:</strong> menyusun alur sesi, skenario demonstrasi, dan rubrik observasi; menguji terhadap 9 butir Checklist Alat Bantu Pembelajaran BPSDMP Perhubungan.</li>
+    </ol>
+    ${linkBar('qualitative case study research document analysis Yin maritime')}
+  `},
+
+  paperBab4:{title:"Bab IV — Hasil dan Pembahasan",sub:"Kronologi, Kesenjangan, Training Aids, Model Integrasi, Rubrik",body:`
+    <h4>4.1 Ringkasan Kasus</h4>
+    <p>KM Tilongkabila (IMO 9102760) adalah kapal motor penumpang berbaling-baling ganda buatan Jerman tahun 1995 dengan panjang 91,80 m, lebar 18,00 m, dan dua mesin induk diesel 2 × 1.600 kW. Pada malam kejadian cuaca cerah dengan jarak pandang normal, arus pasang mengalir kencang ke utara.</p>
+    <p>Tabel 1 merangkum kronologi berdasarkan putusan (lihat section Tabel 1).</p>
+    <p>Pemeriksaan pascakejadian, termasuk penyelamatan dan pemeriksaan di dok, tidak menemukan kerusakan pada sistem kemudi. Saksi dari perusahaan menduga hilangnya kendali dipengaruhi efek tepi (<em>bank effect</em>) di perairan dangkal dan sempit yang diperkuat oleh kecepatan tinggi (Barrass, 2004). Nakhoda sendiri menyampaikan bahwa pada kecepatan sekitar 11 knot jarak henti kapal mencapai 3–4 NM, padahal jarak ke tebing saat ia tiba di anjungan hanya sekitar 2 NM.</p>
+    <div class="hl red"><p><strong>Perlu ditegaskan:</strong> penjelasan <em>bank effect</em> merupakan pendapat saksi, <strong>bukan bagian dari amar putusan</strong>.</p></div>
+    <h4>4.2 Temuan Mahkamah dan Kesenjangan Kompetensi</h4>
+    <p>Mahkamah merumuskan <strong>empat sebab kecelakaan</strong>:</p>
+    <ol>
+      <li>Nakhoda meninggalkan anjungan saat kapal berlayar dengan kecepatan penuh di alur sempit sekitar 15 menit sebelum belokan dan mendelegasikan navigasi kepada Mualim IV tanpa didampingi perwira senior.</li>
+      <li>Master Night Order tidak menggambarkan kondisi perairan saat itu.</li>
+      <li>Kemudi darurat tidak digunakan ketika kemudi dirasakan tidak berfungsi, karena latihan kemudi darurat tidak pernah dilakukan.</li>
+      <li>Tidak dilakukan olah gerak stop mesin dan mundur atau emergency stop ketika kapal mendekati Tanjung Batusori.</li>
+    </ol>
+    <p>Tabel 2 memetakan temuan tersebut ke ketentuan hukum yang dirujuk Mahkamah dan ke kompetensi STCW. Lihat section Tabel 2.</p>
+    <h4>4.3 Training Aids yang Sesuai</h4>
+    <p>Pemilihan training aids didasarkan prinsip bahwa fidelitas harus sesuai tujuan dan tingkat peserta (Kim et al., 2021). Lihat section Tabel 3 untuk rekomendasi berjenjang.</p>
+    <p>Rekomendasi utama untuk demonstrasi adalah <strong>FMBS</strong> yang dipadukan dengan <strong>mock-up kemudi darurat</strong> dan <strong>perangkat komunikasi</strong>. Bila FMBS tidak tersedia, kombinasi simulator desktop dan tabletop exercise tetap dapat mencapai tujuan pembelajaran tingkat pengetahuan dan prosedur, walaupun latihan kerja tim akan kurang realistis.</p>
+    <h4>4.4 Teaching Aids dan Learning Aids Pendukung</h4>
+    <p>Agar latihan di simulator bermakna, peserta perlu memahami fakta dan aturan terlebih dahulu. Lihat section Tabel 4.</p>
+    <p>Rancangan ini memperbaiki draf awal dalam dua hal: (1) Master Night Order dalam kasus ini sebenarnya ada, tetapi isinya dinilai tidak menggambarkan kondisi perairan; karena itu formulir Night Order dipakai sebagai learning aid untuk melatih penyusunan perintah yang spesifik terhadap risiko. (2) Playback rekaman simulator ditempatkan sebagai teaching aid pada tahap debriefing.</p>
+    <h4>4.5 Model Integrasi</h4>
+    <p>Pertanyaan apakah training aids dapat diintegrasikan dijawab positif. Ketiganya memiliki pengguna dan fungsi berbeda namun saling melengkapi. Draf awal tiga tahap dikembangkan menjadi <strong>enam tahap</strong>: Pilih–Uji–Jelaskan–Demonstrasikan–Libatkan–Evaluasi. Lihat section Tabel 5.</p>
+    <h4>4.6 Rencana Demonstrasi</h4>
+    <p>Demonstrasi melibatkan lima peran: instruktur (pengendali skenario), Nakhoda, Mualim IV (perwira jaga), perwira senior, dan analis hukum. Peran juru mudi dan ECR dapat dirangkap. Sebelum simulasi, instruktur melakukan briefing sesuai Seksi A-I/12 STCW.</p>
+    <ul>
+      <li><strong>Sesi 1:</strong> Skenario rekonstruksi kondisi kejadian. Instruktur memberi inject berupa kemudi yang tidak merespons pada jarak sekitar 2,7 NM sebelum waypoint belokan, dan ECR tidak menjawab panggilan.</li>
+      <li><strong>Sesi 2:</strong> Skenario korektif penerapan BRM &amp; good seamanship. Nakhoda tetap di anjungan atau menyusun Master Night Order spesifik; kecepatan dikurangi; perwira senior mendampingi; ECR siaga; komunikasi closed-loop.</li>
+    </ul>
+    <p><strong>Ilustrasi waktu keputusan:</strong> jarak 2 NM pada 12 knot ditempuh dalam sekitar 10 menit; pada 6 knot sekitar 20 menit — pengurangan kecepatan menggandakan waktu tersedia bagi tim.</p>
+    <h4>Debriefing</h4>
+    <p>Dilakukan dengan memutar ulang rekaman kedua sesi dan membandingkannya. Instruktur memandu tiga pertanyaan: apa yang terjadi, mengapa hal itu terjadi, apa yang akan dilakukan secara berbeda. Fokus pada perilaku dan sistem, bukan menyalahkan individu (Fanning &amp; Gaba, 2007; Reason, 1997).</p>
+    <h4>4.7 Asesmen Kompetensi BRM</h4>
+    <p>Karena BRM merupakan keterampilan nonteknis, asesmen dilakukan dengan observasi perilaku menggunakan penanda perilaku (<em>behavioural markers</em>), bukan hanya tes tertulis (O'Connor, 2011). Lihat section Tabel 6 untuk rubrik dengan 5 kriteria × 3 tingkat.</p>
+    <p><strong>Skor:</strong> 13–15 = kompeten; 9–12 = cukup; ≤ 8 = perlu latihan ulang.</p>
+    <h4>4.8 Kesesuaian dengan Checklist Alat Bantu Pembelajaran</h4>
+    <p>Lihat section Tabel 7 untuk evaluasi desain terhadap sembilan butir checklist alat bantu pembelajaran BPSDMP Perhubungan.</p>
+    <h4>4.9 Keterbatasan</h4>
+    <p>Pertama, model ini belum diuji empiris sehingga klaim efektivitas masih hipotesis. Kedua, tidak semua lembaga memiliki FMBS dengan model perairan Selat Buton, sehingga skenario mungkin menggunakan perairan sempit generik. Ketiga, dokumen putusan yang tersedia berupa pindaian, sehingga kutipan angka perlu dicocokkan kembali dengan salinan resmi.</p>
+    ${linkBar('case-based simulation training maritime BRM STCW rubric assessment')}
+  `},
+
+  paperBab5:{title:"Bab V — Kesimpulan &amp; Saran",sub:"4 Kesimpulan, 4 Saran",body:`
+    <h4>5.1 Kesimpulan</h4>
+    <ol>
+      <li>Putusan Mahkamah Pelayaran dalam kasus KM Tilongkabila menunjukkan kesenjangan kompetensi pada <strong>pengamatan dan kerja tim di anjungan, penetapan kecepatan aman, penyusunan perintah tertulis Nakhoda, penggunaan kemudi darurat, olah gerak darurat, serta komunikasi anjungan–ECR</strong>. Seluruhnya terkait langsung dengan kompetensi BRM dalam STCW dan dengan kewajiban P2TL, SOLAS, serta SMS perusahaan.</li>
+      <li>Training aids yang sesuai disusun berjenjang menurut fidelitas: FMBS untuk BRM dan kerja tim; simulator desktop/ECDIS untuk perencanaan pelayaran dan kecepatan aman; mock-up kemudi darurat untuk prosedur peralihan kemudi; perangkat latihan komunikasi untuk koordinasi dek–mesin; dan tabletop exercise sebagai alternatif berbiaya rendah.</li>
+      <li>Training aids dapat dan sebaiknya diintegrasikan dengan teaching aids dan learning aids. Integrasi dilakukan melalui siklus <strong>Pilih–Uji–Jelaskan–Demonstrasikan–Libatkan–Evaluasi</strong> dengan briefing dan debriefing simulator, serta dinilai menggunakan rubrik observasi perilaku. Desain ini memenuhi sembilan butir checklist alat bantu pembelajaran.</li>
+      <li>Pembelajaran kesadaran hukum perlu menekankan alasan di balik aturan dan batas kesimpulan, termasuk membedakan P2TL dari SOLAS, putusan profesi dari proses pidana/perdata, serta fakta putusan dari pendapat saksi.</li>
+    </ol>
+    <h4>5.2 Saran</h4>
+    <ol>
+      <li>Lembaga pendidikan kemaritiman disarankan menyusun <strong>bank skenario simulator berbasis putusan Mahkamah Pelayaran</strong>, lengkap dengan lembar kerja dan rubrik, agar case-based simulation training dapat diterapkan secara konsisten.</li>
+      <li>Instruktur yang menggunakan simulator perlu dibekali teknik briefing dan debriefing sesuai Seksi A-I/6 dan A-I/12 STCW.</li>
+      <li>Untuk taruna kelistrikan kapal, skenario kegagalan kemudi dapat dikembangkan menjadi latihan lintas program studi yang melibatkan diagnosis catu daya dan rangkaian kendali mesin kemudi.</li>
+      <li>Penelitian lanjutan perlu menguji efektivitas model melalui desain pra-uji dan pasca-uji atau perbandingan kelompok, termasuk uji keandalan rubrik antarpenilai.</li>
+    </ol>
+    ${linkBar('case-based simulation training recommendations maritime education')}
+  `},
+
+  /* KESENJANGAN */
+  gap1:{title:"Kesenjangan 1 — Delegasi Jaga",sub:"Pendelegasian tanpa Dukungan Perwira Senior",body:`
+    <p>Mahkamah menemukan Nakhoda meninggalkan anjungan saat kapal berlayar dengan kecepatan penuh di alur sempit sekitar 15 menit sebelum belokan, dan mendelegasikan navigasi kepada Mualim IV <strong>tanpa didampingi perwira senior</strong>.</p>
+    <h4>Kompetensi STCW yang Terganggu</h4>
+    <ul>
+      <li>A-II/1: dinas jaga navigasi yang aman; prinsip BRM; kepemimpinan dan kerja tim</li>
+      <li>SMS PT Pelni: SMK-7 Huruf C angka 5 (tindakan berjaga-jaga di perairan sempit: menambah personil jaga pengamat)</li>
+    </ul>
+    <h4>Implikasi Pembelajaran</h4>
+    <p>Latih pembagian tugas, cross-check posisi, dan penentuan titik panggil Nakhoda. Klik untuk detail.</p>
+    ${linkBar('Bridge Resource Management senior officer support STCW')}
+  `},
+  gap2:{title:"Kesenjangan 2 — Master Night Order",sub:"Perintah Tertulis Tidak Sesuai Kondisi Perairan",body:`
+    <p>Master Night Order dalam kasus ini sebenarnya ada, tetapi isinya <strong>dinilai tidak menggambarkan kondisi perairan saat itu</strong>. Ini menunjukkan bahwa keberadaan dokumen tidak cukup — substansinya harus spesifik terhadap risiko.</p>
+    <h4>Kompetensi STCW yang Terganggu</h4>
+    <ul>
+      <li>SOLAS IX/ISM Code melalui SMS perusahaan</li>
+      <li>A-II/1 dan A-II/2: komunikasi, pendelegasian, manajemen anjungan</li>
+    </ul>
+    <h4>Implikasi Pembelajaran</h4>
+    <p>Latih penyusunan perintah tertulis yang spesifik terhadap risiko rute — batas kecepatan, titik panggil Nakhoda, tindakan bila keluar jalur.</p>
+    ${linkBar('Master Night Order standing order specific passage risk')}
+  `},
+  gap3:{title:"Kesenjangan 3 — Kemudi Darurat",sub:"Tidak Digunakan Meski Kemudi Gagal",body:`
+    <p>Kemudi darurat <strong>tidak digunakan</strong> ketika kemudi dirasakan tidak berfungsi, karena latihan kemudi darurat <strong>tidak pernah dilakukan</strong>.</p>
+    <h4>Kompetensi STCW yang Terganggu</h4>
+    <ul>
+      <li>SOLAS V Reg 24 angka 4 (penggunaan sistem kontrol arah/jalur)</li>
+      <li>SOLAS V Reg 26 (sistem kemudi, pengujian, latihan)</li>
+      <li>A-II/1: respons terhadap keadaan darurat navigasi; penggunaan sistem kemudi</li>
+    </ul>
+    <h4>Implikasi Pembelajaran</h4>
+    <p>Latih peralihan kemudi FU → NFU → kemudi darurat, dan prosedur komunikasi ke ECR. Gunakan mock-up kemudi darurat sebagai training aid berfidelitas sedang (fungsional).</p>
+    ${linkBar('emergency steering SOLAS Reg 26 drill FU NFU training')}
+  `},
+  gap4:{title:"Kesenjangan 4 — Olah Gerak Henti",sub:"Tidak Dilakukan Stop Mesin / Mundur / Emergency Stop",body:`
+    <p>Tidak dilakukan olah gerak <strong>stop mesin dan mundur atau emergency stop</strong> ketika kapal mendekati Tanjung Batusori.</p>
+    <h4>Kompetensi STCW yang Terganggu</h4>
+    <ul>
+      <li>SOLAS V Reg 34 (keselamatan navigasi &amp; menghindari bahaya)</li>
+      <li>PM 25/2011 Pasal 42 ayat (2) (radius lingkaran putar)</li>
+      <li>A-II/1: olah gerak dalam keadaan darurat</li>
+    </ul>
+    <h4>Implikasi Pembelajaran</h4>
+    <p>Latih pengambilan keputusan di bawah tekanan waktu. Ilustrasi: pada 12 knot, jarak henti 3–4 NM; pada 6 knot, waktu tersedia berlipat.</p>
+    ${linkBar('emergency stop ship navigation SOLAS Reg 34 decision making')}
+  `},
+
+  /* KASUS */
+  mTilo:{title:"KM Tilongkabila — Menubruk Tebing",sub:"Selat Buton · 27 Juli 2025",body:`<p>KM Tilongkabila, PT Pelni, bertolak dari Baubau menuju Raha dengan 1.306 penumpang dan 77 awak.</p><p>Pukul 22.15 WITA, Nakhoda meninggalkan anjungan; Mualim IV sendiri. Kemudi gagal merespons. Pukul 22.48 WITA menubruk Tebing Tanjung Batusori.</p><div class="hl red"><p><strong>Putusan:</strong> Human error. Nakhoda Slamet Santoso sanksi 3 bulan. Mualim IV dibebaskan.</p></div>${linkBar('KM Tilongkabila Mahkamah Pelayaran tebing Selat Buton')}`},
+  mTilo2:{title:"Tilongkabila × Sabuk Nusantara 35",sub:"Bitung · 5 November 2025",body:`<p>KM Tilongkabila bertolak dari Gorontalo menuju Bitung dengan 278 penumpang dan 76 awak. Saat sandar di Dermaga 2, buritan kanan menubruk haluan kiri KM Sabuk Nusantara 35.</p><div class="hl red"><p><strong>Putusan:</strong> Nakhoda Hindar Bahadi sanksi 4 bulan.</p></div>${linkBar('KM Tilongkabila Sabuk Nusantara 35 Bitung 2025')}`},
+  mTunu:{title:"KMP Tunu Pratama Jaya — Tenggelam",sub:"Selat Bali · 2 Juli 2025",body:`<p>KMP Tunu Pratama Jaya, Ro-Ro Ferry eks-LCT, bertolak dari Ketapang ke Gilimanuk dengan 53 penumpang, 22 kendaraan, 12 awak. Berangkat dalam kondisi overdraft.</p><div class="hl red"><p><strong>Putusan:</strong> Human error + faktor organisasi. Mualim II Nurdin Yuswanto sanksi 7 bulan.</p></div>${linkBar('KMP Tunu Pratama Jaya tenggelam Selat Bali 2025')}`},
+
+  /* PAPER KELOMPOK */
+  paperKelompok:{title:"Paper Kelompok III — Analisis Kasus KM Tilongkabila",sub:"Integrasi Teaching, Learning &amp; Training Aids",body:`
+    <p><strong>Judul:</strong> Paper Kelompok: Analisis Kasus KM Tilongkabila — Integrasi Teaching Aids, Learning Aids, dan Training Aids Berbasis Studi Kasus untuk Peningkatan Kompetensi BRM dan Kesadaran Hukum Kepelautan.</p>
+    <p><strong>Mata Kuliah:</strong> Hukum Laut &amp; Tata Kelola Keselamatan · <strong>Metode:</strong> Case-Based Simulation Training</p>
+    <p><strong>Tim:</strong> 8 anggota Kelompok III (Ketua: Sutra Wardatul Jannah · Wakil: Rafael Sukirno)</p>
+    <h4>Bab I — Pendahuluan</h4>
+    <p>Kecelakaan KM Tilongkabila di Selat Buton pada 27 Juli 2025 menjadi preseden penting. Putusan mengidentifikasi penyebab utama: human error.</p>
+    <h4>Bab II — Ringkasan Kasus</h4>
+    <div class="tbl-wrap"><table>
+      <tr><th>Domain</th><th>Temuan</th><th>Sanksi</th></tr>
+      <tr><td>Penyebab Utama</td><td>Nakhoda meninggalkan anjungan pada kecepatan full away di alur sempit tanpa Master Night Order</td><td>Administratif &amp; Profesi</td></tr>
+      <tr><td>P2TL</td><td>Pelanggaran Aturan 5 &amp; 6</td><td>Pencabutan SKK ANT I - 3 bulan</td></tr>
+      <tr><td>Hidrodinamika</td><td>Gagal antisipasi arus pasang &amp; bank effect</td><td>Kerusakan struktur</td></tr>
+    </table></div>
+    <h4>Bab III — Desain Integrasi</h4>
+    <p>Teaching → Learning → Training Aids (siklus saling mendukung).</p>
+    <h4>Bab IV — 3-Stage menjadi 6-Stage</h4>
+    <p>Draf awal 3-tahap dikembangkan menjadi 6 tahap: <strong>Pilih–Uji–Jelaskan–Demonstrasikan–Libatkan–Evaluasi</strong>.</p>
+    <h4>Bab V — Select and Demonstrate</h4>
+    <p>Selected Training Aid: FMBS. Teaching Aid: Peta Plotting &amp; Display Monitor BRM. Learning Aid: Master Night Order &amp; Checklist P2TL Rule 6.</p>
+    <h4>Bab VI — Kesimpulan</h4>
+    <p>Integrasi Teaching, Learning, dan Training Aids efektif menjembatani teori hukum dengan keterampilan operasional di laut.</p>
+    ${linkBar('integrasi teaching learning training aids BRM STCW maritime education')}
+  `},
+
+  /* TEACHING AIDS */
+  teachingAids:{title:"Teaching Aids — Dosen/Instruktur",sub:"Teori · Kronologi · Regulasi",body:`
+    <p><strong>Definisi:</strong> Alat bantu pengajaran yang digunakan dosen/instruktur untuk menyampaikan materi hukum, kronologi kasus, dan analisis regulasi.</p>
+    <h4>Komponen (Paper Kelompok III)</h4>
+    <ul>
+      <li><strong>Slide rekonstruksi kronologi &amp; skema lintasan</strong></li>
+      <li><strong>Peta plotting digital alur sempit</strong></li>
+      <li><strong>Grafik jarak henti vs jarak tersedia</strong></li>
+      <li><strong>Video animasi olah gerak / efek tepi</strong></li>
+      <li><strong>Tampilan playback simulator</strong></li>
+    </ul>
+    <h4>Fungsi</h4>
+    <p>Menjelaskan fakta putusan, sebab kecelakaan, dan dasar hukum; memandu debriefing.</p>
+    <h4>Dasar IMO/STCW &amp; Modifikasi Instruktur</h4>
+    <p>IMO Model Course 7.01 &amp; 1.22 dengan modifikasi konteks Selat Buton.</p>
+    <h4>Cara Penggunaan dalam TOT 6.09</h4>
+    <ul>
+      <li>Stage 3 (Jelaskan): instruktur menyampaikan slide &amp; animasi</li>
+      <li>Tahap Process: peserta menghubungkan regulasi dengan fakta</li>
+      <li>Stage 6 (Evaluasi): instruktur menilai via diskusi &amp; playback</li>
+    </ul>
+    ${linkBar('teaching aids IMO model course BRM instructional design maritime')}
+  `},
+
+  learningAids:{title:"Learning Aids — Taruna Mandiri/Kelompok",sub:"Worksheet · Kartu · Buku Saku · Form",body:`
+    <p><strong>Definisi:</strong> Alat bantu pembelajaran yang dikelola taruna secara mandiri/kelompok, untuk menganalisis kesalahan sebelum uji praktek.</p>
+    <h4>Komponen (Paper Kelompok III)</h4>
+    <ul>
+      <li><strong>Lembar kerja analisis hukum</strong> (temuan → aturan → tindakan pencegahan)</li>
+      <li><strong>Kartu kronologi acak</strong> — untuk latihan menyusun urutan</li>
+      <li><strong>Buku saku P2TL Aturan 5 &amp; 6</strong></li>
+      <li><strong>Formulir Master Night Order</strong></li>
+      <li><strong>Checklist SMS perairan sempit</strong></li>
+      <li><strong>Checklist MARPOL pascakejadian</strong></li>
+    </ul>
+    <h4>Fungsi</h4>
+    <p>Membangun pemahaman sebelum praktik dan menjadi bukti kerja yang dapat dinilai.</p>
+    <h4>Modifikasi Instruktur</h4>
+    <p>Master Night Order dalam kasus ini ada tetapi isinya tidak sesuai — formulir dipakai untuk melatih perintah yang spesifik terhadap risiko, bukan sekadar ada/tidaknya dokumen.</p>
+    ${linkBar('learning aids worksheet STCW BTM bridge checklist Master Night Order')}
+  `},
+
+  trainingAids:{title:"Training Aids — Taruna &amp; Tim Simulator",sub:"Simulasi Taktis · Hands-on Berjenjang",body:`
+    <p><strong>Definisi:</strong> Alat bantu pelatihan yang dikelola taruna bersama tim simulator untuk mempraktikkan konsep dalam skenario realistis. Disusun <strong>berjenjang menurut fidelitas</strong>.</p>
+    <h4>Komponen (Paper Kelompok III)</h4>
+    <ul>
+      <li><strong>FMBS</strong> — fidelitas tinggi; BRM, kepemimpinan, kerja tim, pengambilan keputusan, olah gerak darurat</li>
+      <li><strong>Simulator desktop/ECDIS</strong> — fidelitas rendah-sedang; passage plan, no-go area, perhitungan kecepatan aman, alarm cross-track</li>
+      <li><strong>Mock-up kemudi darurat</strong> — fidelitas sedang (fungsional); prosedur FU/NFU, sakelar peralihan, telepon ECR</li>
+      <li><strong>Perangkat latihan komunikasi anjungan–ECR</strong> — komunikasi closed-loop, eskalasi</li>
+      <li><strong>Tabletop exercise</strong> — fidelitas rendah; kesadaran situasi, urutan keputusan, kerja tim dasar</li>
+    </ul>
+    <h4>Dasar IMO/STCW</h4>
+    <p>IMO Model Course 1.22 &amp; STCW Reg II/2 &amp; A-I/12. Modifikasi: skenario karakteristik perairan Indonesia.</p>
+    <h4>Alternatif Berbiaya Rendah</h4>
+    <p>Jika FMBS tidak tersedia, kombinasi simulator desktop + tabletop exercise tetap mencapai tujuan tingkat pengetahuan &amp; prosedur; keterbatasan pada latihan tim perlu dinyatakan terbuka dalam asesmen.</p>
+    ${linkBar('training aids full mission bridge simulator STCW II/2 ECDIS tabletop')}
+  `},
+
+  /* SIKLUS 6-TAHAP */
+  siklus1:{title:"Tahap 1 — Pilih (Sebelum Sesi)",sub:"Menetapkan Capaian &amp; Memilih Alat",body:`
+    <p><strong>Definisi:</strong> Menetapkan capaian pembelajaran dan memilih alat bantu yang selaras dengan capaian tersebut.</p>
+    <h4>Kegiatan</h4>
+    <ul>
+      <li>Menetapkan learning outcome spesifik (mis. "peserta mampu menetapkan kecepatan aman di alur sempit")</li>
+      <li>Memilih teaching aids, learning aids, training aids yang relevan</li>
+      <li>Memilih skenario simulator (Selat Buton, arus pasang kencang, batimetri dangkal)</li>
+      <li>Menyusun rencana sesi</li>
+    </ul>
+    <h4>Bukti Asesmen</h4>
+    <p>Rencana sesi dengan peta capaian → aktivitas → alat → bukti.</p>
+    ${linkBar('constructive alignment learning outcome selection Biggs Tang')}
+  `},
+  siklus2:{title:"Tahap 2 — Uji (H-1)",sub:"Menyiapkan Alat &amp; Alternatif",body:`
+    <p><strong>Definisi:</strong> Menguji proyektor, skenario simulator, dan cetak bahan; menyiapkan alternatif.</p>
+    <h4>Kegiatan</h4>
+    <ul>
+      <li>Uji proyektor, audio, koneksi simulator</li>
+      <li>Uji skenario: pastikan inject berjalan dan model kapal merespons</li>
+      <li>Cetak lembar kerja, kartu kronologi, formulir</li>
+      <li>Siapkan alternatif bila FMBS gagal → tabletop exercise</li>
+    </ul>
+    <h4>Bukti Asesmen</h4>
+    <p>Daftar periksa kesiapan.</p>
+    ${linkBar('simulator readiness checklist pre-briefing A-I/12 STCW')}
+  `},
+  siklus3:{title:"Tahap 3 — Jelaskan (25 menit)",sub:"Pemantik, Kronologi, Peta Aturan",body:`
+    <p><strong>Definisi:</strong> Pemantik kasus; kronologi; peta aturan.</p>
+    <h4>Teaching Aid</h4>
+    <p>Slide kronologi, skema, grafik.</p>
+    <h4>Learning Aid</h4>
+    <p>Kartu jawaban pemantik.</p>
+    <h4>Bukti Asesmen</h4>
+    <p>Jawaban awal peserta — mengukur pemahaman sebelum sesi.</p>
+    ${linkBar('case briefing maritime training chronology regulation map')}
+  `},
+  siklus4:{title:"Tahap 4 — Demonstrasikan (20 menit)",sub:"Instruktur Memperagakan",body:`
+    <p><strong>Definisi:</strong> Instruktur memeragakan komunikasi closed-loop dan peralihan kemudi darurat.</p>
+    <h4>Teaching Aid</h4>
+    <p>Peta plotting.</p>
+    <h4>Learning Aid</h4>
+    <p>Naskah komunikasi.</p>
+    <h4>Training Aid</h4>
+    <p>Mock-up kemudi darurat, telepon ECR.</p>
+    ${linkBar('demonstration closed-loop communication emergency steering instructor')}
+  `},
+  siklus5:{title:"Tahap 5 — Libatkan (60 menit)",sub:"Briefing, Sesi 1, Sesi 2, Kerja Pos",body:`
+    <p><strong>Definisi:</strong> Briefing; Sesi 1 (rekonstruksi); Sesi 2 (korektif); kerja pos kelompok.</p>
+    <h4>Learning Aid</h4>
+    <p>Formulir Night Order, checklist SMS, lembar kerja hukum.</p>
+    <h4>Training Aid</h4>
+    <p>FMBS atau tabletop exercise.</p>
+    <h4>Bukti Asesmen</h4>
+    <p>Lembar observasi, produk kelompok.</p>
+    ${linkBar('simulator briefing scenario engagement maritime training')}
+  `},
+  siklus6:{title:"Tahap 6 — Evaluasi (25 menit)",sub:"Debriefing Playback, Kuis, Refleksi",body:`
+    <p><strong>Definisi:</strong> Debriefing dengan playback; kuis; refleksi.</p>
+    <h4>Teaching Aid</h4>
+    <p>Playback simulator.</p>
+    <h4>Learning Aid</h4>
+    <p>Kuis, refleksi tertulis.</p>
+    <h4>Training Aid</h4>
+    <p>Rekaman simulator.</p>
+    <h4>Bukti Asesmen</h4>
+    <p>Skor rubrik dan kuis. Skor 13–15 = kompeten; 9–12 = cukup; ≤ 8 = perlu latihan ulang.</p>
+    ${linkBar('debriefing playback structured reflection Fanning Gaba maritime')}
+  `},
+
+  /* SELECT & DEMONSTRATE */
+  sesi1Demo:{title:"Sesi 1 — Rekonstruksi Kondisi Kejadian",sub:"Skenario Aksidentil",body:`
+    <p>Kapal berlayar dengan kecepatan penuh di alur sempit dengan arus pasang ke utara. Nakhoda meninggalkan anjungan dan menyerahkan navigasi kepada Mualim IV tanpa pendamping senior.</p>
+    <h4>Inject Instruktur</h4>
+    <ul>
+      <li>Kemudi tidak merespons pada jarak sekitar 2,7 NM sebelum waypoint belokan</li>
+      <li>ECR tidak menjawab panggilan</li>
+    </ul>
+    <h4>Yang Diamati</h4>
+    <p>Bagaimana waktu keputusan menyusut. Analis hukum memaparkan kaitan setiap keputusan dengan P2TL Aturan 5 &amp; 6, SOLAS Bab V, dan SMS.</p>
+    <div class="hl red"><p><strong>Catatan penting:</strong> Skenario ini adalah <strong>rekonstruksi pendidikan</strong>, bukan rekonstruksi forensik. Perilaku model kapal di simulator tidak dapat dijadikan bukti penyebab sebenarnya.</p></div>
+    ${linkBar('accident scenario narrow channel bank effect simulation education')}
+  `},
+  sesi2Demo:{title:"Sesi 2 — Korektif BRM &amp; Good Seamanship",sub:"Penerapan Tindakan Pencegahan",body:`
+    <p>Nakhoda tetap di anjungan sampai kapal mencapai perairan bebas sesuai SMS perusahaan, atau bila harus turun menyusun Master Night Order yang spesifik (batas kecepatan, titik panggil Nakhoda, tindakan bila keluar jalur).</p>
+    <h4>Alur Korektif</h4>
+    <ul>
+      <li>Kecepatan dikurangi ke kecepatan aman</li>
+      <li>Perwira senior mendampingi perwira jaga</li>
+      <li>ECR siaga dalam mode olah gerak</li>
+      <li>Ketika inject kegagalan kemudi diberikan: tim melakukan komunikasi closed-loop, beralih ke NFU atau kemudi darurat, mengurangi laju atau menghentikan mesin, menyiapkan jangkar sesuai SMK-7 huruf C angka 5</li>
+    </ul>
+    <h4>Ilustrasi Waktu Keputusan</h4>
+    <p>Jarak 2 NM pada 12 knot ditempuh dalam sekitar 10 menit; pada 6 knot sekitar 20 menit — pengurangan kecepatan menggandakan waktu tersedia.</p>
+    ${linkBar('corrective scenario BRM good seamanship safe speed narrow channel')}
+  `},
+
+  /* RANTAI KEGAGALAN TUNU */
+  chainOverdraft:{title:"Tahap 1 — Overdraft",sub:"Kondisi Awal",body:`<p>Overdraft: sarat aktual melebihi sarat desain maksimum. Mengurangi freeboard &amp; reserve buoyancy.</p><h4>Data</h4><ul><li>Draft aktual: 2,897 m</li><li>Draft desain: 2,4 m</li><li>Beban aktual: 534,2 ton</li><li>Beban desain: 137,7 ton</li></ul><div class="hl red"><p>Daya apung cadangan berkurang drastis.</p></div>${linkBar('ship overdraft freeboard reserve buoyancy Load Lines')}`},
+  chainWave:{title:"Tahap 2 — Gelombang, Angin, Arus",sub:"Faktor Alam",body:`<p>Gelombang 2–3 m, angin kencang, arus kuat.</p><ul><li>Freeboard rendah → air masuk geladak</li><li>Roll 12–18°</li></ul><h4>Water on Deck</h4><p>Air berkumpul di geladak → free surface effect besar.</p>${linkBar('ship rolling waves stability water on deck SOLAS')}`},
+  chainFreeSurface:{title:"Tahap 3 — Free Surface Effect",sub:"Pergeseran Muatan",body:`<p>FSE: berkurangnya stabilitas akibat cairan bebas bergerak.</p><div class="hl"><p><strong>ΔGM = − (i × ρ_cairan) / (Δ × ρ_laut)</strong></p></div><ul><li>Air di geladak kanan → FSE besar</li><li>Kendaraan tidak ter-lashing → bergeser ke kanan</li></ul>${linkBar('free surface effect cargo shift RoRo stability lashing')}`},
+  chainDownflood:{title:"Tahap 4 — Downflooding",sub:"Air Masuk Kamar Mesin",body:`<p>Masuknya air melalui bukaan yang seharusnya tertutup.</p><ul><li>Weather tight door terbuka</li><li>Ambang pintu: 380 mm</li><li>Sudut kritis: 7,2°</li></ul>${linkBar('downflooding weather tight door SOLAS ship stability')}`},
+  chain40pct:{title:"Tahap 5 — Kamar Mesin &gt;40%",sub:"Ambang Kritis",body:`<p>Simulasi BKI 6 skenario:</p><ul><li>Skenario 1: overdraft terindikasi</li><li>Skenario 4 (20%): stabilitas turun tajam</li><li>Skenario 6 (40%): kriteria tidak terpenuhi, terbalik</li></ul><h4>Kriteria IMO IS Code 2008</h4><ul><li>Luas GZ ≥ 0,055 m·rad sampai 30°</li><li>Luas GZ ≥ 0,09 m·rad sampai 40°</li><li>GM awal ≥ 0,15 m</li></ul>${linkBar('IMO Intact Stability Code 2008 flooding engine room')}`},
+  chainCapsize:{title:"Tahap 6 — Kehilangan Stabilitas",sub:"Konsekuensi",body:`<p>Kapal miring melewati sudut kritis, blackout, terbalik, tenggelam.</p><p><strong>Korban:</strong> 19 meninggal, 16–17 dalam pencarian, 30 selamat.</p><div class="hl red"><p>Cascade failure — pencegahan pada tahap paling awal.</p></div>${linkBar('Herald Estonia Sewol progressive stability failure capsize')}`},
+
+  /* AMAR TILONGKABILA */
+  tiloPenyebab:{title:"Amar — Penyebab Tilongkabila 1",sub:"Human Error",body:`<p>Kecelakaan disebabkan <strong>kesalahan dan kelalaian faktor manusia (human error)</strong>.</p><ul><li>Nakhoda meninggalkan anjungan di alur sempit</li><li>Kecepatan 12–13 knot bukan safe speed</li><li>BRM tidak dilaksanakan</li><li>Emergency steering tidak digunakan</li></ul><h4>Dasar Hukum</h4><ul><li>P2TL Rule 5 &amp; 6</li><li>SOLAS Bab V Reg 24/26/34</li><li>SOLAS Bab IX (SMK-7)</li><li>Pasal 42 ayat (2) PM 25/2011</li></ul>${linkBar('Mahkamah Pelayaran human error COLREG Tilongkabila')}`},
+  tiloNakhoda:{title:"Terduga I — Nakhoda Tilongkabila 1",sub:"Sanksi 3 Bulan",body:`<p><strong>Nama:</strong> Slamet Santoso · ANT I No. 6200034058N10317.</p><p>Tidak melaksanakan BRM, P2TL Rule 5 &amp; 6, SOLAS Bab V, SMK-7, PM 25/2011.</p><div class="hl red"><p><strong>Amar:</strong> Pencabutan sementara SKP sebagai Nakhoda kapal niaga <strong>3 bulan</strong>.</p></div>${linkBar('STCW master competency SOLAS Tilongkabila sanksi')}`},
+  tiloMualim:{title:"Terduga II — Mualim IV Tilongkabila 1",sub:"Dibebaskan",body:`<p><strong>Nama:</strong> Hana Afrilia Rachmawati · ANT III.</p><p>Melapor kepada Nakhoda, melaksanakan instruksi, bertindak sesuai good seamanship.</p><div class="hl green"><p><strong>Amar:</strong> <strong>DIBEBASKAN</strong>.</p></div>${linkBar('Pasal 384 KUHD good seamanship watchkeeping officer STCW')}`},
+
+  /* AMAR TILONGKABILA 2 */
+  tilo2Penyebab:{title:"Amar — Penyebab Tilongkabila 2",sub:"Human Error Navigasi &amp; Olah Gerak",body:`<p>Mahkamah: <strong>faktor manusia (human error)</strong> — kesalahan cara bernavigasi dan berolah gerak.</p><h4>Temuan Kunci</h4><ul><li>Posisi overlap 50 m saat masuk dermaga</li><li>Kesalahan bermanuver: mesin kopel kiri RPM sama, angin &amp; arus dari haluan kiri</li><li>Tali tunda TB Bunaken terlambat terikat</li><li>Nakhoda tidak menggunakan Pandu sebagai penasihat meskipun Bitung wajib Pandu</li></ul>${linkBar('Mahkamah Pelayaran Tilongkabila Sabuk Nusantara human error')}`},
+  tilo2Pandu:{title:"Masalah Pandu — Tilongkabila 2",sub:"Pelanggaran PM 57/2015",body:`<p>Nakhoda tidak menggunakan jasa Pandu sebagaimana mestinya, meskipun Bitung adalah perairan wajib Pandu.</p><h4>Dugaan Pelanggaran</h4><ul><li>Pasal 52 ayat (1) PM 57/2015 tentang Pemanduan dan Penundaan Kapal</li><li>UU No. 17 Tahun 2008</li></ul><div class="hl red"><p><strong>Hal memberatkan:</strong> Pernyataan dan perilaku Terduga Nakhoda yang tidak mengakui Pandu Indonesia meskipun telah bersertifikat.</p></div><h4>Pelajaran</h4><p>Kehadiran Pandu tidak membebaskan Nakhoda dari tanggung jawab, karena Pandu bersifat penasihat.</p>${linkBar('PM 57 tahun 2015 pemanduan penundaan kapal wajib pandu')}`},
+  tilo2Nakhoda:{title:"Terduga — Nakhoda Tilongkabila 2",sub:"Sanksi 4 Bulan",body:`<p><strong>Nama:</strong> Hindar Bahadi · Lahir Semarang, 1 November 1966 · ANT I No. 6200081117N10315.</p><p><strong>Temuan:</strong> Tidak menjalankan amanah SOLAS Bab V reg 15 &amp; 34, P2TL Rule 5, ISM Code (SMK 5 poin J &amp; SMK 7), STCW A-VIII/2, PM 25/2011 Pasal 42 ayat (2), dan Pasal 342 alinea pertama KUHD.</p><div class="hl red"><p><strong>Amar:</strong> Pencabutan sementara SKP sebagai <strong>Nakhoda kapal-kapal niaga selama 4 bulan</strong>.</p></div><h4>Hal Meringankan</h4><ul><li>Sopan, berterus terang</li><li>Tulang punggung keluarga</li><li>Nakhoda pengganti pasca pensiun</li></ul><h4>Hal Memberatkan</h4><ul><li>Tidak mengakui Pandu Indonesia bersertifikat</li></ul>${linkBar('Hindar Bahadi Nakhoda Tilongkabila sanksi 4 bulan')}`},
+
+  /* AMAR TUNU */
+  tunuPenyebab:{title:"Amar — Penyebab Tunu",sub:"Human Error &amp; Faktor Organisasi",body:`<p><strong>Disebabkan oleh rangkaian kesalahan pada faktor manusia (human error) dan faktor organisasi.</strong></p><h4>Faktor Manusia</h4><ul><li>Penyusunan muatan tidak sesuai stability booklet</li><li>Pengawasan lashing tidak menyeluruh</li><li>Weather tight door terbuka</li></ul><h4>Faktor Organisasi</h4><ul><li>PT Raputra Jaya: belum memiliki SOP pemuatan &amp; lashing</li><li>PT ASDP: tidak menimbang semua kendaraan</li><li>BPTD: jadwal operasional tidak memadai</li></ul>${linkBar('KMP Tunu Pratama Jaya human error organizational factor ISM Code')}`},
+  tunuNakhoda:{title:"Terduga I — Nakhoda Tunu",sub:"Korban Hilang",body:`<p><strong>Nama:</strong> Agus Slamet · ANT III Manajemen.</p><p>Korban hilang (BASARNAS), tidak dapat dimintai keterangan.</p><div class="hl"><p><strong>Pertimbangan:</strong> Beban tanggung jawab Nakhoda tidak dapat sepenuhnya dibebankan kepada Terduga II.</p></div>${linkBar('BASARNAS master responsibility SOLAS ship safety')}`},
+  tunuMualim:{title:"Terduga II — Mualim II Tunu",sub:"Sanksi 7 Bulan",body:`<p><strong>Nama:</strong> Nurdin Yuswanto · ANT-V No. 6200506593M50517.</p><p>Belum memenuhi ISM Code Elemen 7 dan Pasal 384 KUHD.</p><div class="hl red"><p><strong>Amar:</strong> Pencabutan sementara SKP sebagai <strong>Perwira Dinas Jaga 7 bulan</strong>.</p></div>${linkBar('ISM Code element 7 shipboard operations STCW Tunu')}`},
+
+  /* ORGANISASI */
+  orgRaputra:{title:"PT Raputra Jaya — Dugaan Pelanggaran",sub:"Pasal 4 PM 30 Tahun 2016",body:`<p><strong>Dasar:</strong> Pasal 4 PM 30/2016 tentang Kewajiban Pengikatan Kendaraan pada Kapal Angkutan Penyeberangan.</p><p><strong>Dugaan:</strong> Belum menetapkan SOP khusus pemuatan &amp; pe-lashing-an kendaraan.</p><div class="hl red"><p>"Kesalahan tersebut bukan penyebab langsung kecelakaan."</p></div>${linkBar('PM 30 Tahun 2016 pengikatan kendaraan kapal penyeberangan')}`},
+  orgASDP:{title:"PT ASDP Indonesia Ferry — Dugaan Pelanggaran",sub:"Pasal 3 PM 18 Tahun 2021",body:`<p><strong>Dasar:</strong> Pasal 3 PM 18/2021 tentang Pengawasan Muatan Angkutan Barang.</p><p><strong>Dugaan:</strong></p><ul><li>Tidak menimbang semua kendaraan</li><li>Berat tidak tercatat di tiket Ferizy</li><li>Tidak menerapkan tiket satu orang satu penumpang</li></ul><div class="hl red"><p>Pemuatan berdasarkan jumlah unit, bukan berat → overdraft.</p></div>${linkBar('PM 18 Tahun 2021 pengawasan muatan jembatan timbang Ferizy')}`},
+  orgBPTD:{title:"BPTD Kelas II Jawa Timur — Dugaan Pelanggaran",sub:"Pasal 73 PM 60/2019 &amp; PM 6/2023",body:`<p><strong>Dasar:</strong> Pasal 73 PM 60/2019 &amp; Pasal 3 PM 6/2023.</p><p><strong>Dugaan:</strong></p><ul><li>Belum optimal pengendalian keselamatan penyeberangan</li><li>Tidak memperhatikan berat kendaraan &amp; muatan</li><li>Jadwal kapal tidak memadai</li></ul>${linkBar('PM 60 Tahun 2019 angkutan barang PM 6 Tahun 2023 BPTD penyeberangan')}`},
+
+  /* KASUS INTERNASIONAL */
+  intCosta:{title:"Costa Concordia — Italia 2012",sub:"BRM Failure",body:`<p>13 Januari 2012. 32 meninggal. Deviasi rute → karang → terbalik.</p><p><strong>Pelajaran:</strong> BRM tidak berjalan, awak tidak berani mengoreksi Nakhoda.</p>${linkBar('Costa Concordia 2012 investigation BRM failure')}`},
+  intHerald:{title:"Herald of Free Enterprise — Belgia 1987",sub:"Asal-Mula ISM Code",body:`<p>6 Maret 1987. 193 meninggal. Pintu haluan terbuka.</p><div class="hl red"><p>Memicu lahirnya <strong>ISM Code</strong>.</p></div>${linkBar('Herald of Free Enterprise 1987 investigation ISM Code origin')}`},
+  intEstonia:{title:"MS Estonia — Baltik 1994",sub:"Bow Visor Failure",body:`<p>28 September 1994. 852 meninggal.</p>${linkBar('MS Estonia 1994 investigation bow visor ferry')}`},
+  intElFaro:{title:"SS El Faro — Atlantik 2015",sub:"Hurricane Joaquin",body:`<p>1 Oktober 2015. 33 awak hilang.</p>${linkBar('SS El Faro 2015 NTSB investigation hurricane Joaquin')}`},
+  intSewol:{title:"Sewol Ferry — Korea 2014",sub:"Overloading",body:`<p>16 April 2014. 304 meninggal.</p>${linkBar('Sewol ferry 2014 investigation overloading stability')}`},
+  intExxon:{title:"Exxon Valdez — Alaska 1989",sub:"Kelahiran OPA 90",body:`<p>24 Maret 1989. Tumpahan 10,8 juta galon. Pemicu OPA 90.</p>${linkBar('Exxon Valdez 1989 oil spill OPA 90')}`},
+  intTitanic:{title:"RMS Titanic — Atlantik 1912",sub:"Asal-Mula SOLAS",body:`<p>15 April 1912. 1.517 meninggal.</p><div class="hl red"><p>Memicu <strong>SOLAS 1914</strong>.</p></div>${linkBar('RMS Titanic 1912 SOLAS 1914 origin')}`},
+  intBowMariner:{title:"Bow Mariner — Atlantik 2004",sub:"Hot Work",body:`<p>28 Februari 2004. 6 meninggal.</p>${linkBar('Bow Mariner 2004 investigation hot work tank cleaning')}`},
+  intMscChitra:{title:"MSC Chitra — Mumbai 2010",sub:"Tabrakan Pelabuhan",body:`<p>7 Agustus 2010. Kontainer jatuh, tumpahan minyak.</p>${linkBar('MSC Chitra 2010 Mumbai collision investigation')}`},
+
+  /* REGULASI */
+  rule5:{title:"COLREG Rule 5 — Proper Look-out",sub:"P2TL",body:`<p>Pengamatan yang layak dengan penglihatan, pendengaran &amp; semua sarana tersedia.</p><div class="hl red"><p>Rule 5 = P2TL/COLREG, bukan pasal SOLAS.</p></div>${linkBar('COLREG 1972 Rule 5 proper look-out')}`},
+  rule6:{title:"COLREG Rule 6 — Safe Speed",sub:"P2TL",body:`<p>Kecepatan aman agar dapat menghindari tubrukan &amp; berhenti dalam jarak sesuai.</p>${linkBar('COLREG 1972 Rule 6 safe speed')}`},
+  solas5:{title:"SOLAS Bab V — Keselamatan Navigasi",sub:"Safety of Navigation",body:`<p>Ketentuan operasional navigasi bagi kapal.</p>${linkBar('SOLAS Chapter V navigation safety IMO')}`},
+  solasV15:{title:"SOLAS Bab V Reg 15",sub:"Bridge Team &amp; Navigasi",body:`<p><strong>Bunyi:</strong> Regulasi ini mewajibkan pengaturan alat dan prosedur di anjungan yang mendukung kerja TIM, mengurangi beban kerja individu, dan meminimalkan risiko kesalahan manusia.</p><h4>Relevansi Tilongkabila 2</h4><p>Nakhoda mengendalikan sendiri, Markonis (tidak tersertifikasi navigasi) memegang radio &amp; mengamati Radar/AIS/ARPA, Pandu hanya diam — melanggar semangat Reg 15.</p>${linkBar('SOLAS Chapter V Regulation 15 bridge team navigation')}`},
+  solas24:{title:"SOLAS Reg 24",sub:"Kendali Arah/Jalur",body:`<div class="hl"><p>Angka 4: kemudi manual harus diuji setelah penggunaan sistem kontrol dalam waktu lama &amp; sebelum memasuki area perhatian khusus.</p></div>${linkBar('SOLAS Regulation 24 steering gear control')}`},
+  solas26:{title:"SOLAS Reg 26",sub:"Sistem Kemudi &amp; Pelatihan",body:`<p>Mengatur kemudi utama, auxiliaries, pengujian &amp; drill kemudi darurat.</p>${linkBar('SOLAS Regulation 26 steering gear drill')}`},
+  solas34:{title:"SOLAS Reg 34",sub:"Hindari Bahaya",body:`<p>Kewajiban tindakan pencegahan &amp; menghindari situasi berbahaya.</p>${linkBar('SOLAS Regulation 34 safe navigation danger')}`},
+  solas9:{title:"SOLAS Bab IX — ISM Code",sub:"Manajemen Keselamatan",body:`<p>Kerangka ISM Code.</p><div class="hl purple"><p>Lahir dari tragedi Herald of Free Enterprise (1987).</p></div>${linkBar('SOLAS Chapter IX ISM Code IMO')}`},
+  ism7:{title:"ISM Code Elemen 7",sub:"Shipboard Operations",body:`<p>Perusahaan harus menetapkan prosedur, rencana, dan instruksi untuk operasi kapal.</p><div class="hl red"><p>Mualim II Tunu dinilai belum memenuhi Elemen 7.</p></div>${linkBar('ISM Code element 7 shipboard operations')}`},
+  sms:{title:"SMS / SMK",sub:"Sistem Manajemen Keselamatan",body:`<p>Dokumen induk pengelolaan keselamatan.</p>${linkBar('Safety Management System SMS ISM Code')}`},
+  dpA:{title:"Designated Person Ashore (DPA)",sub:"Penghubung",body:`<p>Personel darat yang memastikan penerapan SMS.</p>${linkBar('Designated Person Ashore DPA ISM Code')}`},
+  audit:{title:"Audit &amp; Tindakan Korektif",sub:"Siklus Perbaikan",body:`<p>Audit yang tidak menghasilkan tindakan korektif = formalitas.</p>${linkBar('ISM Code internal audit corrective action')}`},
+  smkPelni:{title:"SMK Pelni 5 &amp; 7",sub:"Kewenangan Nakhoda &amp; Prosedur Pandu",body:`
+    <p><strong>SMK 5 — Tanggung Jawab dan Wewenang Nakhoda:</strong> Poin J — <em>Master Overriding Authority</em>; Nakhoda berhak menolak mengoperasikan kapal jika menilai ada risiko terhadap keselamatan.</p>
+    <p><strong>SMK 7 — Prosedur Naik Turun Pandu:</strong></p>
+    <ul>
+      <li>Kehadiran Pandu tidak membebaskan Nakhoda dari tugas &amp; kewajiban — Pandu bersifat penasihat</li>
+      <li>Nakhoda &amp; Pandu wajib bertukar informasi kondisi &amp; karakteristik kapal</li>
+      <li>Jika Nakhoda ragu, dapat meminta penjelasan &amp; mengambil alih komando</li>
+    </ul>
+    ${linkBar('SMK PT Pelni tanggung jawab wewenang nakhoda prosedur pandu')}
+  `},
+  stcw1:{title:"STCW 1978 &amp; Amandemen",sub:"Standar Pelatihan",body:`<p>Standar internasional untuk pelatihan, sertifikasi &amp; tugas jaga pelaut.</p>${linkBar('STCW 1978 standards training certification watchkeeping')}`},
+  stcwAviii2:{title:"STCW A-VIII/2",sub:"Tugas Jaga &amp; BTM",body:`<p>Mengatur pengaturan tugas jaga &amp; prinsipnya, termasuk Bridge Team Management (BTM).</p><ul><li>Komposisi tim jaga harus memadai</li><li>Komunikasi closed-loop wajib diterapkan</li><li>Anggota tim berani menyampaikan keraguan</li><li>Perwira jaga senior bertanggung jawab atas keseluruhan</li><li>Jam kerja &amp; istirahat diatur untuk mencegah kelelahan</li></ul>${linkBar('STCW A-VIII/2 watchkeeping Bridge Team Management')}`},
+  stcwA6:{title:"STCW A-I/6",sub:"Kualifikasi Instruktur",body:`<p>Mengatur kualifikasi instruktur, supervisor, dan asesor, termasuk kewajiban instruktur yang menggunakan simulator untuk memperoleh bimbingan teknik instruksional dengan simulator.</p>${linkBar('STCW Section A-I/6 instructor qualification')}`},
+  stcwA12:{title:"STCW A-I/12",sub:"Penggunaan Simulator",body:`<p>Mengatur standar penggunaan simulator untuk pelatihan dan asesmen, termasuk kesesuaian simulator dengan tujuan pelatihan, briefing, pemantauan, dan debriefing.</p>${linkBar('STCW Section A-I/12 simulator training assessment')}`},
+  marpol1:{title:"MARPOL 73/78",sub:"Pencegahan Pencemaran",body:`<p>Konvensi internasional untuk pencegahan pencemaran lingkungan laut oleh kapal.</p>${linkBar('MARPOL 73/78 annex oil pollution prevention')}`},
+  marpol2:{title:"MARPOL — Batas Kesimpulan",sub:"Hati-Hati",body:`<p>Tubrukan <strong>tidak otomatis</strong> berarti pelanggaran MARPOL. Diperlukan fakta &amp; dasar hukum.</p>${linkBar('MARPOL violation determination oil spill evidence')}`},
+  uu17:{title:"UU No. 17 Tahun 2008",sub:"Pelayaran",body:`<p>Kerangka utama pelayaran Indonesia. Diubah terakhir dengan UU No. 66 Tahun 2024.</p>${linkBar('UU 17 tahun 2008 pelayaran UU 66 tahun 2024')}`},
+  pm25:{title:"PM 25 Tahun 2011",sub:"SBNP Pasal 42 ayat (2)",body:`<div class="hl"><p>Kapal yang memasuki alur pelayaran sempit wajib memperhatikan radius lingkaran putar dengan menjaga jarak aman.</p></div>${linkBar('PM 25 tahun 2011 sarana bantu navigasi pelayaran')}`},
+  pm57:{title:"PM 57 Tahun 2015",sub:"Pemanduan dan Penundaan Kapal",body:`<p>Mengatur Pemanduan dan Penundaan Kapal di perairan Indonesia.</p><h4>Kewajiban</h4><ul><li>Di perairan wajib Pandu, setiap kapal wajib menggunakan jasa Pandu</li><li>Pandu bertugas sebagai penasihat Nakhoda</li><li>Kehadiran Pandu tidak membebaskan Nakhoda dari tanggung jawab</li></ul>${linkBar('PM 57 tahun 2015 pemanduan penundaan kapal pandu')}`},
+  kuhd:{title:"Pasal 342 &amp; 384 KUHD",sub:"Kewajiban Nakhoda &amp; ABK",body:`<p><strong>Pasal 342 alinea pertama KUHD:</strong> Nakhoda wajib bertindak dengan kepandaian, ketelitian, dan kebijaksanaan yang cukup.</p><p><strong>Pasal 384 KUHD:</strong> Selama ABK berada dalam dinas di kapal, ia wajib melaksanakan perintah nakhoda dengan seksama.</p>${linkBar('Pasal 342 384 KUHD nakhoda anak buah kapal')}`},
+
+  /* TOT 6.09 STAGES */
+  totExp:{title:"Tahap 1 — Mengalami (Experience)",sub:"Concrete Experience",body:`<p>Peserta terlibat dalam pengalaman nyata/simulasi.</p><h4>Cara Menerapkan</h4><ul><li>Sajikan video rekonstruksi/narasi kronologis</li><li>Bagikan salinan putusan sebagai sumber primer</li></ul>${linkBar('experiential learning Kolb maritime training')}`},
+  totShare:{title:"Tahap 2 — Mengungkap (Share)",sub:"Reflective Observation",body:`<p>Peserta berbagi pengamatan tanpa intervensi fasilitator.</p>${linkBar('reflective observation adult learning facilitation')}`},
+  totProcess:{title:"Tahap 3 — Memproses (Process)",sub:"Abstract Conceptualization",body:`<p>Fasilitator memandu analisis dengan instrumen hukum.</p>${linkBar('IMO model course case method teaching maritime law')}`},
+  totGeneralize:{title:"Tahap 4 — Menggeneralisasi",sub:"Prinsip Universal",body:`<p>Menarik prinsip umum: BRM, safe speed, call point, budaya speak up.</p>${linkBar('Bridge Resource Management safety culture speak up')}`},
+  totApply:{title:"Tahap 5 — Menerapkan (Apply)",sub:"Active Experimentation",body:`<p>Peserta mempraktikkan konsep dalam skenario.</p>${linkBar('full mission simulator maritime training emergency steering drill')}`},
+  totEvaluate:{title:"Tahap 6 — Mengevaluasi",sub:"Asesmen Kinerja",body:`<p>Refleksi + penilaian kinerja + rencana transfer.</p>${linkBar('performance based assessment maritime competency STCW')}`},
+
+  /* 9 ELEMEN */
+  el1:{title:"Elemen 1 — Relevansi",sub:"Materi Terkait Tugas",body:`<p>Materi langsung terkait tugas nyata.</p>${linkBar('adult learning relevance workplace training')}`},
+  el2:{title:"Elemen 2 — Konteks Nyata",sub:"Studi Kasus Otentik",body:`<p>Berangkat dari kasus nyata.</p>${linkBar('case based learning authentic maritime')}`},
+  el3:{title:"Elemen 3 — Partisipasi Aktif",sub:"Peserta sebagai Pelaku",body:`<p>Analisis, debat, memutuskan.</p>${linkBar('active learning strategies adult education')}`},
+  el4:{title:"Elemen 4 — Umpan Balik",sub:"Koreksi Real-Time",body:`<p>Fasilitator &amp; rekan memberi koreksi.</p>${linkBar('feedback techniques simulation debriefing')}`},
+  el5:{title:"Elemen 5 — Pengulangan",sub:"Spaced Repetition",body:`<p>Konsep kunci diulang di beberapa sesi.</p>${linkBar('spaced repetition learning retention')}`},
+  el6:{title:"Elemen 6 — Multi-Sensori",sub:"Visual, Audio, Kinestetik",body:`<p>Melibatkan berbagai indera.</p>${linkBar('multisensory learning maritime training')}`},
+  el7:{title:"Elemen 7 — Kolaborasi",sub:"Belajar Bersama",body:`<p>Belajar dalam kelompok.</p>${linkBar('collaborative learning crew resource management')}`},
+  el8:{title:"Elemen 8 — Refleksi",sub:"Metakognisi",body:`<p>Peserta menuliskan pembelajaran pribadi.</p>${linkBar('reflective practice maritime professional development')}`},
+  el9:{title:"Elemen 9 — Asesmen &amp; Transfer",sub:"Dari Kelas ke Kapal",body:`<p>Penilaian berbasis kinerja + transfer.</p>${linkBar('transfer of training workplace application')}`},
+
+  /* LEARNING OUTCOMES */
+  lo1:{title:"LO-1 · C2 — Memahami",sub:"Kronologi &amp; Penyebab",body:`<p>Menjelaskan kronologi &amp; penyebab berdasarkan fakta putusan.</p>${linkBar('Bloom taxonomy C2 understanding maritime accident timeline')}`},
+  lo2:{title:"LO-2 · C3 — Menerapkan",sub:"Rule 5 &amp; 6 COLREG",body:`<p>Menerapkan Rule 5 &amp; 6 COLREG/P2TL serta SOLAS Bab V.</p>${linkBar('COLREG Rule 5 Rule 6 application safe speed')}`},
+  lo3:{title:"LO-3 · C4 — Menganalisis",sub:"BRM &amp; ISM Code",body:`<p>Menganalisis BRM, ISM Code, kegagalan keselamatan.</p>${linkBar('root cause analysis ISM Code BRM failure')}`},
+  lo4:{title:"LO-4 · C5 — Mengevaluasi",sub:"Efektivitas SMS",body:`<p>Mengevaluasi efektivitas prosedur kapal.</p>${linkBar('ISM Code internal audit effectiveness cargo lashing')}`},
+  lo5:{title:"LO-5 · C6 — Mencipta",sub:"Passage Plan &amp; Checklist",body:`<p>Menyusun passage plan &amp; checklist MARPOL.</p>${linkBar('passage planning IMO SOPEP MARPOL checklist')}`},
+  lo6:{title:"LO-6 · Afektif",sub:"Budaya Keselamatan",body:`<p>Menunjukkan sikap speak up &amp; disiplin.</p>${linkBar('safety culture speak up affective learning outcomes')}`},
+
+  /* TRAINING AIDS DETAIL */
+  aid1:{title:"FMBS — Full Mission Bridge Simulator",sub:"Fidelitas Tinggi · BRM &amp; Kerja Tim",body:`
+    <p><strong>Fidelitas:</strong> Tinggi — menyediakan semua dimensi fisik, fungsional, perilaku, psikologis, sosial.</p>
+    <h4>Kompetensi yang Dilatih</h4>
+    <ul>
+      <li>BRM, kepemimpinan, kerja tim</li>
+      <li>Pengambilan keputusan taktis</li>
+      <li>Olah gerak darurat</li>
+    </ul>
+    <h4>Alasan Pemilihan</h4>
+    <p>Satu-satunya alat yang dapat menghadirkan tekanan waktu &amp; dinamika tim secara utuh; memenuhi Reg I/12 untuk pelatihan &amp; asesmen.</p>
+    <h4>Skenario</h4>
+    <p>Model alur sempit, arus pasang ke utara, perairan dangkal, kegagalan kemudi.</p>
+    ${linkBar('full mission bridge simulator FMBS STCW I/12 BRM')}
+  `},
+  aid2:{title:"Simulator Desktop / ECDIS",sub:"Fidelitas Rendah-Sedang · Passage Plan",body:`
+    <p><strong>Fidelitas:</strong> Rendah-Sedang.</p>
+    <h4>Kompetensi yang Dilatih</h4>
+    <ul>
+      <li>Passage plan</li>
+      <li>Penandaan waypoint dan no-go area</li>
+      <li>Perhitungan kecepatan aman &amp; jarak henti</li>
+      <li>Alarm cross-track</li>
+    </ul>
+    <h4>Alasan Pemilihan</h4>
+    <p>Murah dan dapat dipakai individu; cocok untuk latihan berulang sebelum masuk FMBS.</p>
+    ${linkBar('ECDIS desktop simulator passage planning IMO')}
+  `},
+  aid11:{title:"Mock-up Kemudi Darurat",sub:"Fidelitas Sedang (Fungsional)",body:`
+    <p><strong>Fidelitas:</strong> Sedang (fungsional).</p>
+    <h4>Kompetensi yang Dilatih</h4>
+    <ul>
+      <li>Prosedur peralihan kemudi (FU → NFU → kemudi darurat)</li>
+      <li>Latihan kemudi darurat sesuai SOLAS V Reg 26</li>
+    </ul>
+    <h4>Alasan Pemilihan</h4>
+    <p>Menjawab langsung temuan: kemudi darurat tidak digunakan. Relevan bagi taruna kelistrikan karena melibatkan catu daya &amp; rangkaian kendali mesin kemudi.</p>
+    ${linkBar('emergency steering mock-up FU NFU SOLAS Reg 26')}
+  `},
+  aid9:{title:"Perangkat Komunikasi Anjungan–ECR",sub:"Fidelitas Rendah-Sedang",body:`
+    <p><strong>Fidelitas:</strong> Rendah-Sedang.</p>
+    <h4>Kompetensi yang Dilatih</h4>
+    <ul>
+      <li>Komunikasi closed-loop</li>
+      <li>Eskalasi</li>
+      <li>Koordinasi dek–mesin</li>
+    </ul>
+    <h4>Alasan Pemilihan</h4>
+    <p>Menjawab kegagalan respons ECR dalam kasus; dapat digabung dengan FMBS atau dipakai terpisah.</p>
+    ${linkBar('bridge engine room communication closed-loop training')}
+  `},
+  aid10:{title:"Debriefing Playback",sub:"Refleksi Terstruktur",body:`
+    <p><strong>Fungsi:</strong> Memutar ulang rekaman kedua sesi dan membandingkannya.</p>
+    <h4>Tiga Pertanyaan Pemandu</h4>
+    <ul>
+      <li>Apa yang terjadi?</li>
+      <li>Mengapa hal itu terjadi?</li>
+      <li>Apa yang akan dilakukan secara berbeda?</li>
+    </ul>
+    <h4>Prinsip</h4>
+    <p>Fokus pada perilaku &amp; sistem, bukan menyalahkan individu (Fanning &amp; Gaba, 2007; Reason, 1997).</p>
+    ${linkBar('structured debriefing playback maritime simulator Fanning Gaba')}
+  `},
+  aid13:{title:"Tabletop Exercise",sub:"Fidelitas Rendah · Alternatif Berbiaya Rendah",body:`
+    <p><strong>Fidelitas:</strong> Rendah.</p>
+    <h4>Kompetensi yang Dilatih</h4>
+    <ul>
+      <li>Kesadaran situasi</li>
+      <li>Urutan keputusan</li>
+      <li>Kerja tim dasar</li>
+    </ul>
+    <h4>Alat</h4>
+    <p>Peta laut cetak, model kapal magnetis, kartu peran, kartu inject.</p>
+    <h4>Alasan Pemilihan</h4>
+    <p>Biaya rendah, mudah dibawa, menjadi alternatif bila simulator tidak tersedia atau gagal.</p>
+    ${linkBar('tabletop exercise maritime training low cost alternative')}
+  `},
+  aid5:{title:"Checklist &amp; Form",sub:"Departure, Lashing, Audit",body:`<p>Verifikasi prosedur dijalankan.</p><h4>Jenis</h4><ul><li>Departure checklist</li><li>Lashing checklist</li><li>Audit checklist</li><li>Master Night Order form</li><li>Checklist SMS perairan sempit</li></ul>${linkBar('departure checklist SOLAS cargo securing manual')}`},
+  aid6:{title:"Alat Keselamatan",sub:"Life Jacket, Liferaft, APAR",body:`<p>Peragaan langsung penggunaan alat keselamatan.</p>${linkBar('SOLAS life saving appliances training liferaft APAR')}`},
+  aid4:{title:"Video Rekonstruksi",sub:"Kronologi Visual",body:`<p>Menghadirkan kronologi secara visual.</p>${linkBar('maritime accident reconstruction animation NTSB MAIB')}`},
+  aid3:{title:"Stability Booklet",sub:"Dokumen Stabilitas",body:`<p>Melatih kurva stabilitas, GM, overdraft.</p>${linkBar('ship stability booklet GM calculation IMO intact stability code')}`},
+  aid7:{title:"Aplikasi Interaktif",sub:"Kuis Digital &amp; Polling",body:`<p>Memperkuat retensi melalui gamifikasi.</p>${linkBar('digital quiz formative assessment maritime training')}`},
+  aid8:{title:"Salinan Putusan",sub:"Sumber Primer",body:`<p>Dokumen otentik sebagai sumber primer.</p>${linkBar('Mahkamah Pelayaran putusan kapal Indonesia')}`},
+
+  /* TABEL-TABEL PAPER */
+  tabel2Paper:{title:"Tabel 2 — Pemetaan Temuan → Ketentuan Hukum → STCW",sub:"6 Baris Temuan",body:`
+    <div class="tbl-wrap"><table>
+      <tr><th>Temuan Mahkamah</th><th>Ketentuan yang Dirujuk</th><th>Kompetensi STCW</th><th>Implikasi Pembelajaran</th></tr>
+      <tr><td>Pengamatan tidak memadai; perwira jaga tanpa dukungan navigator senior di alur sempit pada malam hari</td><td>P2TL Aturan 5; SMK-7 Huruf C angka 5</td><td>A-II/1: dinas jaga navigasi yang aman; prinsip BRM; kepemimpinan &amp; kerja tim</td><td>Latih pembagian tugas, cross-check posisi, penentuan titik panggil Nakhoda</td></tr>
+      <tr><td>Kecepatan penuh 12–13 knot di alur sempit</td><td>P2TL Aturan 6; SMK-7 Huruf C angka 3</td><td>A-II/1: perencanaan dan pelaksanaan pelayaran; olah gerak kapal</td><td>Latih perhitungan jarak/waktu henti &amp; penetapan kecepatan aman sejak passage plan</td></tr>
+      <tr><td>Master Night Order tidak sesuai kondisi perairan</td><td>SOLAS IX/ISM Code melalui SMS perusahaan</td><td>A-II/1 &amp; A-II/2: komunikasi, pendelegasian, manajemen anjungan</td><td>Latih penyusunan perintah tertulis yang spesifik terhadap risiko rute</td></tr>
+      <tr><td>Kemudi darurat tidak digunakan; latihan kemudi darurat tidak pernah dilakukan</td><td>SOLAS V Reg 24 angka 4 dan Reg 26</td><td>A-II/1: respons terhadap keadaan darurat navigasi; penggunaan sistem kemudi</td><td>Latih peralihan kemudi FU → NFU → kemudi darurat &amp; prosedur</td></tr>
+      <tr><td>Tidak melakukan stop mesin/mundur/emergency stop</td><td>SOLAS V Reg 34; PM 25/2011 Pasal 42 ayat (2)</td><td>A-II/1: olah gerak dalam keadaan darurat</td><td>Latih pengambilan keputusan di bawah tekanan waktu</td></tr>
+      <tr><td>Komunikasi anjungan–ECR tidak berjalan</td><td>SMS perusahaan (SOP kemudi darurat)</td><td>Kerja tim lintas departemen (dek–mesin–elektro)</td><td>Latih komunikasi closed-loop &amp; prosedur eskalasi ke ruang mesin</td></tr>
+    </table></div>
+    ${linkBar('STCW competency mapping maritime accident finding table')}
+  `},
+  tabel3Paper:{title:"Tabel 3 — Training Aids Berjenjang",sub:"Fidelitas &amp; Alasan Pemilihan",body:`
+    <div class="tbl-wrap"><table>
+      <tr><th>Training Aid</th><th>Fidelitas</th><th>Kompetensi yang Dilatih</th><th>Alasan Pemilihan</th></tr>
+      <tr><td>Full Mission Bridge Simulator (FMBS) dengan model alur sempit, arus pasang ke utara, perairan dangkal, dan kegagalan kemudi</td><td>Tinggi</td><td>BRM, kepemimpinan, kerja tim, pengambilan keputusan, olah gerak darurat</td><td>Satu-satunya alat yang dapat menghadirkan tekanan waktu &amp; dinamika tim secara utuh; memenuhi Reg I/12 untuk pelatihan &amp; asesmen</td></tr>
+      <tr><td>Simulator desktop/part-task atau trainer ECDIS dan radar</td><td>Rendah-Sedang</td><td>Passage plan, penandaan waypoint &amp; no-go area, perhitungan kecepatan aman &amp; jarak henti, alarm cross-track</td><td>Murah &amp; dapat dipakai individu; cocok untuk latihan berulang sebelum masuk FMBS</td></tr>
+      <tr><td>Trainer atau mock-up sistem kemudi darurat (panel FU/NFU, sakelar peralihan, telepon ke ruang mesin kemudi)</td><td>Sedang (fungsional)</td><td>Prosedur peralihan kemudi, latihan kemudi darurat sesuai SOLAS V Reg 26</td><td>Menjawab langsung temuan (c); relevan juga bagi taruna kelistrikan karena melibatkan catu daya &amp; rangkaian kendali mesin kemudi</td></tr>
+      <tr><td>Perangkat latihan komunikasi anjungan–ECR (telepon, talk-back, mock-up telegraf mesin)</td><td>Rendah-Sedang</td><td>Komunikasi closed-loop, eskalasi, koordinasi dek–mesin</td><td>Menjawab kegagalan respons ECR dalam kasus; dapat digabung dengan FMBS atau dipakai terpisah</td></tr>
+      <tr><td>Tabletop exercise: peta laut cetak, model kapal magnetis, kartu peran, kartu inject</td><td>Rendah</td><td>Kesadaran situasi, urutan keputusan, kerja tim dasar</td><td>Biaya rendah, mudah dibawa, menjadi alternatif bila simulator tidak tersedia atau gagal</td></tr>
+    </table></div>
+    ${linkBar('training aids tiered fidelity Kim maritime simulator')}
+  `},
+  tabel4Paper:{title:"Tabel 4 — Teaching &amp; Learning Aids Pendukung",sub:"Bentuk &amp; Fungsi",body:`
+    <div class="tbl-wrap"><table>
+      <tr><th>Jenis</th><th>Bentuk</th><th>Pengguna</th><th>Fungsi dalam Desain</th></tr>
+      <tr><td>Teaching aids</td><td>Slide rekonstruksi kronologi &amp; skema lintasan; peta plotting digital alur sempit; grafik jarak henti vs jarak tersedia; video animasi olah gerak/efek tepi; tampilan playback simulator</td><td>Instruktur</td><td>Menjelaskan fakta putusan, sebab kecelakaan, &amp; dasar hukum; memandu debriefing</td></tr>
+      <tr><td>Learning aids</td><td>Lembar kerja analisis hukum (temuan → aturan → tindakan pencegahan); kartu kronologi acak; buku saku P2TL Aturan 5 &amp; 6; formulir Master Night Order; checklist SMS perairan sempit; checklist MARPOL pascakejadian</td><td>Taruna/i, mandiri atau kelompok</td><td>Membangun pemahaman sebelum praktik &amp; menjadi bukti kerja yang dapat dinilai</td></tr>
+    </table></div>
+    ${linkBar('teaching aids learning aids maritime table instructional design')}
+  `},
+  tabel5Paper:{title:"Tabel 5 — Siklus 6 Tahap &amp; Bukti Asesmen",sub:"Pilih-Uji-Jelaskan-Demonstrasikan-Libatkan-Evaluasi",body:`
+    <div class="tbl-wrap"><table>
+      <tr><th>Tahap</th><th>Kegiatan</th><th>Teaching Aid</th><th>Learning Aid</th><th>Training Aid</th><th>Bukti Asesmen</th></tr>
+      <tr><td>1. Pilih (sebelum sesi)</td><td>Menetapkan capaian pembelajaran &amp; memilih alat bantu</td><td>—</td><td>—</td><td>Pemilihan skenario simulator</td><td>Rencana sesi</td></tr>
+      <tr><td>2. Uji (H-1)</td><td>Uji proyektor, skenario simulator, &amp; cetak bahan; siapkan alternatif</td><td>Slide, video</td><td>Lembar kerja, kartu</td><td>FMBS, mock-up</td><td>Daftar periksa kesiapan</td></tr>
+      <tr><td>3. Jelaskan (25 mnt)</td><td>Pemantik kasus; kronologi; peta aturan</td><td>Slide kronologi, skema, grafik</td><td>Kartu jawaban pemantik</td><td>—</td><td>Jawaban awal peserta</td></tr>
+      <tr><td>4. Demonstrasikan (20 mnt)</td><td>Instruktur memperagakan komunikasi closed-loop &amp; peralihan kemudi darurat</td><td>Peta plotting</td><td>Naskah komunikasi</td><td>Mock-up kemudi darurat, telepon ECR</td><td>—</td></tr>
+      <tr><td>5. Libatkan (60 mnt)</td><td>Briefing; Sesi 1 (rekonstruksi); Sesi 2 (korektif); kerja pos kelompok</td><td>—</td><td>Formulir Night Order, checklist SMS, lembar kerja hukum</td><td>FMBS atau tabletop exercise</td><td>Lembar observasi, produk kelompok</td></tr>
+      <tr><td>6. Evaluasi (25 mnt)</td><td>Debriefing dengan playback; kuis; refleksi</td><td>Playback simulator</td><td>Kuis, refleksi tertulis</td><td>Rekaman simulator</td><td>Skor rubrik &amp; kuis</td></tr>
+    </table></div>
+    ${linkBar('BPSDMP Kolb IMO training cycle six stages')}
+  `},
+  tabel6Paper:{title:"Tabel 6 — Rubrik Observasi Perilaku BRM",sub:"5 Kriteria × 3 Tingkat",body:`
+    <div class="tbl-wrap"><table>
+      <tr><th>Kriteria</th><th>1 — Belum Kompeten</th><th>2 — Cukup</th><th>3 — Kompeten</th></tr>
+      <tr><td>Kesadaran situasi</td><td>Tidak menyadari kapal keluar jalur</td><td>Menyadari tetapi terlambat</td><td>Mendeteksi dini melalui ECDIS/GPS &amp; pengamatan visual</td></tr>
+      <tr><td>Keputusan kecepatan</td><td>Tetap kecepatan penuh</td><td>Mengurangi setelah masalah muncul</td><td>Menetapkan kecepatan aman sejak awal</td></tr>
+      <tr><td>Komunikasi closed-loop</td><td>Perintah tidak diulang</td><td>Diulang tanpa laporan hasil</td><td>Perintah–ulang–laporan lengkap</td></tr>
+      <tr><td>Eskalasi &amp; tindakan darurat</td><td>Tidak memanggil Nakhoda/ECR</td><td>Memanggil tanpa opsi darurat</td><td>Memanggil serta menggunakan NFU/kemudi darurat, stop mesin, atau jangkar</td></tr>
+      <tr><td>Penalaran hukum</td><td>Tidak mengaitkan tindakan dengan aturan</td><td>Menyebut aturan tanpa alasan</td><td>Menjelaskan aturan, alasannya, &amp; batas kesimpulan</td></tr>
+    </table></div>
+    <p><strong>Skor:</strong> 13–15 = kompeten; 9–12 = cukup; ≤ 8 = perlu latihan ulang.</p>
+    <h4>Catatan</h4>
+    <p>Rubrik sebaiknya diuji keandalannya antarpenilai sebelum digunakan untuk keputusan kelulusan, mengingat Sellberg (2017) mencatat masih terbatasnya bukti tentang validitas &amp; keandalan asesmen berbasis simulator.</p>
+    ${linkBar('behavioural markers rubric BRM assessment O Connor maritime')}
+  `},
+  tabel7Paper:{title:"Tabel 7 — Evaluasi Desain terhadap 9 Butir Checklist",sub:"BPSDMP Perhubungan",body:`
+    <div class="tbl-wrap"><table>
+      <tr><th>Butir Checklist</th><th>Pemenuhan dalam Desain</th></tr>
+      <tr><td>Selaras dengan learning outcome</td><td>Setiap capaian dipetakan ke aktivitas, alat bantu, &amp; bukti asesmen (Tabel 5)</td></tr>
+      <tr><td>Akurat, mutakhir, dan relevan</td><td>Bersumber dari putusan 25 September 2025 &amp; regulasi terbaru (UU 66/2024); fakta dipisahkan dari pendapat saksi</td></tr>
+      <tr><td>Sesuai dengan profil peserta</td><td>Konteks taruna/i; istilah teknis dijelaskan; trainer kemudi darurat relevan bagi taruna dek &amp; kelistrikan</td></tr>
+      <tr><td>Terlihat, terdengar, dan mudah digunakan</td><td>Visual satu pesan per slide; lembar kerja ringkas; simulator dioperasikan dengan pendampingan</td></tr>
+      <tr><td>Telah diuji sebelum pelajaran</td><td>Tahap Uji (H-1) dengan daftar periksa kesiapan</td></tr>
+      <tr><td>Aman dan sesuai prosedur</td><td>Briefing keselamatan simulator; role-play tanpa peralatan berbahaya</td></tr>
+      <tr><td>Mendorong partisipasi aktif</td><td>Pemantik, demonstrasi, simulasi bermain peran, &amp; kerja pos kelompok</td></tr>
+      <tr><td>Terhubung dengan asesmen</td><td>Rubrik observasi, kuis, &amp; refleksi tertulis</td></tr>
+      <tr><td>Tersedia alternatif bila alat gagal</td><td>Tabletop exercise, handout cetak, papan tulis, &amp; mock-up kertas</td></tr>
+    </table></div>
+    ${linkBar('BPSDMP Perhubungan checklist alat bantu pembelajaran')}
+  `},
+  paperKeterbatasan:{title:"Keterbatasan Kajian Paper (4.9)",sub:"Hal yang Perlu Diperhatikan",body:`
+    <p><strong>Pertama,</strong> model ini belum diuji secara empiris sehingga klaim efektivitas masih bersifat hipotesis; draf awal yang menyatakan integrasi "terbukti efektif" perlu dikoreksi menjadi "berpotensi efektif".</p>
+    <p><strong>Kedua,</strong> tidak semua lembaga memiliki FMBS dengan model perairan Selat Buton, sehingga skenario mungkin menggunakan perairan sempit generik.</p>
+    <p><strong>Ketiga,</strong> dokumen putusan yang tersedia berupa pindaian, sehingga kutipan angka perlu dicocokkan kembali dengan salinan resmi sebelum digunakan sebagai bahan ajar baku.</p>
+    ${linkBar('research limitations maritime case study empirical testing')}
+  `},
+
+  /* AKTIVITAS */
+  akt1:{title:"Aktivitas 1 — Kronologi",sub:"Fakta vs Interpretasi",body:`<p>Menyusun garis waktu &amp; memisahkan fakta.</p><ol><li>Baca putusan, tandai pernyataan waktu</li><li>Buat tabel: Waktu | Fakta | Interpretasi</li><li>Tandai titik keputusan kritis</li></ol>${linkBar('maritime accident timeline analysis method')}`},
+  akt2:{title:"Aktivitas 2 — Bridge Team",sub:"BRM dalam Praktik",body:`<p>Melatih pembagian tugas, monitoring, komunikasi closed-loop.</p>${linkBar('Bridge Resource Management simulation training role play')}`},
+  akt3:{title:"Aktivitas 3 — Keputusan Kecepatan",sub:"Menghitung Kecepatan Aman",body:`<p>Analisis kecepatan, arus, kedalaman, jarak henti.</p><div class="hl"><p><strong>Latihan:</strong> Hitung jarak henti pada 11 knot vs 7 knot.</p></div>${linkBar('safe speed stopping distance calculation ship')}`},
+  akt4:{title:"Aktivitas 4 — Audit SMS",sub:"Prosedur &amp; Bukti",body:`<p>Audit prosedur SMS.</p>${linkBar('ISM Code internal audit checklist corrective action')}`},
+  akt5:{title:"Aktivitas 5 — MARPOL",sub:"Checklist Lingkungan",body:`<p>Checklist risiko lingkungan pascakejadian tanpa asumsi.</p>${linkBar('SOPEP MARPOL checklist post incident')}`},
+  akt6:{title:"Aktivitas 6 — Komparatif",sub:"Pola Berulang",body:`<p>Bandingkan kasus nasional &amp; internasional.</p><h4>Pola yang Sering Muncul</h4><ul><li>Overconfidence</li><li>Deviasi prosedur</li><li>Komunikasi lemah</li><li>Pengawasan tidak efektif</li></ul>${linkBar('comparative maritime accident analysis case study')}`},
+
+  /* DISKUSI */
+  disk1:{title:"Diskusi 1 — Indikator Perlambatan",sub:"Alur Sempit",body:`
+    <p><strong>Pertanyaan:</strong> Jika Anda perwira jaga di alur sempit, indikator apa yang membuat Anda mengurangi kecepatan atau segera memanggil Nakhoda?</p>
+    <h4>Indikator Lingkungan &amp; Posisi</h4>
+    <ul><li>Posisi kapal menyimpang dari garis haluan</li><li>Jarak ke bahaya mengecil</li><li>Lebar alur menyempit &amp; lalu lintas ramai</li><li>Arus kuat melintang atau pasang naik</li></ul>
+    <h4>Indikator Teknis</h4>
+    <ul><li>Respons kemudi lambat</li><li>Alarm GPS/ECDIS berbunyi</li><li>Kecepatan aktual lebih tinggi dari perintah</li></ul>
+    <h4>Indikator Manusia</h4>
+    <ul><li>Merasa ragu terhadap situasi</li><li>Juru mudi menyampaikan keluhan</li><li>Komunikasi dengan ECR tidak ada respons</li></ul>
+    ${linkBar('safe speed indicators narrow channel decision maritime')}
+  `},
+  disk2:{title:"Diskusi 2 — Pandu vs Nakhoda",sub:"Dilema Kepercayaan",body:`
+    <p><strong>Pertanyaan:</strong> Apakah Nakhoda berhak tidak mempercayai Pandu bersertifikat?</p>
+    <h4>Perspektif Hukum</h4>
+    <ul>
+      <li>PM 57/2015: di perairan wajib Pandu, setiap kapal wajib menggunakan jasa Pandu</li>
+      <li>Pandu bersifat penasihat — Nakhoda tetap bertanggung jawab</li>
+      <li>SMK Pelni 7: Nakhoda &amp; Pandu wajib bertukar informasi; jika Nakhoda ragu, dapat meminta penjelasan &amp; mengambil alih komando</li>
+    </ul>
+    <h4>Perspektif Praktis</h4>
+    <p>Pengalaman lokal Nakhoda berharga, tetapi Pandu memiliki pengetahuan kondisi terkini perairan (arus, kedalaman, lalu lintas). Kolaborasi lebih baik daripada saling mengabaikan.</p>
+    ${linkBar('Pandu authority master responsibility PM 57 2015')}
+  `},
+  disk3:{title:"Diskusi 3 — Overdraft &amp; Tekanan Komersial",sub:"Keseimbangan Keselamatan",body:`
+    <p><strong>Pertanyaan:</strong> Bagaimana perwira jaga mempertahankan kepatuhan stabilitas tanpa mengorbankan keselamatan?</p>
+    <h4>Poin Diskusi</h4>
+    <ul>
+      <li>Master Overriding Authority (SMK 5 poin J)</li>
+      <li>Verifikasi berat muatan &amp; draft sebelum bertolak</li>
+      <li>Menolak berangkat bila overweight</li>
+      <li>Dokumentasi penolakan</li>
+    </ul>
+    ${linkBar('overdraft commercial pressure safety master overriding authority')}
+  `},
+  disk4:{title:"Diskusi 4 — Budaya Speak Up",sub:"Hierarki Kapal",body:`
+    <p><strong>Pertanyaan:</strong> Apakah pelaut junior berani menyampaikan keraguan kepada Nakhoda?</p>
+    <h4>Hambatan</h4>
+    <ul><li>Hierarki kaku</li><li>Takut dianggap tidak kompeten</li><li>Budaya "Nakhoda selalu benar"</li></ul>
+    <h4>Cara Membangun</h4>
+    <ul><li>Nakhoda secara aktif meminta pendapat</li><li>Komunikasi closed-loop wajib</li><li>Reward bagi yang melapor</li><li>Briefing &amp; debriefing setelah setiap olah gerak</li></ul>
+    ${linkBar('speak up culture hierarchy maritime safety')}
+  `},
+  disk5:{title:"Diskusi 5 — BRM Cuaca Ekstrem",sub:"Lanjut atau Abort?",body:`
+    <p><strong>Pertanyaan:</strong> Ketika angin menguat saat olah gerak sandar, lanjutkan atau abort?</p>
+    <h4>Kriteria Keputusan</h4>
+    <ul><li>Kemampuan mesin &amp; bow thruster</li><li>Kapasitas kapal tunda (bollard pull)</li><li>Jarak &amp; waktu tersedia</li><li>Kondisi kapal &amp; draft</li></ul>
+    <h4>Pilihan</h4>
+    <ul><li>Lanjutkan dengan plan B/C</li><li>Tunda sandar &amp; tunggu kondisi membaik</li><li>Alihkan ke dermaga lain</li></ul>
+    ${linkBar('abort decision adverse weather mooring maritime BRM')}
+  `},
+  disk6:{title:"Diskusi 6 — Pembelajaran dari Putusan",sub:"Kelebihan &amp; Keterbatasan",body:`
+    <p><strong>Pertanyaan:</strong> Bagaimana putusan Mahkamah Pelayaran dapat menjadi materi ajar efektif?</p>
+    <h4>Kelebihan</h4>
+    <ul><li>Otentik &amp; terverifikasi</li><li>Memuat kronologi, sebab, dasar hukum</li><li>Memungkinkan analisis multi-perspektif</li></ul>
+    <h4>Keterbatasan</h4>
+    <ul><li>Berisi interpretasi (mis. bank effect) yang bukan amar</li><li>Fokus pada individu, bukan sistem</li><li>Perlu konteks tambahan (SMK, aturan)</li></ul>
+    ${linkBar('maritime court decision educational material learning')}
+  `},
+  disk7:{title:"Diskusi 7 — Pemanfaatan Simulator",sub:"Apakah Cukup Realistis?",body:`
+    <p><strong>Pertanyaan:</strong> Apakah simulasi FMBS cukup merepresentasikan kondisi nyata?</p>
+    <h4>Yang Direpresentasikan Baik</h4>
+    <ul><li>Dinamika olah gerak</li><li>Respons kemudi</li><li>Kerja tim &amp; komunikasi</li></ul>
+    <h4>Yang Sulit Direplikasi</h4>
+    <ul><li>Tekanan psikologis nyata</li><li>Kejutan kondisi cuaca</li><li>Konsekuensi emosional</li></ul>
+    <p>Kim et al. (2021): fidelitas tidak linier dengan hasil belajar; instruktur memegang peran sentral.</p>
+    ${linkBar('simulator fidelity limitations maritime training')}
+  `},
+  disk8:{title:"Diskusi 8 — Refleksi: Saya sebagai Perwira Jaga",sub:"Apa yang Berbeda?",body:`
+    <p><strong>Pertanyaan:</strong> Jika Anda Mualim IV Tilongkabila, apa yang akan Anda lakukan berbeda?</p>
+    <h4>Keterbatasan Mualim IV</h4>
+    <ul><li>Kompetensi ANT III</li><li>Waktu bertugas baru (beberapa minggu)</li><li>Tanpa pendampingan perwira senior</li><li>Kemudi gagal — bukan tanggung jawabnya</li></ul>
+    <h4>Yang Bisa Dilakukan</h4>
+    <ul><li>Segera memanggil Nakhoda (sudah dilakukan)</li><li>Melaporkan situasi secara jelas</li><li>Mencoba opsi darurat: NFU, emergency steering</li><li>Mengurangi kecepatan lebih dini</li></ul>
+    <div class="hl green"><p><strong>Catatan:</strong> Mahkamah membebaskan Mualim IV — deteksi dini &amp; eskalasi diakui sebagai good seamanship.</p></div>
+    ${linkBar('good seamanship junior officer escalation early detection')}
+  `}
+};
+
+/* ================= MODAL FUNCTIONS ================= */
+const modalBg = document.getElementById('modalBg');
+const modalContent = document.getElementById('modalContent');
+
+function openModal(key){
+  const d = MODALS[key];
+  if(!d) return;
+  modalContent.innerHTML = `<h3>${d.title}</h3><div class="sub">${d.sub}</div>${d.body}`;
+  modalBg.classList.add('show');
+  document.body.style.overflow='hidden';
+}
+function closeModal(){
+  modalBg.classList.remove('show');
+  document.body.style.overflow='';
+}
+modalBg.addEventListener('click', e=>{ if(e.target===modalBg) closeModal(); });
+document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeModal(); });
+
+/* ================= TABS ================= */
+document.querySelectorAll('.tab').forEach(t=>{
+  t.addEventListener('click', ()=>{
+    document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
+    document.querySelectorAll('.tab-panel').forEach(x=>x.classList.remove('active'));
+    t.classList.add('active');
+    document.getElementById(t.dataset.t).classList.add('active');
+  });
+});
+
+/* ================= QUIZ with score tracking ================= */
+let quizScore = 0;
+let quizTotal = 0;
+document.querySelectorAll('.quiz').forEach(q=>{
+  quizTotal++;
+  const ans = q.dataset.answer;
+  const fb = q.querySelector('.fb');
+  q.querySelectorAll('.opt').forEach(o=>{
+    o.addEventListener('click', ()=>{
+      if(q.dataset.done) return;
+      q.dataset.done = '1';
+      const k = o.dataset.k;
+      if(k===ans){
+        o.classList.add('correct');
+        fb.textContent = '✅ Benar! Jawaban tepat.';
+        fb.style.color = '#86efac';
+        quizScore++;
+      } else {
+        o.classList.add('wrong');
+        q.querySelectorAll('.opt').forEach(x=>{ if(x.dataset.k===ans) x.classList.add('correct'); });
+        fb.textContent = '❌ Belum tepat. Jawaban yang benar sudah ditandai hijau.';
+        fb.style.color = '#fca5a5';
+      }
+      const scoreEl = document.getElementById('quizScore');
+      if(scoreEl) scoreEl.textContent = quizScore + ' / ' + quizTotal;
+    });
+  });
+});
+
+/* ================= NAV / SCROLL ================= */
+const burger = document.getElementById('burger');
+const navLinks = document.getElementById('navLinks');
+burger.addEventListener('click', ()=> navLinks.classList.toggle('open'));
+navLinks.querySelectorAll('a').forEach(a=>{ a.addEventListener('click', ()=> navLinks.classList.remove('open')); });
+
+const progress = document.getElementById('progress');
+const topBtn = document.getElementById('top');
+const sections = [...document.querySelectorAll('section[id]')];
+
+window.addEventListener('scroll', ()=>{
+  const h = document.documentElement;
+  const sc = h.scrollTop;
+  const max = h.scrollHeight - h.clientHeight;
+  progress.style.width = (max>0 ? (sc/max*100) : 0) + '%';
+  topBtn.classList.toggle('show', sc > 500);
+  let cur = '';
+  sections.forEach(s=>{ if(sc >= s.offsetTop - 120) cur = s.id; });
+  navLinks.querySelectorAll('a').forEach(a=>{
+    const href = a.getAttribute('href');
+    if(href && href.startsWith('#')) a.classList.toggle('active', href === '#'+cur);
+  });
+});
+
+topBtn.addEventListener('click', ()=> scrollTo({top:0,behavior:'smooth'}));
+
+console.log('%c⚓ Maritime Learning Hub — Rafael Sukirno, CE','background:#22d3ee;color:#04121f;font-size:14px;padding:6px 12px;border-radius:6px;font-weight:bold');
+console.log('%cMaster Instructor TOT 6.09: CAPT. SAHATTUA P. SIMATUPANG, M.M., M.H.','background:#f5b942;color:#3a1f00;font-size:13px;padding:6px 12px;border-radius:6px;font-weight:bold;margin-top:6px');
+console.log('%cKelompok III — DIKLAT TOT IMO Model Course 6.09 · BP2TL 2026','background:#a78bfa;color:#1e1b4b;font-size:12px;padding:6px 12px;border-radius:6px;font-weight:bold;margin-top:6px');
+</script>
+</body>
+</html>
